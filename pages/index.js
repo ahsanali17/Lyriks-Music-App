@@ -4,6 +4,7 @@ import {
   Search,
   Sidebar,
   SongArtistList,
+  Logo,
   TopChartsTopArtistsContainer,
 } from '../components';
 
@@ -13,8 +14,9 @@ const Home = () => {
       <Head>Lyriks</Head>
 
       <HomeWrapper>
-        <Search />
         <Sidebar />
+        <Logo />
+        <Search />
         <SongArtistList />
         <TopChartsTopArtistsContainer />
       </HomeWrapper>
