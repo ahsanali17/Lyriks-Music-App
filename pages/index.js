@@ -4,7 +4,6 @@ import {
   Search,
   Sidebar,
   SongArtistList,
-  Logo,
   TopChartsTopArtistsContainer,
 } from '../components';
 import { ThemeProvider } from 'styled-components';
@@ -17,7 +16,6 @@ const Home = () => {
       <ThemeProvider theme={{ colors: COLORS }}>
         <HomeWrapper>
           <Sidebar />
-          <Logo />
           <Search />
           <SongArtistList />
           <TopChartsTopArtistsContainer />

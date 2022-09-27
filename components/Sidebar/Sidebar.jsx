@@ -1,7 +1,13 @@
 import styles from './styles';
+import { Logo } from '../';
 
 const Sidebar = () => {
-  return <div>Sidebar</div>;
+  return (
+    <div>
+      <Logo />
+      Sidebar
+    </div>
+  );
 };
 
 export default Sidebar;
