@@ -1,9 +1,8 @@
 import Head from 'next/head';
 import { HomeWrapper } from './styles';
 import {
-  Search,
   Sidebar,
-  SongArtistList,
+  MainContent,
   TopChartsTopArtistsContainer,
 } from '../components';
 import { ThemeProvider } from 'styled-components';
@@ -16,8 +15,7 @@ const Home = () => {
       <ThemeProvider theme={{ colors: COLORS }}>
         <HomeWrapper>
           <Sidebar />
-          <Search />
-          <SongArtistList />
+          <MainContent />
           <TopChartsTopArtistsContainer />
         </HomeWrapper>
       </ThemeProvider>
