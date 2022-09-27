@@ -3,6 +3,7 @@ export { default as Explore } from './Explore/Explore';
 export { default as Genres } from './Genres/Genres';
 export { default as Layout } from './Layout/Layout';
 export { default as MusicPlayer } from './MusicPlayer/MusicPlayer';
+export { default as Logo } from './Logo/Logo';
 export { default as Search } from './Search/Search';
 export { default as Sidebar } from './Sidebar/Sidebar';
 export { default as SongInformation } from './SongInformation/SongInformation';
