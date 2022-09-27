@@ -1,7 +1,13 @@
-import React from 'react';
+import { ComopnentWrapper } from './styles';
+import { TopCharts, TopArtists } from '../';
 
 const TopChartsTopArtistsContainer = () => {
-  return <div>TopChartsTopArtistsContainer</div>;
+  return (
+    <ComopnentWrapper>
+      <TopCharts />
+      <TopArtists />
+    </ComopnentWrapper>
+  );
 };
 
 export default TopChartsTopArtistsContainer;

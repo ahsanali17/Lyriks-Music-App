@@ -1,12 +1,12 @@
-import styles from './styles';
+import { SidebarWrapper } from './styles.js';
 import { Logo } from '../';
 
 const Sidebar = () => {
   return (
-    <div>
+    <SidebarWrapper>
       <Logo />
-      Sidebar
-    </div>
+      <h1>Sidebar</h1>
+    </SidebarWrapper>
   );
 };
 

@@ -1,7 +1,14 @@
-import React from 'react';
+import { MainContentWrapper } from './styles';
+import { Search, Genres, SongArtistList } from '../';
 
 const MainContent = () => {
-  return <div>MainContent</div>;
+  return (
+    <MainContentWrapper>
+      <Search />
+      <Genres />
+      <SongArtistList />
+    </MainContentWrapper>
+  );
 };
 
 export default MainContent;
