@@ -14,4 +14,7 @@ export const HomeWrapper = styled.div`
     var(--column-3-length);
   grid-template-rows: 1fr;
   grid-template-areas: 'sidebar main-content right-sidebar';
+
+  background-color: ${(props) => props.theme.colors.blacks[100]};
+  color: ${(props) => props.theme.colors.white};
 `;

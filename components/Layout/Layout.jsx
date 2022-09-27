@@ -1,12 +1,13 @@
-import styles from './styles';
 import GlobalStyles from '../../styles/GlobalStyles';
+
+import { LayoutWrapper } from './styles';
 
 const Layout = ({ children }) => {
   return (
-    <div className="layout">
+    <LayoutWrapper>
       <GlobalStyles />
       {children}
-    </div>
+    </LayoutWrapper>
   );
 };
 
