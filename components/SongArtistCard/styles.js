@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const CardWrapper = styled.div`
-  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -15,5 +14,30 @@ export const CardWrapper = styled.div`
 `;
 
 export const TextContainer = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 5px;
+
   width: 100%;
+  margin-top: 10px;
+
+  h3 {
+    width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    font-weight: 600;
+    line-height: 1.75;
+  }
+
+  h5 {
+    width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    color: ${(props) => props.theme.colors.grays[200]};
+  }
 `;

@@ -6,8 +6,8 @@ const SongArtistCard = ({ coverArt, title, subtitle }) => {
     <CardWrapper>
       <Image src={coverArt} width={220} height={225} objectFit="cover" />
       <TextContainer>
-        <h5>{title}</h5>
-        <h6>{subtitle}</h6>
+        <h3>{title}</h3>
+        <h5>{subtitle}</h5>
       </TextContainer>
     </CardWrapper>
   );
