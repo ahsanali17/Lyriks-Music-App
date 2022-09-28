@@ -1,23 +1,24 @@
 import Head from 'next/head';
 import { HomeWrapper } from './styles';
 import {
-  Search,
   Sidebar,
-  SongArtistList,
+  MainContent,
   TopChartsTopArtistsContainer,
 } from '../components';
+import { ThemeProvider } from 'styled-components';
+import { COLORS } from '../utils/constants';
 
 const Home = () => {
   return (
     <>
       <Head>Lyriks</Head>
-
-      <HomeWrapper>
-        <Search />
-        <Sidebar />
-        <SongArtistList />
-        <TopChartsTopArtistsContainer />
-      </HomeWrapper>
+      <ThemeProvider theme={{ colors: COLORS }}>
+        <HomeWrapper>
+          <Sidebar />
+          <MainContent />
+          <TopChartsTopArtistsContainer />
+        </HomeWrapper>
+      </ThemeProvider>
     </>
   );
 };

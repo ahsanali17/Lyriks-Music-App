@@ -5,8 +5,14 @@ const GlobalStyles = createGlobalStyle`
     display: border-box;
   }
 
-  html, body {
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  html, body, #__next {
     height: 100%;
+    width: 100%;
   }
 `;
 
