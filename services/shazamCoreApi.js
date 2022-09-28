@@ -26,4 +26,5 @@ export const shazamCoreApi = createApi({
   }),
 });
 
-export const { useGetWorldChartsQuery } = shazamCoreApi;
+export const { useGetWorldChartsByGenreQuery, useGetWorldChartsQuery } =
+  shazamCoreApi;

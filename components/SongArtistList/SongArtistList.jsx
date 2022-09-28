@@ -1,12 +1,18 @@
 import { SongArtistCard } from '../';
+import { CardWrapper } from './styles';
 
 const SongArtistList = ({ data }) => {
   return (
-    <>
-      {data.map(({ key, title, subtitle }) => (
-        <SongArtistCard key={key} title={title} subtitle={subtitle} />
+    <CardWrapper>
+      {data.map(({ key, images, title, subtitle }) => (
+        <SongArtistCard
+          key={key}
+          coverArt={images.coverart}
+          title={title}
+          subtitle={subtitle}
+        />
       ))}
-    </>
+    </CardWrapper>
   );
 };
 

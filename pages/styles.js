@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 export const HomeWrapper = styled.div`
   --column-1-length: 250px;
-  --column-2-length: minmax(800px, 3fr);
-  --column-3-length: 500px;
+  --column-2-length: minmax(700px, 3fr);
+  --column-3-length: 400px;
 
   height: 100%;
 

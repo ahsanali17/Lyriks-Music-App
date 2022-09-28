@@ -1,9 +1,9 @@
 import { MainContentWrapper } from './styles';
 import { Search, Genres, SongArtistList } from '../';
-import { useGetWorldChartsQuery } from '../../services/shazamCoreApi';
+import { useGetWorldChartsByGenreQuery } from '../../services/shazamCoreApi';
 
 const MainContent = () => {
-  const { data, isFetching, error } = useGetWorldChartsQuery();
+  const { data, isFetching, error } = useGetWorldChartsByGenreQuery('POP');
 
   if (isFetching) {
     return '...Loading - Test Loader';

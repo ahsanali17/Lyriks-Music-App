@@ -12,4 +12,6 @@ export const MainContentWrapper = styled.main`
     'main-content-inner';
 
   overflow: auto;
+
+  padding: 20px;
 `;
