@@ -16,6 +16,10 @@ export const shazamCoreApi = createApi({
   }),
 
   endpoints: (builder) => ({
+    getWorldChartsByGenre: builder.query({
+      query: (genreCode) => `/charts/genre-world?genre_code=${genreCode}`,
+    }),
+
     getWorldCharts: builder.query({
       query: () => `/charts/world`,
     }),
