@@ -6,7 +6,7 @@ const store = configureStore({
     [shazamCoreApi.reducerPath]: shazamCoreApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(shazamApi.middleware),
+    getDefaultMiddleware().concat(shazamCoreApi.middleware),
 });
 
 export default store;
