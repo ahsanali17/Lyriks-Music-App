@@ -1,4 +1,6 @@
 import GlobalStyles from '../../styles/GlobalStyles';
+import { store } from '../../app/store';
+import { Provider } from 'react-redux';
 
 import { LayoutWrapper } from './styles';
 

@@ -7,18 +7,23 @@ import {
 } from '../components';
 import { ThemeProvider } from 'styled-components';
 import { COLORS } from '../utils/constants';
+import { Provider } from 'react-redux';
+import store from '../app/store';
 
 const Home = () => {
   return (
     <>
       <Head>Lyriks</Head>
-      <ThemeProvider theme={{ colors: COLORS }}>
-        <HomeWrapper>
-          <Sidebar />
-          <MainContent />
-          <TopChartsTopArtistsContainer />
-        </HomeWrapper>
-      </ThemeProvider>
+
+      <Provider store={store}>
+        <ThemeProvider theme={{ colors: COLORS }}>
+          <HomeWrapper>
+            <Sidebar />
+            <MainContent />
+            <TopChartsTopArtistsContainer />
+          </HomeWrapper>
+        </ThemeProvider>
+      </Provider>
     </>
   );
 };
