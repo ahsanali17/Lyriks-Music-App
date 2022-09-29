@@ -1,6 +1,24 @@
 export const SHAZAM_CORE_API_URL = 'https://shazam-core.p.rapidapi.com/v1';
 export const SHAZAM_CORE_API_HOST = 'shazam-core.p.rapidapi.com';
 
+export const allGenresWithColors = {
+  POP: ['Pop', 'linear-gradient(to bottom, #de6161, #2657eb)'],
+  HIP_HOP_RAP: ['Hip-Hop', 'linear-gradient(to bottom, #f7ff00, #db36a4)'],
+  DANCE: ['Dance', 'linear-gradient(to bottom, #dd3e54, #6be585)'],
+  ELECTRONIC: [
+    'Electronic',
+    'linear-gradient(to bottom, #5433ff, #20bdff, #a5fecb)',
+  ],
+  SOUL_RNB: ['Soul', 'linear-gradient(to bottom, #ef32d9, #89fffd)'],
+  ALTERNATIVE: ['Alternative', 'linear-gradient(to bottom, #fc354c, #0abfbc)'],
+  ROCK: ['Rock', 'linear-gradient(to bottom, #b92b27, #1565c0)'],
+  LATIN: ['Latin', 'linear-gradient(to bottom, #333333, #dd1818)'],
+  FILM_TV: ['Film', 'linear-gradient(to bottom, #0052d4, #4364f7, #6fb1fc)'],
+  COUNTRY: ['Country', 'linear-gradient(to bottom, #f0c27b, #4b1248)'],
+  WORLDWIDE: ['Worldwide', 'linear-gradient(to bottom, #00f260, #0575e6)'],
+  K_POP: ['K-Pop', 'linear-gradient(to bottom, #fffbd5, #b20a2c)'],
+};
+
 export const COLORS = {
   white: 'hsl(0deg 0% 100%)',
   blacks: {
