@@ -9,5 +9,6 @@ export const ComopnentWrapper = styled.aside`
 
   overflow: auto;
 
-  background-color: ${(props) => props.theme.colors.blacks[200]};
+  background: ${(props) => props.theme.colors.gradients.blackLeft};
+  border-left: 2px solid ${(props) => props.theme.colors.blacks[400]};
 `;

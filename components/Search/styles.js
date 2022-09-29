@@ -25,6 +25,7 @@ export const GradientWrapper = styled.div`
     width: 100%;
     border: none;
     outline: none;
+    padding-top: 3.75px;
     border-radius: 10px;
     caret-color: ${(props) => props.theme.colors.white};
 

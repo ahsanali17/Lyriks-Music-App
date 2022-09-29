@@ -14,4 +14,6 @@ export const MainContentWrapper = styled.main`
   overflow: auto;
 
   padding: 20px;
+
+  background: ${(props) => props.theme.colors.gradients.blackRight};
 `;

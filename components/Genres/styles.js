@@ -54,13 +54,39 @@ export const GradientBackground = styled.div`
   padding: 6px;
 `;
 
+export const ArrowsWrapper = styled.div`
+  position: absolute;
+
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  position: sticky;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  svg {
+    padding: 4px;
+    height: 20px;
+    width: 100px;
+
+    opacity: 0.75;
+    background: ${(props) => props.theme.colors.gradients.goldTransparent};
+    border-radius: 4px;
+
+    border: 1px solid ${(props) => props.theme.colors.white};
+  }
+`;
+
 export const GenreCard = styled.li`
   display: flex;
   justify-content: center;
   align-items: center;
 
   height: 125px;
-  width: 280px;
+  width: 240px;
 
   scroll-snap-align: start;
 

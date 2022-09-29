@@ -19,6 +19,10 @@ const GlobalStyles = createGlobalStyle`
     font-family: 'Roboto Serif', serif;
     font-weight: 400;
   }
+
+  ::-webkit-scrollbar { 
+    display: none;
+  }
 `;
 
 export default GlobalStyles;

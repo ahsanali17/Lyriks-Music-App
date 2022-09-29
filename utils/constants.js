@@ -25,6 +25,7 @@ export const COLORS = {
     100: 'hsl(0deg 0% 0%)',
     200: 'hsl(0deg 0% 12%)',
     300: 'hsl(0deg 0% 18%)',
+    400: 'hsl(0deg 0% 28%)',
   },
   grays: {
     100: 'hsl(0deg 0% 60%)',
@@ -63,5 +64,7 @@ export const COLORS = {
       hsl(42deg 50% 24% /0.5) 62.5%,
       hsl(42deg 50% 24% /0.5) 100%
     )`,
+    blackLeft: 'linear-gradient(to left, hsl(0deg 0% 12%) 0%, black 100%)',
+    blackRight: 'linear-gradient(to right, hsl(0deg 0% 12%) 0%, black 100%)',
   },
 };
