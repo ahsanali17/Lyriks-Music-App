@@ -5,8 +5,9 @@ export const SearchWrapper = styled.div`
 
   display: flex;
   justify-content: center;
-  align-items: center;
   flex: 1;
+
+  padding-top: 10px;
 `;
 
 export const GradientWrapper = styled.div`
