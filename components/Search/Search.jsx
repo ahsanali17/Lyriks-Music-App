@@ -1,7 +1,6 @@
-import styles from './styles';
-
+import { SearchWrapper } from './styles';
 const Search = () => {
-  return <div>Search</div>;
+  return <SearchWrapper>Search</SearchWrapper>;
 };
 
 export default Search;
