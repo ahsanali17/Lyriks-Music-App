@@ -1,6 +1,17 @@
-import { SearchWrapper } from './styles';
+import { SearchWrapper, GradientWrapper, IconWrapper } from './styles';
+import { BsSearch } from 'react-icons/bs';
+
 const Search = () => {
-  return <SearchWrapper>Search</SearchWrapper>;
+  return (
+    <SearchWrapper>
+      <GradientWrapper>
+        <IconWrapper>
+          <BsSearch />
+        </IconWrapper>
+        <input />
+      </GradientWrapper>
+    </SearchWrapper>
+  );
 };
 
 export default Search;

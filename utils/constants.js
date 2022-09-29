@@ -24,6 +24,7 @@ export const COLORS = {
   blacks: {
     100: 'hsl(0deg 0% 0%)',
     200: 'hsl(0deg 0% 12%)',
+    300: 'hsl(0deg 0% 18%)',
   },
   grays: {
     100: 'hsl(0deg 0% 60%)',
