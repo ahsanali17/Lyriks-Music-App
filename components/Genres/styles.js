@@ -28,7 +28,7 @@ export const GenreHeading = styled.div`
   margin-bottom: 25px;
 
   h2 {
-    font-size: 2rem;
+    font-size: 1.5rem;
 
     background-image: ${(props) => props.theme.colors.gradients.gold};
     background-clip: text;
@@ -58,8 +58,9 @@ export const ArrowsWrapper = styled.div`
   position: absolute;
 
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-end;
   align-items: center;
+  gap: 26px;
 
   position: sticky;
   top: 0;
@@ -69,12 +70,12 @@ export const ArrowsWrapper = styled.div`
 
   svg {
     padding: 4px;
-    height: 20px;
-    width: 100px;
+    height: 15px;
+    width: 15px;
 
     opacity: 0.75;
     background: ${(props) => props.theme.colors.gradients.goldTransparent};
-    border-radius: 4px;
+    border-radius: 50%;
 
     border: 1px solid ${(props) => props.theme.colors.white};
   }
@@ -85,8 +86,8 @@ export const GenreCard = styled.li`
   justify-content: center;
   align-items: center;
 
-  height: 125px;
-  width: 240px;
+  height: 100px;
+  width: 210px;
 
   scroll-snap-align: start;
 

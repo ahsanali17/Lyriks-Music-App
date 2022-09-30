@@ -20,9 +20,9 @@ const Genres = () => {
   return (
     <GenresWrapper>
       <GenreHeading>
+        <h2>Genres</h2>
         <ArrowsWrapper>
           <ImArrowLeft />
-          <h2>Genres</h2>
           <ImArrowRight />
         </ArrowsWrapper>
       </GenreHeading>
