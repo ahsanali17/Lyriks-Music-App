@@ -33,8 +33,8 @@ const TopArtists = () => {
       <TopArtistsWrapper>
         <h1>Top Artists</h1>
         <ArtistCardsWrapper>
-          {orderedTop5Artists.map(({ images }) => (
-            <ArtistWrapper>
+          {orderedTop5Artists.map(({ images }, idx) => (
+            <ArtistWrapper key={idx}>
               <ArtistGradientWrapper>
                 <Image
                   src={images.background}
