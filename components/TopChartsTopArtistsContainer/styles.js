@@ -5,7 +5,7 @@ export const ComopnentWrapper = styled.aside`
 
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 600px 250px;
+  grid-template-rows: 600px;
 
   overflow: auto;
 
