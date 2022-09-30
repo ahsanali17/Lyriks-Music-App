@@ -68,3 +68,5 @@ export const COLORS = {
     blackRight: 'linear-gradient(to right, hsl(0deg 0% 12%) 0%, black 100%)',
   },
 };
+
+const BREAKPOINTS = {};

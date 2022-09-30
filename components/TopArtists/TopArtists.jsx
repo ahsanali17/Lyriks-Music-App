@@ -6,6 +6,7 @@ import {
 } from './styles';
 import { useGetWorldChartsQuery } from '../../services/shazamCoreApi';
 import Image from 'next/image';
+import { returnFirst5ValidArtists } from '../../utils/validationFunctions';
 
 const TopArtists = () => {
   const { data, isFetching, error } = useGetWorldChartsQuery();
@@ -18,7 +19,7 @@ const TopArtists = () => {
     return 'Error - Test Error';
   }
 
-  const top5Artists = data.slice(0, 5);
+  const top5Artists = returnFirst5ValidArtists(data);
 
   const orderedTop5Artists = [
     top5Artists[3],
