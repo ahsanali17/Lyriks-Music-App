@@ -1,4 +1,4 @@
-const urlSuccess = async (url) => {
+export const urlSuccess = async (url) => {
   const res = await fetch(url);
 
   if (res.status === 200) {

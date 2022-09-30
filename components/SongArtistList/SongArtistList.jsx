@@ -1,11 +1,16 @@
 import { SongArtistCard } from '../';
 import { CardWrapper } from './styles';
+import { urlSuccess } from '../../utils/validationFunctions';
 
 const SongArtistList = ({ data }) => {
+  let hasCoverArt;
+
   return (
     <CardWrapper>
       {data.map(({ key, images, title, subtitle }) => {
-        if (images.coverart && title && subtitle) {
+        hasCoverArt = images.coverart && urlSuccess(images.coverart);
+
+        if (hasCoverArt && title && subtitle) {
           return (
             <SongArtistCard
               key={key}
