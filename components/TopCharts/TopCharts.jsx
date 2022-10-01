@@ -1,7 +1,7 @@
-import styles from './styles';
+import { ComopnentWrapper } from './styles';
 
 const TopCharts = () => {
-  return <div>TopCharts</div>;
+  return <ComopnentWrapper></ComopnentWrapper>;
 };
 
 export default TopCharts;

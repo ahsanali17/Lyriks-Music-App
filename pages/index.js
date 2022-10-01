@@ -1,10 +1,6 @@
 import Head from 'next/head';
 import { HomeWrapper } from './styles';
-import {
-  Sidebar,
-  MainContent,
-  TopChartsTopArtistsContainer,
-} from '../components';
+import { Sidebar, MainContent, TopCharts } from '../components';
 import { ThemeProvider } from 'styled-components';
 import { COLORS, QUERIES } from '../utils/constants';
 import { Provider } from 'react-redux';
@@ -20,7 +16,7 @@ const Home = () => {
           <HomeWrapper>
             <Sidebar />
             <MainContent />
-            <TopChartsTopArtistsContainer />
+            <TopCharts />
           </HomeWrapper>
         </ThemeProvider>
       </Provider>

@@ -77,8 +77,8 @@ const BREAKPOINTS = {
 };
 
 export const QUERIES = {
-  largeAndDown: `(max-width: ${BREAKPOINTS.largeDevice})`,
-  mediumLarge: `(max-width: ${BREAKPOINTS.mediumLarge})`,
-  medium: `(max-width: ${BREAKPOINTS.medium})`,
-  small: `(max-width: ${BREAKPOINTS.small})`,
+  largeAndDown: `max-width: ${BREAKPOINTS.largeDevice}px`,
+  mediumLargeAndDown: `max-width: ${BREAKPOINTS.mediumLarge}px`,
+  mediumAndDown: `max-width: ${BREAKPOINTS.medium}px`,
+  smallAndDown: `max-width: ${BREAKPOINTS.small}px`,
 };
