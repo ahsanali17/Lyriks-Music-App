@@ -6,7 +6,7 @@ import {
   TopChartsTopArtistsContainer,
 } from '../components';
 import { ThemeProvider } from 'styled-components';
-import { COLORS } from '../utils/constants';
+import { COLORS, QUERIES } from '../utils/constants';
 import { Provider } from 'react-redux';
 import store from '../app/store';
 
@@ -16,7 +16,7 @@ const Home = () => {
       <Head>Lyriks</Head>
 
       <Provider store={store}>
-        <ThemeProvider theme={{ colors: COLORS }}>
+        <ThemeProvider theme={{ colors: COLORS, queries: QUERIES }}>
           <HomeWrapper>
             <Sidebar />
             <MainContent />

@@ -69,4 +69,16 @@ export const COLORS = {
   },
 };
 
-const BREAKPOINTS = {};
+const BREAKPOINTS = {
+  largeDevice: 1525,
+  mediumLarge: 1100,
+  medium: 800,
+  small: 550,
+};
+
+export const QUERIES = {
+  largeAndDown: `(max-width: ${BREAKPOINTS.largeDevice})`,
+  mediumLarge: `(max-width: ${BREAKPOINTS.mediumLarge})`,
+  medium: `(max-width: ${BREAKPOINTS.medium})`,
+  small: `(max-width: ${BREAKPOINTS.small})`,
+};
