@@ -14,14 +14,16 @@ export const returnFirst5ValidArtists = (() => {
   let currentBackgroundImage;
 
   return function (worldChartsData) {
-    for (let idx = 0; artistsArr.length <= 5; idx += 1) {
-      for (let i = 0; i < worldChartsData.length; i += 1) {
-        currentArtist = worldChartsData[i];
-        currentBackgroundImage = currentArtist.images.background;
+    for (let i = 0; i < worldChartsData.length; i += 1) {
+      currentArtist = worldChartsData[i];
+      currentBackgroundImage = currentArtist.images.background;
 
-        if (currentBackgroundImage && urlSuccess(currentBackgroundImage)) {
-          artistsArr.push(currentArtist);
-        }
+      if (currentBackgroundImage && urlSuccess(currentBackgroundImage)) {
+        artistsArr.push(currentArtist);
+      }
+
+      if (artistsArr.length === 5) {
+        return artistsArr;
       }
     }
 
