@@ -1,11 +1,10 @@
 import { ComopnentWrapper } from './styles';
-import { TopCharts, TopArtists } from '../';
+import { TopCharts } from '../';
 
 const TopChartsTopArtistsContainer = () => {
   return (
     <ComopnentWrapper>
       <TopCharts />
-      <TopArtists />
     </ComopnentWrapper>
   );
 };
