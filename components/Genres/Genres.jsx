@@ -26,8 +26,6 @@ const Genres = () => {
 
       <GenresList>
         {uiGenres.map((genreArr, idx) => {
-          genreName = genreArr[0];
-          genreColor = genreArr[1];
           return (
             <GradientBackground key={idx}>
               <GenreCard genreColor={genreArr[1]}>{genreArr[0]}</GenreCard>
