@@ -18,12 +18,12 @@ export const returnFirst5ValidArtists = (() => {
       currentArtist = worldChartsData[i];
       currentBackgroundImage = currentArtist.images.background;
 
-      if (currentBackgroundImage && urlSuccess(currentBackgroundImage)) {
-        artistsArr.push(currentArtist);
-      }
-
       if (artistsArr.length === 5) {
         return artistsArr;
+      }
+
+      if (currentBackgroundImage && urlSuccess(currentBackgroundImage)) {
+        artistsArr.push(currentArtist);
       }
     }
 
