@@ -1,18 +1,25 @@
 import { Logo } from '../';
 import { SidebarWrapper, SidebarItemContainer, SLink, ItemIcon, ItemLabel, ItemContainer, Divider } from './styles.js';
 
-import { Home, Explorer, Artists, Albums} from '../../assets/images/sidebarIcons/index';
+import sidebarIcons from '../../assets/images/sidebarIcons/index';
 
 const Sidebar = () => {
+  const linksArray = [
+    {label: 'Home', to: "/"},
+    {label: 'Explorer', to: "/explorer"},
+    {label: 'Artists', to: "/artists"},
+    {label: 'Albums', to: "/albums"},
+  ]
+  
   return (
     <SidebarWrapper>
       <Logo />
       <Divider />
-      {linksArray.map(({label, icon, to}) => (
+      {linksArray.map(({label, to}) => (
         <SidebarItemContainer key={label}>
           <SLink href={to}>
             <ItemContainer onClick={() => {console.log('button pressed')}}>
-              <ItemIcon src={icon} height={10} />
+              <ItemIcon src={sidebarIcons[label]} height={30} />
               <ItemLabel>{label}</ItemLabel>
             </ItemContainer>
           </SLink>
@@ -22,27 +29,6 @@ const Sidebar = () => {
   );
 };
 
-const linksArray = [
-  {
-    label: 'Home',
-    icon: Home,
-    to: "/",
-  },
-  {
-    label: 'Explore',
-    icon: Explorer,
-    to: "/explore",
-  },
-  {
-    label: 'Artists',
-    icon: Artists,
-    to: "/artists",
-  },
-  {
-    label: 'Albums',
-    icon: Albums,
-    to: "/albums",
-  },
-]
+
 
 export default Sidebar;

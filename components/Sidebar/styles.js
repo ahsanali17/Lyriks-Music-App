@@ -46,8 +46,8 @@ export const ItemContainer = styled.a`
 // SLinkIcon
 export const ItemIcon = styled.img`
   border-color: red;
-  height: 14px;
-  width: 14px;
+  height: 25px;
+  width: 25px;
   svg {
     font-size: 20px;
   }
