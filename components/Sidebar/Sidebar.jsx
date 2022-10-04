@@ -1,18 +1,18 @@
 import { Logo } from '../';
-import { SidebarWrapper, SidebarItemContainer, SLink, ItemIcon, ItemLabel, ItemContainer } from './styles.js';
-import {artists, albums, explore, home} from '../../assets/images/index';
+import { SidebarWrapper, SidebarItemContainer, SLink, ItemIcon, ItemLabel, ItemContainer, Divider } from './styles.js';
 
+import { Home, Explorer, Artists, Albums} from '../../assets/images/sidebarIcons/index';
 
 const Sidebar = () => {
   return (
     <SidebarWrapper>
       <Logo />
+      <Divider />
       {linksArray.map(({label, icon, to}) => (
         <SidebarItemContainer key={label}>
-        
           <SLink href={to}>
-            <ItemContainer>
-              <ItemIcon>{icon}</ItemIcon>
+            <ItemContainer onClick={() => {console.log('button pressed')}}>
+              <ItemIcon src={icon} height={10} />
               <ItemLabel>{label}</ItemLabel>
             </ItemContainer>
           </SLink>
@@ -25,22 +25,22 @@ const Sidebar = () => {
 const linksArray = [
   {
     label: 'Home',
-    icon: <home />,
+    icon: Home,
     to: "/",
   },
   {
     label: 'Explore',
-    icon: <explore />,
+    icon: Explorer,
     to: "/explore",
   },
   {
     label: 'Artists',
-    icon: <artists />,
+    icon: Artists,
     to: "/artists",
   },
   {
     label: 'Albums',
-    icon: <albums />,
+    icon: Albums,
     to: "/albums",
   },
 ]

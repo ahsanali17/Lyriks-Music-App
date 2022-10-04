@@ -1,8 +1,12 @@
+// import { logo } from '../../assets/images/index';
+import { LogoContainer } from './styles';
+
 const Logo = () => {
   return (
-    <div>
-      <h1>Logo</h1>
-    </div>
+    <LogoContainer>
+      <h1>logo</h1>
+      {/* {logo} */}
+    </LogoContainer>
   );
 };
 
