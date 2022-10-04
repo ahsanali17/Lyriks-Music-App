@@ -1,5 +1,5 @@
 import { MainContentWrapper } from './styles';
-import { Search, Genres, SongArtistList } from '../';
+import { Search, TopArtists, Genres, SongArtistList } from '../';
 import { useGetWorldChartsByGenreQuery } from '../../services/shazamCoreApi';
 
 const MainContent = () => {
@@ -14,6 +14,7 @@ const MainContent = () => {
   }
   return (
     <MainContentWrapper>
+      <TopArtists />
       <Search />
       <Genres />
       <SongArtistList data={data} />
