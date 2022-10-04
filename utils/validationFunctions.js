@@ -30,3 +30,26 @@ export const returnFirst5ValidArtists = (() => {
     return artistsArr;
   };
 })();
+
+export const returnFirst5ValidTopCharts = (() => {
+  const chartsArr = [];
+  let currentArtist;
+  let curentCoverArtImage;
+
+  return function (worldChartsData) {
+    for (let i = 0; i < worldChartsData.length; i += 1) {
+      currentArtist = worldChartsData[i];
+      curentCoverArtImage = currentArtist.images.coverart;
+
+      if (chartsArr.length === 5) {
+        return chartsArr;
+      }
+
+      if (curentCoverArtImage && urlSuccess(curentCoverArtImage)) {
+        chartsArr.push(currentArtist);
+      }
+    }
+
+    return chartsArr;
+  };
+})();
