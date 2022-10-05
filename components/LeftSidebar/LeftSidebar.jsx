@@ -1,4 +1,4 @@
-import { Logo } from '../';
+import { Logo } from '..';
 import { SidebarWrapper, SidebarItemContainer, SidebarItemList, ItemIcon, ItemLabel, ItemContainer, Divider } from './styles.js';
 import Link from 'next/link';
 
@@ -11,7 +11,7 @@ const linksArray = [
   {label: 'Albums', to: "/albums"},
 ];
 
-const Sidebar = () => {
+const LeftSidebar = () => {
   
   return (
     <SidebarWrapper>
@@ -33,4 +33,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default LeftSidebar;

@@ -1,8 +1,8 @@
 import { MainContentWrapper } from './styles';
-import { Search, TopArtists, Genres, SongArtistList } from '../';
+import { Search, TopArtists, Genres, SongArtistList } from '..';
 import { useGetWorldChartsByGenreQuery } from '../../services/shazamCoreApi';
 
-const MainContent = () => {
+const Home = () => {
   const { data, isFetching, error } = useGetWorldChartsByGenreQuery('POP');
 
   if (isFetching) {
@@ -22,4 +22,4 @@ const MainContent = () => {
   );
 };
 
-export default MainContent;
+export default Home;

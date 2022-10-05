@@ -1,7 +1,7 @@
 import GlobalStyles from '../../styles/GlobalStyles';
 import { LayoutWrapper, HomeWrapper } from './styles';
 
-import { Sidebar, TopChartsTopArtistsContainer } from '../index';
+import { LeftSidebar, RightSidebar } from '../index';
 import Head from 'next/head';
 
 const Layout = ({ children }) => {
@@ -10,9 +10,9 @@ const Layout = ({ children }) => {
       <GlobalStyles />
       <Head>Lyriks</Head>
       <HomeWrapper>
-        <Sidebar />
+        <LeftSidebar />
         {children}
-        <TopChartsTopArtistsContainer />
+        <RightSidebar />
       </HomeWrapper>
     </LayoutWrapper>
   );

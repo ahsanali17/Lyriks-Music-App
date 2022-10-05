@@ -1,9 +1,9 @@
-import { MainContent } from '../components';
+import { Home } from '../components';
 
 const artists = () => {
   return (
     <>
-     <MainContent />
+     <Home />
     </>
   );
 };

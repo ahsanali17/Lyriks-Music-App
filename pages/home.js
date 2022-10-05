@@ -1,14 +1,14 @@
 import {
-  MainContent,
+  Home
 } from '../components';
 
 
-const Home = () => {
+const HomePage = () => {
   return (
     <>
-      <MainContent />
+      <Home />
     </>
   );
 };
 
-export default Home;
+export default HomePage;
