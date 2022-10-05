@@ -5,7 +5,7 @@ import Link from 'next/link';
 import sidebarIcons from '../../assets/images/sidebarIcons/index';
 
 const linksArray = [
-  {label: 'Home', to: "/"},
+  {label: 'Home', to: "/home"},
   {label: 'Explore', to: "/explore"},
   {label: 'Artists', to: "/artists"},
   {label: 'Albums', to: "/albums"},
