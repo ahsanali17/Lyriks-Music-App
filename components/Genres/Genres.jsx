@@ -14,9 +14,6 @@ const Genres = () => {
   const apiGenresNames = Object.keys(allGenresWithColors);
   const uiGenres = Object.values(allGenresWithColors);
 
-  let genreName;
-  let genreColor;
-
   return (
     <GenresWrapper>
       <GenreHeading>
@@ -29,11 +26,9 @@ const Genres = () => {
 
       <GenresList>
         {uiGenres.map((genreArr, idx) => {
-          genreName = genreArr[0];
-          genreColor = genreArr[1];
           return (
             <GradientBackground key={idx}>
-              <GenreCard genreColor={genreColor}>{genreName}</GenreCard>
+              <GenreCard genreColor={genreArr[1]}>{genreArr[0]}</GenreCard>
             </GradientBackground>
           );
         })}

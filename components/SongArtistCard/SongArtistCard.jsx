@@ -1,5 +1,6 @@
-import { CardWrapper, TextContainer } from './styles';
 import Image from 'next/image';
+
+import { CardWrapper, TextContainer } from './styles';
 
 const SongArtistCard = ({ coverArt, title, subtitle }) => {
   return (

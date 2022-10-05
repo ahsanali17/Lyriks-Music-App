@@ -1,12 +1,15 @@
-// import { logo } from '../../assets/images/index';
-import { LogoContainer } from './styles';
+import Image from 'next/image';
+
+import { LogoWrapper, SVGWrapper } from './styles';
+import logoSVG from '../../assets/lyriks-logo.svg';
 
 const Logo = () => {
   return (
-    <LogoContainer>
-      <h1>logo</h1>
-      {/* {logo} */}
-    </LogoContainer>
+    <LogoWrapper>
+      <SVGWrapper>
+        <Image src={logoSVG} />
+      </SVGWrapper>
+    </LogoWrapper>
   );
 };
 
