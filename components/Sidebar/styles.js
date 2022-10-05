@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import Image from 'next/image';
  
 import styled from 'styled-components';
@@ -26,21 +25,13 @@ export const SidebarItemContainer = styled.div`
   gap: 30px;
   height: fit-content;
   width:100%;
+`;
+
+export const SidebarItemList = styled.ul`
   :hover {
-    color: blue;
+    color: ${COLORS.grays[100]};
   }
 `;
-
-// SLink
-export const SLink = styled(Link)`
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  color: inherit;
-  font-size: 16px;
-  padding: 0px;
-`;
-
 
 export const ItemContainer = styled.a`
   display: flex;  

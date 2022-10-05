@@ -1,28 +1,32 @@
 import { Logo } from '../';
-import { SidebarWrapper, SidebarItemContainer, SLink, ItemIcon, ItemLabel, ItemContainer, Divider } from './styles.js';
+import { SidebarWrapper, SidebarItemContainer, SidebarItemList, ItemIcon, ItemLabel, ItemContainer, Divider } from './styles.js';
+import Link from 'next/link';
 
 import sidebarIcons from '../../assets/images/sidebarIcons/index';
 
+const linksArray = [
+  {label: 'Home', to: "/"},
+  {label: 'Explore', to: "/explore"},
+  {label: 'Artists', to: "/artists"},
+  {label: 'Albums', to: "/albums"},
+];
+
 const Sidebar = () => {
-  const linksArray = [
-    {label: 'Home', to: "/"},
-    {label: 'Explorer', to: "/explorer"},
-    {label: 'Artists', to: "/artists"},
-    {label: 'Albums', to: "/albums"},
-  ]
   
   return (
     <SidebarWrapper>
       <Logo />
       <Divider />
       {linksArray.map(({label, to}) => (
-        <SidebarItemContainer key={label}>
-          <SLink href={to}>
-            <ItemContainer onClick={() => {console.log('button pressed')}}>
-              <ItemIcon src={sidebarIcons[label]}/>
-              <ItemLabel>{label}</ItemLabel>
-            </ItemContainer>
-          </SLink>
+        <SidebarItemContainer>
+          <SidebarItemList key={label}>
+            <Link href={to}>
+              <ItemContainer onClick={() => {console.log('button pressed')}}>
+                <ItemIcon src={sidebarIcons[label]}/>
+                <ItemLabel>{label}</ItemLabel>
+              </ItemContainer>
+            </Link>
+          </SidebarItemList>
         </SidebarItemContainer>
       ))}
     </SidebarWrapper>
