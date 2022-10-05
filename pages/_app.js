@@ -1,10 +1,20 @@
+import { Provider } from 'react-redux';
+import store from '../app/store';
+
+import { ThemeProvider } from 'styled-components';
+import { COLORS } from '../utils/constants';
+
 import { Layout } from '../components';
 
 const MyApp = ({ Component, pageProps }) => {
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <Provider store={store}>
+      <ThemeProvider theme={{ colors: COLORS }}>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </ThemeProvider>
+    </Provider>
   );
 };
 

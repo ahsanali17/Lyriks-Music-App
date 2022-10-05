@@ -1,14 +1,19 @@
 import GlobalStyles from '../../styles/GlobalStyles';
-import { store } from '../../app/store';
-import { Provider } from 'react-redux';
+import { LayoutWrapper, HomeWrapper } from './styles';
 
-import { LayoutWrapper } from './styles';
+import { Sidebar, TopChartsTopArtistsContainer } from '../index';
+import Head from 'next/head';
 
 const Layout = ({ children }) => {
   return (
     <LayoutWrapper>
       <GlobalStyles />
-      {children}
+      <Head>Lyriks</Head>
+      <HomeWrapper>
+        <Sidebar />
+        {children}
+        <TopChartsTopArtistsContainer />
+      </HomeWrapper>
     </LayoutWrapper>
   );
 };
