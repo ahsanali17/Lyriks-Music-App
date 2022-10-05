@@ -1,8 +1,15 @@
+import Image from 'next/image';
+
+import { LogoWrapper, SVGWrapper } from './styles';
+import logoSVG from '../../assets/lyriks-logo.svg';
+
 const Logo = () => {
   return (
-    <div>
-      <h1>Logo</h1>
-    </div>
+    <LogoWrapper>
+      <SVGWrapper>
+        <Image src={logoSVG} />
+      </SVGWrapper>
+    </LogoWrapper>
   );
 };
 

@@ -11,6 +11,7 @@ export { default as SongArtistList } from './SongArtistList/SongArtistList';
 export { default as SongArtistCard } from './SongArtistCard/SongArtistCard';
 export { default as TopArtists } from './TopArtists/TopArtists';
 export { default as TopCharts } from './TopCharts/TopCharts';
+export { default as TopChartsTopArtistsContainer } from './TopChartsTopArtistsContainer/TopChartsTopArtistsContainer';
 export { default as MainContent } from './MainContent/MainContent';
 export { default as Error } from './Error/Error';
 export { default as Loader } from './Loader/Loader';

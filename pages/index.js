@@ -1,9 +1,14 @@
 import Head from 'next/head';
-import { HomeWrapper } from './styles';
-import { Sidebar, MainContent, TopCharts } from '../components';
-import { ThemeProvider } from 'styled-components';
-import { COLORS, QUERIES } from '../utils/constants';
 import { Provider } from 'react-redux';
+import { ThemeProvider } from 'styled-components';
+
+import { HomeWrapper } from './styles';
+import {
+  Sidebar,
+  MainContent,
+  TopChartsTopArtistsContainer,
+} from '../components';
+import { COLORS } from '../utils/constants';
 import store from '../app/store';
 
 const Home = () => {
@@ -12,11 +17,11 @@ const Home = () => {
       <Head>Lyriks</Head>
 
       <Provider store={store}>
-        <ThemeProvider theme={{ colors: COLORS, queries: QUERIES }}>
+        <ThemeProvider theme={{ colors: COLORS }}>
           <HomeWrapper>
             <Sidebar />
             <MainContent />
-            <TopCharts />
+            <TopChartsTopArtistsContainer />
           </HomeWrapper>
         </ThemeProvider>
       </Provider>
