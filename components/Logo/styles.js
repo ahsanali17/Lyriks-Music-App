@@ -7,6 +7,8 @@ export const LogoWrapper = styled.div`
 
   height: 100%;
   width: 100%;
+
+  padding-top: 30px;
 `;
 
 export const SVGWrapper = styled.div`
