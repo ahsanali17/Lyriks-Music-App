@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import Image from 'next/image';
+ 
 import styled from 'styled-components';
 import { COLORS } from '../../utils/constants';
 
@@ -24,6 +26,9 @@ export const SidebarItemContainer = styled.div`
   gap: 30px;
   height: fit-content;
   width:100%;
+  :hover {
+    color: blue;
+  }
 `;
 
 // SLink
@@ -39,24 +44,20 @@ export const SLink = styled(Link)`
 
 export const ItemContainer = styled.a`
   display: flex;  
+  align-items: center;
   margin: 8px 0;
-  
 `;
 
 // SLinkIcon
-export const ItemIcon = styled.img`
+export const ItemIcon = styled(Image)`
   border-color: red;
-  height: 25px;
-  width: 25px;
-  svg {
-    font-size: 20px;
-  }
-
+  height: 13px;
+  width: 13px;
 `;
 
 // SLinkLabel
 export const ItemLabel = styled.label`
-  display: block;
+  display: flex;
   flex: 1;
   margin-left: 10px;
 `;

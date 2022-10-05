@@ -19,7 +19,7 @@ const Sidebar = () => {
         <SidebarItemContainer key={label}>
           <SLink href={to}>
             <ItemContainer onClick={() => {console.log('button pressed')}}>
-              <ItemIcon src={sidebarIcons[label]} height={30} />
+              <ItemIcon src={sidebarIcons[label]}/>
               <ItemLabel>{label}</ItemLabel>
             </ItemContainer>
           </SLink>
@@ -28,7 +28,5 @@ const Sidebar = () => {
     </SidebarWrapper>
   );
 };
-
-
 
 export default Sidebar;
