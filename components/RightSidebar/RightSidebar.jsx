@@ -1,7 +1,7 @@
 import { ComopnentWrapper } from './styles';
-import { TopCharts } from '../';
+import { TopCharts } from '..';
 
-const TopChartsTopArtistsContainer = () => {
+const RightSidebar = () => {
   return (
     <ComopnentWrapper>
       <TopCharts />
@@ -9,4 +9,4 @@ const TopChartsTopArtistsContainer = () => {
   );
 };
 
-export default TopChartsTopArtistsContainer;
+export default RightSidebar;
