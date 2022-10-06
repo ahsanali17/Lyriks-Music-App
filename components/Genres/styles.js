@@ -92,4 +92,5 @@ export const GenreCard = styled.li`
   scroll-snap-align: start;
 
   background: ${(props) => props.genreColor};
+  cursor: pointer;
 `;

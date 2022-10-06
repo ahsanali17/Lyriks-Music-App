@@ -12,7 +12,6 @@ export const currentSongArtistList = createSlice({
     selectGenre: (state, action) => {
       state.genre = action.payload;
       state.searchQuery = '';
-      state.searchResults = [];
     },
 
     setSearchQuery: (state, action) => {

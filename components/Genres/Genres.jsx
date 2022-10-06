@@ -1,3 +1,5 @@
+import { ImArrowLeft, ImArrowRight } from 'react-icons/im';
+
 import {
   GenresWrapper,
   GenreHeading,
@@ -7,12 +9,21 @@ import {
   GenreCard,
 } from './styles';
 import { allGenresWithColors } from '../../utils/constants';
-
-import { ImArrowLeft, ImArrowRight } from 'react-icons/im';
+import { selectGenre } from '../../features/currentSongArtistList';
+import { useDispatch } from 'react-redux';
 
 const Genres = () => {
-  const apiGenresNames = Object.keys(allGenresWithColors);
+  const dispatch = useDispatch();
   const uiGenres = Object.values(allGenresWithColors);
+  const apiGenresNames = Object.keys(allGenresWithColors);
+
+  const handleGenreChange = (idx) => {
+    const genre = apiGenresNames[idx];
+
+    return function () {
+      dispatch(selectGenre(genre));
+    };
+  };
 
   return (
     <GenresWrapper>
@@ -28,7 +39,12 @@ const Genres = () => {
         {uiGenres.map((genreArr, idx) => {
           return (
             <GradientBackground key={idx}>
-              <GenreCard genreColor={genreArr[1]}>{genreArr[0]}</GenreCard>
+              <GenreCard
+                genreColor={genreArr[1]}
+                onClick={handleGenreChange(idx)}
+              >
+                {genreArr[0]}
+              </GenreCard>
             </GradientBackground>
           );
         })}
