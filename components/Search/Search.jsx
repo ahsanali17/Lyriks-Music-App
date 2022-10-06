@@ -1,14 +1,37 @@
-import { SearchWrapper, GradientWrapper, IconWrapper } from './styles';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { BsSearch } from 'react-icons/bs';
 
+import { SearchWrapper, GradientWrapper, IconWrapper } from './styles';
+import { setSearchQuery } from '../../features/currentSongArtistList';
+
 const Search = () => {
+  const dispatch = useDispatch();
+  const [text, setText] = useState('');
+
+  const handleInput = (e) => {
+    return setText(e.target.value);
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      dispatch(setSearchQuery(text));
+    }
+  };
+
   return (
     <SearchWrapper>
       <GradientWrapper>
         <IconWrapper>
           <BsSearch />
         </IconWrapper>
-        <input />
+        <input
+          type="text"
+          placeholder="Search"
+          value={text}
+          onChange={handleInput}
+          onKeyDown={handleKeyPress}
+        />
       </GradientWrapper>
     </SearchWrapper>
   );
