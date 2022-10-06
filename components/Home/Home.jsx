@@ -5,10 +5,13 @@ import { Search, TopArtists, Genres, SongArtistList } from '..';
 import { useGetWorldChartsByGenreOrSearchQuery } from '../../services/shazamCoreApi';
 
 const Home = () => {
-  const genreCode = 'POP';
+  const genreCode =
+    useSelector((state) => state.currentSongArtistList.genre) || 'POP';
+
   const searchQuery = useSelector(
     (state) => state.currentSongArtistList.searchQuery
   );
+
   const isSearch = searchQuery ? true : false;
 
   const { data, isFetching, error } = useGetWorldChartsByGenreOrSearchQuery({
