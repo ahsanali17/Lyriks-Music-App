@@ -16,23 +16,21 @@ export const shazamCoreApi = createApi({
   }),
 
   endpoints: (builder) => ({
-    getWorldChartsByGenre: builder.query({
-      query: (genreCode) => `/charts/genre-world?genre_code=${genreCode}`,
+    getWorldChartsByGenreOrSearch: builder.query({
+      query: (genreCode, searchQuery) => {
+        if (searchQuery) {
+          return `/search/multi?search_type=SONGS_ARTISTS&query=${searchQuery}`;
+        }
+
+        return `/charts/genre-world?genre_code=${genreCode}`;
+      },
     }),
 
     getWorldCharts: builder.query({
       query: () => `/charts/world`,
     }),
-
-    getSearchResults: builder.query({
-      query: (query) =>
-        `/search/multi?search_type=SONGS_ARTISTS&query=${query}`,
-    }),
   }),
 });
 
-export const {
-  useGetWorldChartsByGenreQuery,
-  useGetWorldChartsQuery,
-  useGetSearchResultsQuery,
-} = shazamCoreApi;
+export const { useGetWorldChartsByGenreOrSearchQuery, useGetWorldChartsQuery } =
+  shazamCoreApi;
