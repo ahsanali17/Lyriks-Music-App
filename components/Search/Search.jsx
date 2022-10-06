@@ -1,17 +1,23 @@
 import { useState } from 'react';
-
-import { SearchWrapper, GradientWrapper, IconWrapper } from './styles';
-import { useGetSearchResultsQuery } from '../../services/shazamCoreApi';
+import { useDispatch } from 'react-redux';
 import { BsSearch } from 'react-icons/bs';
 
+import { SearchWrapper, GradientWrapper, IconWrapper } from './styles';
+import { setSearchQuery } from '../../features/currentSongArtistList';
+
 const Search = () => {
-  const [query, setQuery] = useState('');
+  const dispatch = useDispatch();
+  const [text, setText] = useState('');
 
-  const testSearch = 'Jackson';
-  const { data, isFetching, error } = useGetSearchResultsQuery(testSearch);
-  console.log(data);
+  const handleInput = (e) => {
+    return setText(e.target.value);
+  };
 
-  const handleInput = (e) => setQuery(e.target.value);
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      dispatch(setSearchQuery(text));
+    }
+  };
 
   return (
     <SearchWrapper>
@@ -19,7 +25,13 @@ const Search = () => {
         <IconWrapper>
           <BsSearch />
         </IconWrapper>
-        <input value={query} onChange={handleInput} />
+        <input
+          type="text"
+          placeholder="Search"
+          value={text}
+          onChange={handleInput}
+          onKeyDown={handleKeyPress}
+        />
       </GradientWrapper>
     </SearchWrapper>
   );

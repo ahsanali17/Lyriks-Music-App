@@ -2,8 +2,12 @@ import { SongArtistCard } from '../';
 import { CardWrapper } from './styles';
 import { urlSuccess } from '../../utils/validationFunctions';
 
-const SongArtistList = ({ data }) => {
+const SongArtistList = ({ data, isSearch }) => {
   let hasCoverArt;
+
+  if (isSearch) {
+    data = data.tracks.hits.map(({ track }) => track);
+  }
 
   return (
     <CardWrapper>

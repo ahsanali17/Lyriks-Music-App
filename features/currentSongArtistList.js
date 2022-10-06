@@ -3,7 +3,6 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   genre: '',
   searchQuery: '',
-  searchResults: [],
 };
 
 export const currentSongArtistList = createSlice({
@@ -16,17 +15,12 @@ export const currentSongArtistList = createSlice({
       state.searchResults = [];
     },
 
-    searchSongArtist: (state, action) => {
+    setSearchQuery: (state, action) => {
       state.searchQuery = action.payload;
-    },
-
-    getSearchResults: (state, action) => {
-      state.searchResults = action.payload;
     },
   },
 });
 
-export const { selectGenre, searchSongArtist, getSearchResults } =
-  currentSongArtistList.actions;
+export const { selectGenre, setSearchQuery } = currentSongArtistList.actions;
 
 export default currentSongArtistList.reducer;

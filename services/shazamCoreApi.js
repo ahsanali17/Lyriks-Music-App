@@ -17,7 +17,7 @@ export const shazamCoreApi = createApi({
 
   endpoints: (builder) => ({
     getWorldChartsByGenreOrSearch: builder.query({
-      query: (genreCode, searchQuery) => {
+      query: ({ genreCode, searchQuery }) => {
         if (searchQuery) {
           return `/search/multi?search_type=SONGS_ARTISTS&query=${searchQuery}`;
         }
