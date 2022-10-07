@@ -47,6 +47,10 @@ export const ArtistWrapper = styled.div`
   max-width: fit-content;
   max-height: fit-content;
 
+  transition: transform 250ms;
+
+  cursor: pointer;
+
   img {
     border-radius: 50%;
   }
@@ -58,6 +62,17 @@ export const ArtistWrapper = styled.div`
     position: relative;
     left: 100px;
     z-index: 0;
+
+    @media (pointer: fine) {
+      &:hover {
+        position: relative;
+
+        z-index: 2;
+        transform: scale(1.25);
+        bottom: 20px;
+        left: 95px;
+      }
+    }
   }
 
   :nth-of-type(2) {
@@ -67,6 +82,15 @@ export const ArtistWrapper = styled.div`
     position: relative;
     left: 50px;
     z-index: 1;
+
+    @media (pointer: fine) {
+      &:hover {
+        z-index: 3;
+        transform: scale(1.25);
+        bottom: 20px;
+        left: 45px;
+      }
+    }
   }
 
   :nth-of-type(3) {
@@ -75,6 +99,14 @@ export const ArtistWrapper = styled.div`
 
     position: relative;
     z-index: 2;
+
+    @media (pointer: fine) {
+      &:hover {
+        z-index: 2;
+        transform: scale(1.25);
+        bottom: 20px;
+      }
+    }
   }
 
   :nth-of-type(4) {
@@ -84,6 +116,15 @@ export const ArtistWrapper = styled.div`
     position: relative;
     right: 50px;
     z-index: 1;
+
+    @media (pointer: fine) {
+      &:hover {
+        z-index: 2;
+        transform: scale(1.25);
+        right: 45px;
+        bottom: 20px;
+      }
+    }
   }
 
   :nth-of-type(5) {
@@ -92,5 +133,14 @@ export const ArtistWrapper = styled.div`
     position: relative;
     right: 100px;
     z-index: 0;
+
+    @media (pointer: fine) {
+      &:hover {
+        z-index: 2;
+        transform: scale(1.25);
+        right: 95px;
+        bottom: 20px;
+      }
+    }
   }
 `;
