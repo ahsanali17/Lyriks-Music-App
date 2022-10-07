@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { SHAZAM_CORE_API_HOST, SHAZAM_CORE_API_URL } from '../utils/constants';
+import { SHAZAM_CORE_API_HOST, SHAZAM_CORE_API_URL } from '../../utils/constants';
 
 export const shazamCoreApi = createApi({
   reducerPath: 'shazamCoreApi',

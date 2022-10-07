@@ -4,7 +4,7 @@ import {
   ArtistGradientWrapper,
   ArtistWrapper,
 } from './styles';
-import { useGetWorldChartsQuery } from '../../services/shazamCoreApi';
+import { useGetWorldChartsQuery } from '../../redux/services/shazamCoreApi';
 import Image from 'next/image';
 import { returnFirst5ValidArtists } from '../../utils/validationFunctions';
 

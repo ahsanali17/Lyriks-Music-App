@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { shazamCoreApi } from '../services/shazamCoreApi';
+import { shazamCoreApi } from '../redux/services/shazamCoreApi';
 
 const store = configureStore({
   reducer: {

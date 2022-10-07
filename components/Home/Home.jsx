@@ -1,10 +1,12 @@
 import { MainContentWrapper } from './styles';
 import { Search, TopArtists, Genres, SongArtistList } from '..';
-import { useGetWorldChartsByGenreQuery } from '../../services/shazamCoreApi';
+import { useGetWorldChartsByGenreQuery } from '../../redux/services/shazamCoreApi';
 
 const Home = () => {
   const { data, isFetching, error } = useGetWorldChartsByGenreQuery('POP');
 
+  console.log("data:", data);
+  
   if (isFetching) {
     return '...Loading - Test Loader';
   }

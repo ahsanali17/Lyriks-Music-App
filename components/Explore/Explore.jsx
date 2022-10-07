@@ -1,6 +1,6 @@
 import { MainContentWrapper } from './styles';
 import { Search, SongArtistList } from '..';
-import { useGetWorldChartsByGenreQuery } from '../../services/shazamCoreApi';
+import { useGetWorldChartsByGenreQuery } from '../../redux/services/shazamCoreApi';
 
 const Explore = () => {
   

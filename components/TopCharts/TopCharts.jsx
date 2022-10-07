@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import { useGetWorldChartsQuery } from '../../services/shazamCoreApi';
+import { useGetWorldChartsQuery } from '../../redux/services/shazamCoreApi';
 import { returnFirst5ValidTopCharts } from '../../utils/validationFunctions';
 import {
   TopChartsWrapper,
