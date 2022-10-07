@@ -1,5 +1,35 @@
+import {
+  pop,
+  hipHop,
+  dance,
+  electronic,
+  soul,
+  alternative,
+  rock,
+  latin,
+  film,
+  country,
+  worldwide,
+  kPop,
+} from '../assets/genreImages';
+
 export const SHAZAM_CORE_API_URL = 'https://shazam-core.p.rapidapi.com/v1';
 export const SHAZAM_CORE_API_HOST = 'shazam-core.p.rapidapi.com';
+
+export const genreImages = [
+  pop,
+  hipHop,
+  dance,
+  electronic,
+  soul,
+  alternative,
+  rock,
+  latin,
+  film,
+  country,
+  worldwide,
+  kPop,
+];
 
 export const allGenresWithColors = {
   POP: ['Pop', 'linear-gradient(to bottom, #de6161, #2657eb)'],

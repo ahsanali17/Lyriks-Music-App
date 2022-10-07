@@ -1,4 +1,6 @@
+import Image from 'next/image';
 import { ImArrowLeft, ImArrowRight } from 'react-icons/im';
+import { useDispatch } from 'react-redux';
 
 import {
   GenresWrapper,
@@ -7,10 +9,11 @@ import {
   GradientBackground,
   ArrowsWrapper,
   GenreCard,
+  ImageWrapper,
 } from './styles';
+import { genreImages } from '../../utils/constants';
 import { allGenresWithColors } from '../../utils/constants';
 import { selectGenre } from '../../features/currentSongArtistList';
-import { useDispatch } from 'react-redux';
 
 const Genres = () => {
   const dispatch = useDispatch();
@@ -43,7 +46,10 @@ const Genres = () => {
                 genreColor={genreArr[1]}
                 onClick={handleGenreChange(idx)}
               >
-                {genreArr[0]}
+                <h5>{genreArr[0]}</h5>
+                <ImageWrapper>
+                  <Image src={genreImages[idx]} width={80} height={80} />
+                </ImageWrapper>
               </GenreCard>
             </GradientBackground>
           );

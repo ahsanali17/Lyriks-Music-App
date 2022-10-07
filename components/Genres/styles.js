@@ -78,14 +78,18 @@ export const ArrowsWrapper = styled.div`
     border-radius: 50%;
 
     border: 1px solid ${(props) => props.theme.colors.white};
+    cursor: pointer;
+
+    @media (pointer: fine) {
+      &:hover {
+        background: ${(props) => props.theme.colors.gradients.gold};
+        opacity: 1;
+      }
+    }
   }
 `;
 
 export const GenreCard = styled.li`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
   height: 100px;
   width: 210px;
 
@@ -93,4 +97,25 @@ export const GenreCard = styled.li`
 
   background: ${(props) => props.genreColor};
   cursor: pointer;
+
+  overflow: hidden;
+
+  h5 {
+    padding-top: 5px;
+    padding-left: 10px;
+    font-weight: 400;
+    font-size: 1.5rem;
+  }
+`;
+
+export const ImageWrapper = styled.div`
+  position: relative;
+  bottom: 30px;
+  left: 20px;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+
+  transform: rotate(35deg);
 `;
