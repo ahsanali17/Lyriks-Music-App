@@ -1,15 +1,22 @@
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+
 import {
   TopArtistsWrapper,
   ArtistCardsWrapper,
   ArtistGradientWrapper,
   ArtistWrapper,
 } from './styles';
-import { useGetWorldChartsQuery } from '../../services/shazamCoreApi';
+import { useGetWorldChartsByGenreOrSearchQuery } from '../../services/shazamCoreApi';
 import Image from 'next/image';
 import { returnFirst5ValidArtists } from '../../utils/validationFunctions';
 
 const TopArtists = () => {
-  const { data, isFetching, error } = useGetWorldChartsQuery();
+  const genreCode =
+    useSelector((state) => state.currentSongArtistList.genre) || 'POP';
+  const { data, isFetching, error } = useGetWorldChartsByGenreOrSearchQuery({
+    genreCode,
+  });
 
   if (isFetching) {
     return '...Loading - Test Loader';
@@ -20,7 +27,6 @@ const TopArtists = () => {
   }
 
   const top5Artists = returnFirst5ValidArtists(data);
-
   const orderedTop5Artists = [
     top5Artists[3],
     top5Artists[1],
@@ -28,6 +34,8 @@ const TopArtists = () => {
     top5Artists[2],
     top5Artists[4],
   ];
+
+  console.log(orderedTop5Artists);
 
   return (
     <>
