@@ -1,8 +1,19 @@
 import React from 'react'
+import { TrackWrapper, CoverArtContainer, CoverArtImage, TitleContainer, Title, Subtitle } from './styles';
 
-const CurrentTrack = () => {
+const CurrentTrack = ({ isPlaying, isActive, activeSong}) => {
   return (
-    <div>CurrentTrack</div>
+    <TrackWrapper>
+      <CoverArtContainer>
+        fghtg
+        <CoverArtImage />
+      </CoverArtContainer>
+      <TitleContainer>
+        <Title>yoo</Title>        
+        <Subtitle>yoo</Subtitle>
+      </TitleContainer>
+    
+    </TrackWrapper>
   )
 }
 

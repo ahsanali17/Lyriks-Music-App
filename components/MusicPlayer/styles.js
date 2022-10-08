@@ -21,3 +21,14 @@ export const MusicPlayerContainer = styled.div`
  padding-left: 3rem;
  padding-right: 3rem;
 `;
+
+
+
+export const ControlSeekbarWrapper = styled.div`
+ display: grid;
+`;
+
+export const AudioPlayerVolumeBarWrapper = styled.div`
+ display: grid;
+ 
+`;

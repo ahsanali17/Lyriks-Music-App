@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { MusicPlayerWrapper, MusicPlayerContainer } from './styles';
+import { 
+  MusicPlayerWrapper, 
+  MusicPlayerContainer, 
+  TrackWrapper,
+  ControlSeekbarWrapper,
+  AudioPlayerVolumeBarWrapper,
+} from './styles';
 
-import { CurrentTrack, Controls, SeekBar, VolumeBar } from './index';
+import { AudioPlayer, CurrentTrack, Controls, SeekBar, VolumeBar } from './index';
 
 const MusicPlayer = () => {
   // Object that we will have to import from our feature slice
@@ -17,10 +23,18 @@ const MusicPlayer = () => {
   return (
       <MusicPlayerWrapper>
         <MusicPlayerContainer>
-          <a>Links</a>
-          <a>Links</a>
-          <a>Links</a>
+          <CurrentTrack/>
+         
+          <ControlSeekbarWrapper>
+            <Controls/>
+            <SeekBar/>
+          </ControlSeekbarWrapper>
           
+          <AudioPlayerVolumeBarWrapper>
+          <AudioPlayer/>
+          <VolumeBar/>
+          </AudioPlayerVolumeBarWrapper>
+        
         </MusicPlayerContainer>
       </MusicPlayerWrapper>
     )
