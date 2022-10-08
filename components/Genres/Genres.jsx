@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { ImArrowLeft, ImArrowRight } from 'react-icons/im';
 import { useDispatch } from 'react-redux';
+import { useRef } from 'react';
 
 import {
   GenresWrapper,
@@ -16,6 +17,7 @@ import { allGenresWithColors } from '../../utils/constants';
 import { selectGenre } from '../../features/currentSongArtistList';
 
 const Genres = () => {
+  const scrollRef = useRef(null);
   const dispatch = useDispatch();
   const uiGenres = Object.values(allGenresWithColors);
   const apiGenresNames = Object.keys(allGenresWithColors);
@@ -28,13 +30,27 @@ const Genres = () => {
     };
   };
 
+  const scroll = (direction) => {
+    const { current } = scrollRef;
+
+    if (direction === 'left') {
+      current.scrollLeft -= 750;
+    } else {
+      current.scrollLeft += 750;
+    }
+  };
+
+  const handleScroll = (scrollDirection) => {
+    scroll(scrollDirection);
+  };
+
   return (
-    <GenresWrapper>
+    <GenresWrapper ref={scrollRef}>
       <GenreHeading>
         <h2>Genres</h2>
         <ArrowsWrapper>
-          <ImArrowLeft />
-          <ImArrowRight />
+          <ImArrowLeft onClick={() => scroll('left')} />
+          <ImArrowRight onClick={() => scroll('right')} />
         </ArrowsWrapper>
       </GenreHeading>
 

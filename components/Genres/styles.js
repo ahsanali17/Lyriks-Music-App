@@ -9,6 +9,7 @@ export const GenresWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  scroll-behavior: smooth;
 
   padding: 0 20px;
   overflow: auto;
