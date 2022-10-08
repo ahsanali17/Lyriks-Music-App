@@ -16,7 +16,7 @@ export const returnFirst5ValidArtists = (() => {
   return function (worldChartsData) {
     for (let i = 0; i < worldChartsData.length; i += 1) {
       currentArtist = worldChartsData[i];
-      currentBackgroundImage = currentArtist.images.background;
+      currentBackgroundImage = currentArtist?.images?.background;
 
       if (artistsArr.length === 5) {
         return artistsArr;
@@ -39,7 +39,7 @@ export const returnFirst5ValidTopCharts = (() => {
   return function (worldChartsData) {
     for (let i = 0; i < worldChartsData.length; i += 1) {
       currentArtist = worldChartsData[i];
-      curentCoverArtImage = currentArtist.images.coverart;
+      curentCoverArtImage = currentArtist?.images?.coverart;
 
       if (chartsArr.length === 5) {
         return chartsArr;

@@ -3,12 +3,11 @@ import styled from 'styled-components';
 export const GenresWrapper = styled.div`
   grid-area: main-content-genres;
 
-  position: relative;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  scroll-behavior: smooth;
 
   padding: 0 20px;
   overflow: auto;
@@ -45,6 +44,8 @@ export const GenresList = styled.ul`
   align-items: center;
   gap: 20px;
 
+  margin-bottom: 40px;
+
   white-space: nowrap;
   list-style: none;
 `;
@@ -78,14 +79,18 @@ export const ArrowsWrapper = styled.div`
     border-radius: 50%;
 
     border: 1px solid ${(props) => props.theme.colors.white};
+    cursor: pointer;
+
+    @media (pointer: fine) {
+      &:hover {
+        background: ${(props) => props.theme.colors.gradients.gold};
+        opacity: 1;
+      }
+    }
   }
 `;
 
 export const GenreCard = styled.li`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
   height: 100px;
   width: 210px;
 
@@ -93,4 +98,53 @@ export const GenreCard = styled.li`
 
   background: ${(props) => props.genreColor};
   cursor: pointer;
+
+  overflow: hidden;
+
+  h5 {
+    padding-top: 5px;
+    padding-left: 10px;
+    font-weight: 400;
+    font-size: 1.5rem;
+  }
+`;
+
+export const ImageWrapper = styled.div`
+  position: relative;
+  bottom: 30px;
+  left: 20px;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+
+  transform: rotate(35deg);
+`;
+
+export const CurrentGenreContainer = styled.div`
+  position: sticky;
+  width: 100%;
+  top: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 20px;
+
+  margin-bottom: 20px;
+
+  h1 {
+    font-size: 2.25rem;
+
+    background-image: ${(props) => props.theme.colors.gradients.gold};
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
 `;
