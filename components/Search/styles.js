@@ -3,11 +3,17 @@ import styled from 'styled-components';
 export const SearchWrapper = styled.div`
   grid-area: main-content-search;
 
+  position: sticky;
+  top: -20px;
+
   display: flex;
   justify-content: center;
+  align-items: center;
   flex: 1;
 
-  padding-top: 10px;
+  isolation: isolate;
+  z-index: 10;
+  backdrop-filter: blur(10px);
 `;
 
 export const GradientWrapper = styled.div`
