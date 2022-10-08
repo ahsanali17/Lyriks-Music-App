@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   genre: '',
+  discoverGenre: '',
   searchQuery: '',
 };
 
@@ -17,9 +18,14 @@ export const currentSongArtistList = createSlice({
     setSearchQuery: (state, action) => {
       state.searchQuery = action.payload;
     },
+
+    setDiscoverGenre: (state, action) => {
+      state.discoverGenre = action.payload;
+    },
   },
 });
 
-export const { selectGenre, setSearchQuery } = currentSongArtistList.actions;
+export const { selectGenre, setSearchQuery, setDiscoverGenre } =
+  currentSongArtistList.actions;
 
 export default currentSongArtistList.reducer;

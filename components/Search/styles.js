@@ -13,7 +13,8 @@ export const SearchWrapper = styled.div`
 
   isolation: isolate;
   z-index: 10;
-  backdrop-filter: blur(10px);
+  overflow: scroll;
+  backdrop-filter: blur(20px);
 `;
 
 export const GradientWrapper = styled.div`
