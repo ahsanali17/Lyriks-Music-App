@@ -1,6 +1,5 @@
 import {
-  Home,
-  MusicPlayer
+  Home, 
 } from '../components';
 
 
@@ -8,7 +7,6 @@ const HomePage = () => {
   return (
     <>
       <Home />
-      <MusicPlayer />
     </>
   );
 };
