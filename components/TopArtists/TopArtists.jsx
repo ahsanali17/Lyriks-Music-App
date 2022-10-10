@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 import {
@@ -35,42 +34,25 @@ const TopArtists = () => {
     top5Artists[4],
   ];
 
-  console.log(orderedTop5Artists);
-
   return (
     <>
       <TopArtistsWrapper>
         <h1>Top Artists</h1>
         <ArtistCardsWrapper>
           {orderedTop5Artists.map(({ images }, idx) => {
-            if (idx === 2) {
-              return (
-                <ArtistWrapper key={idx}>
-                  <ArtistGradientWrapper>
-                    <Image
-                      src={images.background}
-                      width={200}
-                      height={200}
-                      objectFit="cover"
-                      priority
-                    />
-                  </ArtistGradientWrapper>
-                </ArtistWrapper>
-              );
-            } else {
-              return (
-                <ArtistWrapper key={idx}>
-                  <ArtistGradientWrapper>
-                    <Image
-                      src={images.background}
-                      width={200}
-                      height={200}
-                      objectFit="cover"
-                    />
-                  </ArtistGradientWrapper>
-                </ArtistWrapper>
-              );
-            }
+            return (
+              <ArtistWrapper key={idx}>
+                <ArtistGradientWrapper>
+                  <Image
+                    src={images.background}
+                    width={200}
+                    height={200}
+                    objectFit="cover"
+                    priority={idx === 2 ? true : false}
+                  />
+                </ArtistGradientWrapper>
+              </ArtistWrapper>
+            );
           })}
         </ArtistCardsWrapper>
       </TopArtistsWrapper>
