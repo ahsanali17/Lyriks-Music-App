@@ -1,6 +1,6 @@
 import Image from 'next/image';
- 
 import styled from 'styled-components';
+
 import { COLORS } from '../../utils/constants';
 
 export const SidebarWrapper = styled.nav`
@@ -24,7 +24,7 @@ export const SidebarItemContainer = styled.div`
   padding: 0px;
   gap: 30px;
   height: fit-content;
-  width:100%;
+  width: 100%;
 `;
 
 export const SidebarItemList = styled.ul`
@@ -34,7 +34,7 @@ export const SidebarItemList = styled.ul`
 `;
 
 export const ItemContainer = styled.a`
-  display: flex;  
+  display: flex;
   align-items: center;
   margin: 8px 0;
 `;
@@ -56,6 +56,6 @@ export const ItemLabel = styled.label`
 export const Divider = styled.div`
   height: 4rem;
   width: 100%;
-  background: ${((theme) => theme.bg3)}
+  background: ${(theme) => theme.bg3}
   margin: 1em 0;
 `;

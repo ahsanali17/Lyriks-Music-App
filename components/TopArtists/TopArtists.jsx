@@ -1,15 +1,21 @@
+import { useSelector } from 'react-redux';
+
 import {
   TopArtistsWrapper,
   ArtistCardsWrapper,
   ArtistGradientWrapper,
   ArtistWrapper,
 } from './styles';
-import { useGetWorldChartsQuery } from '../../services/shazamCoreApi';
+import { useGetWorldChartsByGenreOrSearchQuery } from '../../services/shazamCoreApi';
 import Image from 'next/image';
 import { returnFirst5ValidArtists } from '../../utils/validationFunctions';
 
 const TopArtists = () => {
-  const { data, isFetching, error } = useGetWorldChartsQuery();
+  const genreCode =
+    useSelector((state) => state.currentSongArtistList.genre) || 'POP';
+  const { data, isFetching, error } = useGetWorldChartsByGenreOrSearchQuery({
+    genreCode,
+  });
 
   if (isFetching) {
     return '...Loading - Test Loader';
@@ -20,7 +26,6 @@ const TopArtists = () => {
   }
 
   const top5Artists = returnFirst5ValidArtists(data);
-
   const orderedTop5Artists = [
     top5Artists[3],
     top5Artists[1],
@@ -35,34 +40,19 @@ const TopArtists = () => {
         <h1>Top Artists</h1>
         <ArtistCardsWrapper>
           {orderedTop5Artists.map(({ images }, idx) => {
-            if (idx === 2) {
-              return (
-                <ArtistWrapper key={idx}>
-                  <ArtistGradientWrapper>
-                    <Image
-                      src={images.background}
-                      width={200}
-                      height={200}
-                      objectFit="cover"
-                      priority
-                    />
-                  </ArtistGradientWrapper>
-                </ArtistWrapper>
-              );
-            } else {
-              return (
-                <ArtistWrapper key={idx}>
-                  <ArtistGradientWrapper>
-                    <Image
-                      src={images.background}
-                      width={200}
-                      height={200}
-                      objectFit="cover"
-                    />
-                  </ArtistGradientWrapper>
-                </ArtistWrapper>
-              );
-            }
+            return (
+              <ArtistWrapper key={idx}>
+                <ArtistGradientWrapper>
+                  <Image
+                    src={images.background}
+                    width={200}
+                    height={200}
+                    objectFit="cover"
+                    priority={idx === 2 ? true : false}
+                  />
+                </ArtistGradientWrapper>
+              </ArtistWrapper>
+            );
           })}
         </ArtistCardsWrapper>
       </TopArtistsWrapper>
