@@ -39,7 +39,7 @@ const TopArtists = () => {
       <TopArtistsWrapper>
         <h1>Top Artists</h1>
         <ArtistCardsWrapper>
-          {orderedTop5Artists.map(({ images }, idx) => {
+          {orderedTop5Artists.map(({ images, subtitle }, idx) => {
             return (
               <ArtistWrapper key={idx}>
                 <ArtistGradientWrapper>
@@ -50,6 +50,7 @@ const TopArtists = () => {
                     objectFit="cover"
                     priority={idx === 2 ? true : false}
                   />
+                  <h6>{subtitle}</h6>
                 </ArtistGradientWrapper>
               </ArtistWrapper>
             );

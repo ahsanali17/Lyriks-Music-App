@@ -34,6 +34,9 @@ export const ArtistCardsWrapper = styled.div`
 `;
 
 export const ArtistGradientWrapper = styled.div`
+  max-width: max-content;
+  max-height: max-content;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -43,16 +46,45 @@ export const ArtistGradientWrapper = styled.div`
 `;
 
 export const ArtistWrapper = styled.div`
-  position: relative;
   max-width: fit-content;
   max-height: fit-content;
 
   transition: transform 250ms;
 
+  border-radius: 50%;
+
   cursor: pointer;
 
   img {
     border-radius: 50%;
+    max-width: fit-content;
+    max-height: fit-content;
+
+    overflow: hidden;
+  }
+
+  @media (pointer: fine) {
+    h6 {
+      display: none;
+    }
+
+    &:hover {
+      img {
+        border-radius: 50%;
+        opacity: 0.5;
+      }
+
+      h6 {
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        padding: 20px;
+        display: revert;
+        max-width: max-content;
+        max-height: max-content;
+        position: absolute;
+      }
+    }
   }
 
   :nth-of-type(1) {
