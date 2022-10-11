@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import { shazamCoreApi } from '../services/shazamCoreApi';
+import { shazamCoreApi } from '../redux/services/shazamCoreApi';
 import currentSongArtistListReducer from '../features/currentSongArtistList';
 
 const store = configureStore({

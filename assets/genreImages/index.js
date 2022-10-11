@@ -9,7 +9,7 @@ import latin from './Latin.jpg';
 import film from './Film.jpg';
 import country from './Country.jpg';
 import worldwide from './Worldwide.jpg';
-import kPop from './K-pop.jpg';
+import kPop from './K-Pop.jpg';
 
 export {
   pop,

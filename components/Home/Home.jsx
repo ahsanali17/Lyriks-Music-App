@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 
 import { MainContentWrapper } from './styles';
 import { Search, TopArtists, Genres, SongArtistList } from '..';
-import { useGetWorldChartsByGenreOrSearchQuery } from '../../services/shazamCoreApi';
+import { useGetWorldChartsByGenreOrSearchQuery } from '../../redux/services/shazamCoreApi';
 
 const Home = () => {
   const genreCode =
