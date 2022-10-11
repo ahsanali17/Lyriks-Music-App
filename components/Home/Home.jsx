@@ -1,9 +1,23 @@
+import { useSelector } from 'react-redux';
+
 import { MainContentWrapper } from './styles';
 import { Search, TopArtists, Genres, SongArtistList } from '..';
-import { useGetWorldChartsByGenreQuery } from '../../redux/services/shazamCoreApi';
+import { useGetWorldChartsByGenreOrSearchQuery } from '../../redux/services/shazamCoreApi';
 
 const Home = () => {
-  const { data, isFetching, error } = useGetWorldChartsByGenreQuery('POP');
+  const genreCode =
+    useSelector((state) => state.currentSongArtistList.genre) || 'POP';
+
+  const searchQuery = useSelector(
+    (state) => state.currentSongArtistList.searchQuery
+  );
+
+  const isSearch = searchQuery ? true : false;
+
+  const { data, isFetching, error } = useGetWorldChartsByGenreOrSearchQuery({
+    genreCode,
+    searchQuery,
+  });
 
   console.log("data:", data);
   
@@ -14,12 +28,13 @@ const Home = () => {
   if (error) {
     return 'Error - Test Error';
   }
+
   return (
     <MainContentWrapper>
-      <TopArtists />
       <Search />
+      <TopArtists />
       <Genres />
-      <SongArtistList data={data} />
+      <SongArtistList data={data} isSearch={isSearch} />
     </MainContentWrapper>
   );
 };

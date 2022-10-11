@@ -3,9 +3,13 @@ import { CardWrapper } from './styles';
 import { urlSuccess } from '../../utils/validationFunctions';
 import { useSelector } from 'react-redux';
 
-const SongArtistList = ({ data }) => {
+const SongArtistList = ({ data, isSearch }) => {
   let hasCoverArt;
   const { isActive, isPlaying } = useSelector((state) => state.musicPlayer);
+
+  if (isSearch) {
+    data = data.tracks.hits.map(({ track }) => track);
+  }
 
   return (
     <CardWrapper>

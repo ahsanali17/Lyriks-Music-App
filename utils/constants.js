@@ -1,5 +1,35 @@
+import {
+  pop,
+  hipHop,
+  dance,
+  electronic,
+  soul,
+  alternative,
+  rock,
+  latin,
+  film,
+  country,
+  worldwide,
+  kPop,
+} from '../assets/genreImages';
+
 export const SHAZAM_CORE_API_URL = 'https://shazam-core.p.rapidapi.com/v1';
 export const SHAZAM_CORE_API_HOST = 'shazam-core.p.rapidapi.com';
+
+export const genreImages = [
+  pop,
+  hipHop,
+  dance,
+  electronic,
+  soul,
+  alternative,
+  rock,
+  latin,
+  film,
+  country,
+  worldwide,
+  kPop,
+];
 
 export const allGenresWithColors = {
   POP: ['Pop', 'linear-gradient(to bottom, #de6161, #2657eb)'],
@@ -64,9 +94,37 @@ export const COLORS = {
       hsl(42deg 50% 24% /0.5) 62.5%,
       hsl(42deg 50% 24% /0.5) 100%
     )`,
+    goldVeryTransparent: `radial-gradient(
+      ellipse farthest-corner at right bottom,
+      hsl(49deg 99% 61% /0.15) 0%,
+      hsl(40deg 98% 59% /0.15) 8%,
+      hsl(41deg 60% 39% /0.15) 30%,
+      hsl(42deg 49% 36% /0.15) 40%,
+      transparent 80%
+    ),
+    radial-gradient(
+      ellipse farthest-corner at left top,
+      hsl(0deg 0% 100% /0.15) 0%,
+      hsl(60deg 100% 84% /0.15) 8%,
+      hsl(44deg 54% 61% /0.15) 25%,
+      hsl(42deg 50% 24% /0.15) 62.5%,
+      hsl(42deg 50% 24% /0.15) 100%
+    )`,
     blackLeft: 'linear-gradient(to left, hsl(0deg 0% 12%) 0%, black 100%)',
     blackRight: 'linear-gradient(to right, hsl(0deg 0% 12%) 0%, black 100%)',
   },
 };
 
-const BREAKPOINTS = {};
+const BREAKPOINTS = {
+  largeDevice: 1525,
+  mediumLarge: 1100,
+  medium: 800,
+  small: 550,
+};
+
+export const QUERIES = {
+  largeAndDown: `max-width: ${BREAKPOINTS.largeDevice}px`,
+  mediumLargeAndDown: `max-width: ${BREAKPOINTS.mediumLarge}px`,
+  mediumAndDown: `max-width: ${BREAKPOINTS.medium}px`,
+  smallAndDown: `max-width: ${BREAKPOINTS.small}px`,
+};
