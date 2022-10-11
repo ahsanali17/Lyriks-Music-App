@@ -44,7 +44,6 @@ const SongArtistCard = ({
             handlePlay={handlePlayClick}
             handlePause={handlePauseClick}
             song={song}
-            i={i}
           />
         </PlayOrPauseWrapper>
         <TextContainer>

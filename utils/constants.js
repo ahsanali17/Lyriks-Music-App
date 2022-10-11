@@ -78,6 +78,22 @@ export const COLORS = {
       hsl(42deg 50% 24%) 62.5%,
       hsl(42deg 50% 24%) 100%
     )`,
+    goldLight: `radial-gradient(
+      ellipse farthest-corner at center,
+      hsl(49deg 99% 41%) 0%,
+      hsl(40deg 98% 49%) 8%,
+      hsl(41deg 60% 89%) 30%,
+      hsl(42deg 49% 56%) 40%,
+      transparent 80%
+    ),
+    radial-gradient(
+      ellipse farthest-corner at left top,
+      hsl(0deg 0% 100%) 0%,
+      hsl(60deg 100% 94%) 8%,
+      hsl(44deg 54% 71%) 25%,
+      hsl(42deg 50% 44%) 62.5%,
+      hsl(42deg 50% 54%) 100%
+    )`,
     goldTransparent: `radial-gradient(
       ellipse farthest-corner at right bottom,
       hsl(49deg 99% 61% /0.5) 0%,

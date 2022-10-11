@@ -6,6 +6,7 @@ const initialState = {
  currentIndex: 0,
  isActive: false,
  isPlaying: false,
+ activeSong: {},
  // nextSong: '' ,
  // previousSong: '',
 }
