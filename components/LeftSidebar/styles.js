@@ -1,8 +1,6 @@
 import Image from 'next/image';
 import styled from 'styled-components';
 
-import { COLORS } from '../../utils/constants';
-
 export const SidebarWrapper = styled.nav`
   grid-area: sidebar;
 
@@ -16,46 +14,56 @@ export const SidebarWrapper = styled.nav`
   align-content: start;
 `;
 
-// SLinkContainer
-export const SidebarItemContainer = styled.div`
+export const SidebarItemList = styled.ul`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 0px;
-  gap: 30px;
-  height: fit-content;
-  width: 100%;
-`;
 
-export const SidebarItemList = styled.ul`
-  :hover {
-    color: ${COLORS.grays[100]};
-  }
+  width: 100%;
+  height: 100%;
 `;
 
 export const ItemContainer = styled.a`
   display: flex;
   align-items: center;
-  margin: 8px 0;
+
+  padding-left: 50px;
+  height: 60px;
+  width: calc(100% - 50px);
+
+  list-style: none;
+  cursor: pointer;
+
+  &:active {
+    background: ${(props) => props.theme.colors.gradients.goldVeryTransparent};
+  }
+
+  @media (pointer: fine) {
+    &:hover {
+      background: ${(props) =>
+        props.theme.colors.gradients.goldVeryTransparent};
+    }
+  }
 `;
 
 // SLinkIcon
 export const ItemIcon = styled(Image)`
-  border-color: red;
   height: 13px;
   width: 13px;
 `;
 
 // SLinkLabel
 export const ItemLabel = styled.label`
-  display: flex;
-  flex: 1;
   margin-left: 10px;
+  background-image: ${(props) => props.theme.colors.gradients.goldLight};
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+
+  cursor: pointer;
 `;
 
 export const Divider = styled.div`
-  height: 4rem;
-  width: 100%;
-  background: ${(theme) => theme.bg3}
-  margin: 1em 0;
+  margin-top: 80px;
 `;
