@@ -1,8 +1,10 @@
 import React from 'react'
 
-const AudioPlayer = () => {
+const AudioPlayer = ({song}) => {
   return (
-    <div>AudioPlayer</div>
+    <audio controls>
+      <source src={song} type='audio/mp3'/>
+    </audio>
   )
 }
 

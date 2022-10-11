@@ -5,29 +5,27 @@ import { useSelector } from 'react-redux';
 
 const SongArtistList = ({ data, isSearch }) => {
   let hasCoverArt;
-  const { isActive, isPlaying } = useSelector((state) => state.musicPlayer);
+  const { activeSong, isPlaying } = useSelector((state) => state.musicPlayer);
 
   if (isSearch) {
     data = data.tracks.hits.map(({ track }) => track);
   }
-
+  
   return (
     <CardWrapper>
-      {data.map(({ key, images, title, subtitle, hub}) => {
+      {data.map(({images, title, subtitle, hub}, idx) => {
         hasCoverArt = images.coverart && urlSuccess(images.coverart);
-
         if (hasCoverArt && title && subtitle) {
           return (
             <SongArtistCard
-              key={key}
+              key={idx}
               coverArt={images.coverart}
               title={title}
               subtitle={subtitle}
-              isActive={isActive}
+              activeSong={activeSong}
               isPlaying={isPlaying}
-              i={data?.lastIndexOf(title)}
               song={hub?.actions[1]?.uri}
-              data={hub}
+              data={data}
             />
           );
         }

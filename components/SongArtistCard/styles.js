@@ -22,7 +22,6 @@ export const PlayOrPauseWrapper = styled.div`
   align-items: center;
   display:none
   position: absolute;
-  
 `;
 
 export const TextContainer = styled.div`
