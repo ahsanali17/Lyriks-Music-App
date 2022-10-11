@@ -27,6 +27,7 @@ const SongArtistCard = ({ coverArt, title, subtitle, isActive, isPlaying, i, son
           handlePlay={handlePlayClick} 
           handlePause={handlePauseClick} 
           song={song}
+          i={i}
         />
       </PlayOrPauseWrapper>
       <TextContainer>
