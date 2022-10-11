@@ -36,6 +36,13 @@ export const Chart = styled.li`
   height: 100%;
 
   list-style: none;
+
+  @media (pointer: fine) {
+    &:hover {
+      background: ${(props) =>
+        props.theme.colors.gradients.goldVeryTransparent};
+    }
+  }
 `;
 
 export const Number = styled.h6`
@@ -55,4 +62,33 @@ export const ChartTextContainer = styled.div`
   height: 100%;
   padding-top: 10px;
   padding-left: 40px;
+
+  line-height: 2;
+
+  h5 {
+    width: max-content;
+    height: max-content;
+
+    cursor: pointer;
+
+    @media (pointer: fine) {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  h6 {
+    width: max-content;
+    height: max-content;
+
+    color: ${(props) => props.theme.colors.grays[200]};
+    cursor: pointer;
+
+    @media (pointer: fine) {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
 `;
