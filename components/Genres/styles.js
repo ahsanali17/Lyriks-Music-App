@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { OverlayWrapper } from '../../styles/resusableStyles';
 
 export const GenresWrapper = styled.div`
   grid-area: main-content-genres;
@@ -83,7 +82,6 @@ export const ArrowsWrapper = styled.div`
     height: 15px;
     width: 15px;
 
-    opacity: 0.75;
     background: ${(props) => props.theme.colors.gradients.goldTransparent};
     border-radius: 50%;
 
@@ -91,10 +89,16 @@ export const ArrowsWrapper = styled.div`
     cursor: pointer;
 
     @media (pointer: fine) {
+      opacity: 0.75;
+
       &:hover {
         background: ${(props) => props.theme.colors.gradients.gold};
         opacity: 1;
       }
+    }
+
+    @media (pointer: none) {
+      display: none;
     }
   }
 `;
@@ -115,6 +119,10 @@ export const GenreCard = styled.li`
     padding-left: 10px;
     font-weight: 400;
     font-size: 1.5rem;
+  }
+
+  @media (pointer: none) {
+    scroll-snap-type: x proximity;
   }
 `;
 
