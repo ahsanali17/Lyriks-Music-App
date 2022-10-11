@@ -4,9 +4,11 @@ import { LayoutWrapper, HomeWrapper } from './styles';
 
 import { LeftSidebar, MusicPlayer, RightSidebar } from '../index';
 import Head from 'next/head';
+import { useSelector } from 'react-redux';
 
 const Layout = ({ children }) => {
-  const [isActive, setIsActive] = useState(false);
+  const { isActive, isPlaying } = useSelector((state) => state.musicPlayer);
+
   return (
     <LayoutWrapper>
       <GlobalStyles />
@@ -15,7 +17,7 @@ const Layout = ({ children }) => {
         <LeftSidebar />
         {children}
         <RightSidebar />
-        {isActive && (<MusicPlayer />)}
+        {isPlaying && (<MusicPlayer />)}
       </HomeWrapper>
     </LayoutWrapper>
   );
