@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { BsSearch } from 'react-icons/bs';
 
 import { SearchWrapper, GradientWrapper, IconWrapper } from './styles';
-import { setSearchQuery } from '../../features/currentSongArtistList';
+import { setSearchQuery } from '../../redux/features/currentSongArtistList';
 
 const Search = () => {
   const dispatch = useDispatch();

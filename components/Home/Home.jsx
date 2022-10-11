@@ -19,6 +19,8 @@ const Home = () => {
     searchQuery,
   });
 
+  console.log("data:", data);
+  
   if (isFetching) {
     return '...Loading - Test Loader';
   }
