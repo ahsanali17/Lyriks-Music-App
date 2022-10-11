@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { OverlayWrapper } from '../../styles/resusableStyles';
 
 export const CardWrapper = styled.div`
   display: flex;
@@ -11,6 +12,8 @@ export const CardWrapper = styled.div`
 
   background: ${(props) => props.theme.colors.gradients.goldTransparent};
   border-radius: 20px;
+
+  cursor: pointer;
 `;
 
 export const TextContainer = styled.div`
@@ -30,6 +33,13 @@ export const TextContainer = styled.div`
 
     font-weight: 600;
     line-height: 1.75;
+
+    @media (pointer: fine) {
+      &:hover {
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
   }
 
   h5 {
@@ -39,5 +49,21 @@ export const TextContainer = styled.div`
     white-space: nowrap;
 
     color: ${(props) => props.theme.colors.grays[200]};
+
+    @media (pointer: fine) {
+      &:hover {
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+  }
+`;
+
+export const CardOverlay = styled(OverlayWrapper)`
+  @media (pointer: fine) {
+    &:hover {
+      background: ${(props) => props.theme.colors.gradients.gold};
+      border-radius: 20px;
+    }
   }
 `;
