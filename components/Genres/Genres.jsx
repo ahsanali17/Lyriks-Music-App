@@ -12,6 +12,7 @@ import {
   GenreCard,
   ImageWrapper,
   CurrentGenreContainer,
+  GenreOverlay,
 } from './styles';
 import { genreImages } from '../../utils/constants';
 import { allGenresWithColors } from '../../utils/constants';

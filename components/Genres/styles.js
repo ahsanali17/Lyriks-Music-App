@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { OverlayWrapper } from '../../styles/resusableStyles';
 
 export const GenresWrapper = styled.div`
   grid-area: main-content-genres;
@@ -53,6 +54,14 @@ export const GenresList = styled.ul`
 export const GradientBackground = styled.div`
   background: ${(props) => props.theme.colors.gradients.gold};
   padding: 6px;
+
+  @media (pointer: fine) {
+    &:hover {
+      transition: transform 250ms;
+      transform: translateY(-8px);
+      opacity: 0.875;
+    }
+  }
 `;
 
 export const ArrowsWrapper = styled.div`
