@@ -12,7 +12,6 @@ import {
   GenreCard,
   ImageWrapper,
   CurrentGenreContainer,
-  GenreOverlay,
 } from './styles';
 import { genreImages } from '../../utils/constants';
 import { allGenresWithColors } from '../../utils/constants';
@@ -25,6 +24,9 @@ const Genres = () => {
   const dispatch = useDispatch();
   const currentDiscoverGenre =
     useSelector((state) => state.currentSongArtistList.discoverGenre) || 'Pop';
+  const searchQuery = useSelector(
+    (state) => state.currentSongArtistList.searchQuery
+  );
 
   const scrollRef = useRef(null);
   const uiGenres = Object.values(allGenresWithColors);
@@ -86,8 +88,17 @@ const Genres = () => {
         </GenresList>
       </GenresWrapper>
       <CurrentGenreContainer>
-        <h1>Discover:</h1>
-        <h2>{currentDiscoverGenre}</h2>
+        {searchQuery ? (
+          <>
+            <h1>Search Results for:</h1>
+            <h2>{searchQuery}</h2>
+          </>
+        ) : (
+          <>
+            <h1>Discover:</h1>
+            <h2>{currentDiscoverGenre}</h2>
+          </>
+        )}
       </CurrentGenreContainer>
     </>
   );
