@@ -18,7 +18,7 @@ import { allGenresWithColors } from '../../utils/constants';
 import {
   selectGenre,
   setDiscoverGenre,
-} from '../../features/currentSongArtistList';
+} from '../../redux/features/currentSongArtistList';
 
 const Genres = () => {
   const dispatch = useDispatch();

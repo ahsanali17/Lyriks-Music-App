@@ -16,6 +16,15 @@ export const CardWrapper = styled.div`
   cursor: pointer;
 `;
 
+export const PlayOrPauseWrapper = styled.div`
+  --tw-bg-opacity: 0.5;
+  justify-content: center;
+  align-items: center;
+  display:none
+  position: absolute;
+  
+`;
+
 export const TextContainer = styled.div`
   display: flex;
   align-items: center;

@@ -1,10 +1,14 @@
+import React, {useState} from 'react';
 import GlobalStyles from '../../styles/GlobalStyles';
 import { LayoutWrapper, HomeWrapper } from './styles';
 
-import { LeftSidebar, RightSidebar } from '../index';
+import { LeftSidebar, MusicPlayer, RightSidebar } from '../index';
 import Head from 'next/head';
+import { useSelector } from 'react-redux';
 
 const Layout = ({ children }) => {
+  const { isPlaying } = useSelector((state) => state.musicPlayer);
+
   return (
     <LayoutWrapper>
       <GlobalStyles />
@@ -13,6 +17,7 @@ const Layout = ({ children }) => {
         <LeftSidebar />
         {children}
         <RightSidebar />
+        {isPlaying && (<MusicPlayer />)}
       </HomeWrapper>
     </LayoutWrapper>
   );

@@ -6,7 +6,7 @@ import {
   ArtistGradientWrapper,
   ArtistWrapper,
 } from './styles';
-import { useGetWorldChartsByGenreOrSearchQuery } from '../../services/shazamCoreApi';
+import { useGetWorldChartsByGenreOrSearchQuery } from '../../redux/services/shazamCoreApi';
 import Image from 'next/image';
 import { returnFirst5ValidArtists } from '../../utils/validationFunctions';
 
