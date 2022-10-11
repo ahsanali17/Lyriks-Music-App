@@ -24,22 +24,20 @@ const LeftSidebar = () => {
     <SidebarWrapper>
       <Logo />
       <Divider />
-      {linksArray.map(({ label, to }) => (
-        <SidebarItemContainer>
-          <SidebarItemList key={label}>
-            <Link href={to}>
-              <ItemContainer
-                onClick={() => {
-                  console.log('button pressed');
-                }}
-              >
-                <ItemIcon src={sidebarIcons[label]} />
-                <ItemLabel>{label}</ItemLabel>
-              </ItemContainer>
-            </Link>
-          </SidebarItemList>
-        </SidebarItemContainer>
-      ))}
+      <SidebarItemList>
+        {linksArray.map(({ label, to }) => (
+          <Link key={label} href={to}>
+            <ItemContainer
+              onClick={() => {
+                console.log('button pressed');
+              }}
+            >
+              <ItemIcon src={sidebarIcons[label]} />
+              <ItemLabel>{label}</ItemLabel>
+            </ItemContainer>
+          </Link>
+        ))}
+      </SidebarItemList>
     </SidebarWrapper>
   );
 };
