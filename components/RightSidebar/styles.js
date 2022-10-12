@@ -11,4 +11,8 @@ export const ComopnentWrapper = styled.aside`
 
   background: ${(props) => props.theme.colors.gradients.blackLeft};
   border-left: 2px solid ${(props) => props.theme.colors.blacks[400]};
+
+  @media (${(props) => props.theme.queries.mediumAndDown}) {
+    display: none;
+  }
 `;
