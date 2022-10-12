@@ -1,10 +1,8 @@
 import React from 'react'
 
-const AudioPlayer = ({song}) => {
+const AudioPlayer = ({activeSong, isPlaying, currentIndex }) => {
   return (
-    <audio controls>
-      <source src={song} type='audio/mp3'/>
-    </audio>
+    <audio autoPlay src={activeSong} type='audio/mp3' />
   )
 }
 

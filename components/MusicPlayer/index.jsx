@@ -12,7 +12,7 @@ import { AudioPlayer, CurrentTrack, Controls, SeekBar, VolumeBar } from './index
 
 const MusicPlayer = () => {
   // Object that we will have to import from our feature slice
-  
+  const { activeSong, isActive, isPlaying, currentSongs, currentIndex } = useSelector((state) => state.musicPlayer);
   
   
   const dispatch = useDispatch();
@@ -31,8 +31,12 @@ const MusicPlayer = () => {
           </ControlSeekbarWrapper>
           
           <AudioPlayerVolumeBarWrapper>
-          <AudioPlayer/>
-          <VolumeBar/>
+            <AudioPlayer
+              activeSong={activeSong}
+              isPlaying={isPlaying}
+              currentIndex={currentIndex}
+            />
+            <VolumeBar/>
           </AudioPlayerVolumeBarWrapper>
         
         </MusicPlayerContainer>
