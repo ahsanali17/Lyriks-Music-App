@@ -19,11 +19,11 @@ const MusicPlayer = () => {
   // Logic will be handled here for all the dispatches 
   
   // Handle functions for dispatching the actions in control component
-  
+  // console.log("currentSong:", currentSongs, "currentIndex:", currentIndex);
   return (
       <MusicPlayerWrapper>
         <MusicPlayerContainer>
-          <CurrentTrack/>
+          <CurrentTrack isPlaying={isPlaying} isActive={isActive} activeSong={activeSong} />
          
           <ControlSeekbarWrapper>
             <Controls/>
