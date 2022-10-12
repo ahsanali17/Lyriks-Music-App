@@ -139,7 +139,10 @@ export const ImageWrapper = styled.div`
 `;
 
 export const CurrentGenreContainer = styled.div`
+  grid-area: main-content-discover-genre;
+
   position: sticky;
+  height: max-content;
   width: 100%;
   top: 0;
 
