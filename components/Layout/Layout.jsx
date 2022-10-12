@@ -1,12 +1,19 @@
 import GlobalStyles from '../../styles/GlobalStyles';
+import { LayoutWrapper, HomeWrapper } from './styles';
 
-import { LayoutWrapper } from './styles';
+import { LeftSidebar, RightSidebar } from '../index';
+import Head from 'next/head';
 
 const Layout = ({ children }) => {
   return (
     <LayoutWrapper>
       <GlobalStyles />
-      {children}
+      <Head>Lyriks</Head>
+      <HomeWrapper>
+        <LeftSidebar />
+        {children}
+        <RightSidebar />
+      </HomeWrapper>
     </LayoutWrapper>
   );
 };
