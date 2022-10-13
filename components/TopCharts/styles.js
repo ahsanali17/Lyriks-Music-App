@@ -7,6 +7,10 @@ export const TopChartsWrapper = styled.div`
   height: 100%;
   width: 100%;
   padding: 40px;
+
+  @media (${(props) => props.theme.queries.mediumAndDown}) {
+    padding: 0;
+  }
 `;
 
 export const TopChartHeading = styled.div`
@@ -47,6 +51,11 @@ export const Chart = styled.li`
         props.theme.colors.gradients.goldVeryTransparent};
     }
   }
+
+  @media (${(props) => props.theme.queries.mediumAndDown}) {
+    width: 100%;
+    gap: 10px;
+  }
 `;
 
 export const Number = styled.h6`
@@ -69,9 +78,12 @@ export const ChartTextContainer = styled.div`
 
   line-height: 2;
 
+  overflow: hidden;
+
   h5 {
-    width: max-content;
-    height: max-content;
+    width: fit-content;
+    height: fit-content;
+    text-overflow: ellipsis;
 
     cursor: pointer;
 
@@ -83,8 +95,9 @@ export const ChartTextContainer = styled.div`
   }
 
   h6 {
-    width: max-content;
-    height: max-content;
+    width: fit-content;
+    height: fit-content;
+    text-overflow: ellipsis;
 
     color: ${(props) => props.theme.colors.grays[200]};
     cursor: pointer;
@@ -94,10 +107,5 @@ export const ChartTextContainer = styled.div`
         text-decoration: underline;
       }
     }
-  }
-
-  @media (${(props) => props.theme.queries.mediumAndDown}) {
-    justify-content: center;
-    align-items: center;
   }
 `;

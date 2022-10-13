@@ -12,7 +12,11 @@ export const TopArtistsWrapper = styled.div`
 
   font-size: 1.5rem;
 
-  margin-top: -40px;
+  margin-top: -80px;
+
+  @media (${(props) => props.theme.queries.verySmallAndDown}) {
+    font-size: 1.25rem;
+  }
 `;
 
 export const Heading = styled.h1`

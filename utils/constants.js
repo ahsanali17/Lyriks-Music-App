@@ -136,6 +136,7 @@ const BREAKPOINTS = {
   mediumLarge: 1100,
   medium: 850,
   small: 580,
+  verySmall: 350,
 };
 
 export const QUERIES = {
@@ -143,6 +144,7 @@ export const QUERIES = {
   mediumLargeAndDown: `max-width: ${BREAKPOINTS.mediumLarge}px`,
   mediumAndDown: `max-width: ${BREAKPOINTS.medium}px`,
   smallAndDown: `max-width: ${BREAKPOINTS.small}px`,
+  verySmallAndDown: `max-width: ${BREAKPOINTS.verySmall}px`,
 };
 
 export const JSQueries = {

@@ -127,6 +127,11 @@ export const GenreCard = styled.li`
   @media (pointer: coarse) {
     scroll-snap-type: x proximity;
   }
+
+  @media (${(props) => props.theme.queries.verySmallAndDown}) {
+    height: 100px;
+    width: 180px;
+  }
 `;
 
 export const ImageWrapper = styled.div`
