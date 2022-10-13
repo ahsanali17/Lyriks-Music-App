@@ -85,93 +85,205 @@ export const ArtistWrapper = styled.div`
         position: absolute;
       }
     }
-  }
 
-  :nth-of-type(1) {
-    width: 150px;
-    height: 150px;
+    :nth-of-type(1) {
+      width: 150px;
+      height: 150px;
 
-    position: relative;
-    left: 100px;
-    z-index: 0;
+      position: relative;
+      left: 100px;
+      z-index: 0;
 
-    @media (pointer: fine) {
-      &:hover {
-        position: relative;
+      @media (pointer: fine) {
+        &:hover {
+          position: relative;
 
-        z-index: 2;
-        transform: scale(1.25);
-        bottom: 20px;
-        left: 95px;
+          z-index: 2;
+          transform: scale(1.25);
+          bottom: 20px;
+          left: 95px;
+        }
+      }
+    }
+
+    :nth-of-type(2) {
+      width: 175px;
+      height: 175px;
+
+      position: relative;
+      left: 50px;
+      z-index: 1;
+
+      @media (pointer: fine) {
+        &:hover {
+          z-index: 3;
+          transform: scale(1.25);
+          bottom: 20px;
+          left: 45px;
+        }
+      }
+    }
+
+    :nth-of-type(3) {
+      width: 200px;
+      height: 200px;
+
+      position: relative;
+      z-index: 2;
+
+      @media (pointer: fine) {
+        &:hover {
+          z-index: 2;
+          transform: scale(1.25);
+          bottom: 20px;
+        }
+      }
+    }
+
+    :nth-of-type(4) {
+      width: 175px;
+      height: 175px;
+
+      position: relative;
+      right: 50px;
+      z-index: 1;
+
+      @media (pointer: fine) {
+        &:hover {
+          z-index: 2;
+          transform: scale(1.25);
+          right: 45px;
+          bottom: 20px;
+        }
+      }
+    }
+
+    :nth-of-type(5) {
+      width: 150px;
+      height: 150px;
+      position: relative;
+      right: 100px;
+      z-index: 0;
+
+      @media (pointer: fine) {
+        &:hover {
+          z-index: 2;
+          transform: scale(1.25);
+          right: 95px;
+          bottom: 20px;
+        }
       }
     }
   }
 
-  :nth-of-type(2) {
-    width: 175px;
-    height: 175px;
+  @media (pointer: none) {
+    h6 {
+    }
 
-    position: relative;
-    left: 50px;
-    z-index: 1;
+    &:hover {
+      img {
+        border-radius: 50%;
+        opacity: 0.5;
+      }
 
-    @media (pointer: fine) {
-      &:hover {
-        z-index: 3;
-        transform: scale(1.25);
-        bottom: 20px;
-        left: 45px;
+      h6 {
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        padding: 20px;
+        display: revert;
+        max-width: max-content;
+        max-height: max-content;
+        position: absolute;
       }
     }
-  }
 
-  :nth-of-type(3) {
-    width: 200px;
-    height: 200px;
+    :nth-of-type(1) {
+      width: 150px;
+      height: 150px;
 
-    position: relative;
-    z-index: 2;
+      position: relative;
+      left: 100px;
+      z-index: 0;
 
-    @media (pointer: fine) {
-      &:hover {
-        z-index: 2;
-        transform: scale(1.25);
-        bottom: 20px;
+      @media (pointer: fine) {
+        &:hover {
+          position: relative;
+
+          z-index: 2;
+          transform: scale(1.25);
+          bottom: 20px;
+          left: 95px;
+        }
       }
     }
-  }
 
-  :nth-of-type(4) {
-    width: 175px;
-    height: 175px;
+    :nth-of-type(2) {
+      width: 175px;
+      height: 175px;
 
-    position: relative;
-    right: 50px;
-    z-index: 1;
+      position: relative;
+      left: 50px;
+      z-index: 1;
 
-    @media (pointer: fine) {
-      &:hover {
-        z-index: 2;
-        transform: scale(1.25);
-        right: 45px;
-        bottom: 20px;
+      @media (pointer: fine) {
+        &:hover {
+          z-index: 3;
+          transform: scale(1.25);
+          bottom: 20px;
+          left: 45px;
+        }
       }
     }
-  }
 
-  :nth-of-type(5) {
-    width: 150px;
-    height: 150px;
-    position: relative;
-    right: 100px;
-    z-index: 0;
+    :nth-of-type(3) {
+      width: 200px;
+      height: 200px;
 
-    @media (pointer: fine) {
-      &:hover {
-        z-index: 2;
-        transform: scale(1.25);
-        right: 95px;
-        bottom: 20px;
+      position: relative;
+      z-index: 2;
+
+      @media (pointer: fine) {
+        &:hover {
+          z-index: 2;
+          transform: scale(1.25);
+          bottom: 20px;
+        }
+      }
+    }
+
+    :nth-of-type(4) {
+      width: 175px;
+      height: 175px;
+
+      position: relative;
+      right: 50px;
+      z-index: 1;
+
+      @media (pointer: fine) {
+        &:hover {
+          z-index: 2;
+          transform: scale(1.25);
+          right: 45px;
+          bottom: 20px;
+        }
+      }
+    }
+
+    :nth-of-type(5) {
+      width: 150px;
+      height: 150px;
+      position: relative;
+      right: 100px;
+      z-index: 0;
+
+      @media (pointer: fine) {
+        &:hover {
+          z-index: 2;
+          transform: scale(1.25);
+          right: 95px;
+          bottom: 20px;
+        }
       }
     }
   }

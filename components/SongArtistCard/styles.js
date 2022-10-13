@@ -14,13 +14,18 @@ export const CardWrapper = styled.div`
   border-radius: 20px;
 
   cursor: pointer;
+
+  @media (${(props) => props.theme.queries.mediumAndDown}) {
+    margin-right: auto;
+    margin-left: auto;
+  }
 `;
 
 export const PlayOrPauseWrapper = styled.div`
   --tw-bg-opacity: 0.5;
   justify-content: center;
   align-items: center;
-  display:none
+  display: none;
   position: absolute;
 `;
 

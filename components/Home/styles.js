@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const MainContentWrapper = styled.main`
   grid-area: main-content;
 
-  height: 100%;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 80px 500px 300px 80px 1fr;

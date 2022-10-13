@@ -7,6 +7,10 @@ export const TopChartsWrapper = styled.div`
   height: 100%;
   width: 100%;
   padding: 40px;
+
+  @media (${(props) => props.theme.queries.mediumAndDown}) {
+    display: none;
+  }
 `;
 
 export const TopChartHeading = styled.div`

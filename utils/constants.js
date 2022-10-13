@@ -135,7 +135,7 @@ const BREAKPOINTS = {
   largeDevice: 1525,
   mediumLarge: 1100,
   medium: 850,
-  small: 550,
+  small: 580,
 };
 
 export const QUERIES = {

@@ -27,15 +27,10 @@ export const HomeWrapper = styled.div`
   color: ${(props) => props.theme.colors.white};
 
   @media (${(props) => props.theme.queries.mediumAndDown}) {
-    --column-1-length: 200px;
-    --column-2-length: minmax(600px, 3fr);
-
     height: 100%;
     display: grid;
-    grid-template-columns:
-      var(--column-1-length)
-      var(--column-2-length);
+    grid-template-columns: 1fr;
     grid-template-rows: 1fr;
-    grid-template-areas: 'sidebar main-content';
+    grid-template-areas: 'main-content';
   }
 `;
