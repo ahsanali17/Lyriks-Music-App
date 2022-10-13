@@ -2,15 +2,16 @@ import styled from 'styled-components';
 
 export const GenresWrapper = styled.div`
   grid-area: main-content-genres;
+  position: relative;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  scroll-behavior: smooth;
 
   padding: 0 20px;
   overflow: auto;
+  scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
   scroll-padding-left: 20px;
 `;
@@ -20,9 +21,9 @@ export const GenreHeading = styled.div`
   justify-content: center;
 
   position: sticky;
-  width: 100%;
   top: 0;
   left: 0;
+  width: 100%;
 
   margin-bottom: 25px;
 
@@ -64,42 +65,44 @@ export const GradientBackground = styled.div`
 `;
 
 export const ArrowsWrapper = styled.div`
-  position: absolute;
+  @media (pointer: fine) {
+    position: absolute;
 
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 26px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 26px;
 
-  position: sticky;
-  top: 0;
-  left: 0;
+    position: sticky;
+    top: 0;
+    left: 0;
 
-  width: 100%;
+    width: 100%;
 
-  svg {
-    padding: 4px;
-    height: 15px;
-    width: 15px;
+    svg {
+      padding: 4px;
+      height: 15px;
+      width: 15px;
 
-    background: ${(props) => props.theme.colors.gradients.goldTransparent};
-    border-radius: 50%;
+      background: ${(props) => props.theme.colors.gradients.goldTransparent};
+      border-radius: 50%;
 
-    border: 1px solid ${(props) => props.theme.colors.white};
-    cursor: pointer;
+      border: 1px solid ${(props) => props.theme.colors.white};
+      cursor: pointer;
 
-    @media (pointer: fine) {
-      opacity: 0.75;
+      @media (pointer: fine) {
+        opacity: 0.75;
 
-      &:hover {
-        background: ${(props) => props.theme.colors.gradients.gold};
-        opacity: 1;
+        &:hover {
+          background: ${(props) => props.theme.colors.gradients.gold};
+          opacity: 1;
+        }
       }
     }
+  }
 
-    @media (pointer: none) {
-      display: none;
-    }
+  @media (pointer: coarse) {
+    display: none;
   }
 `;
 
@@ -121,7 +124,7 @@ export const GenreCard = styled.li`
     font-size: 1.5rem;
   }
 
-  @media (pointer: none) {
+  @media (pointer: coarse) {
     scroll-snap-type: x proximity;
   }
 `;
