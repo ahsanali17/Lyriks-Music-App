@@ -5,10 +5,10 @@ import { useDispatch } from 'react-redux';
 import { playPause, setActiveSong } from '../../redux/features/musicPlayer';
 import { PlayOrPause } from '..';
 
-const SongArtistCard = ({coverArt, title, subtitle, activeSong, isPlaying, song, data, id,}) => {
+const SongArtistCard = ({coverArt, title, subtitle, activeSong, isPlaying, song, data, i}) => {
   const dispatch = useDispatch();
   const handlePlayClick = () => {
-    dispatch(setActiveSong({song, data, id}));
+    dispatch(setActiveSong({song, data, i}));
     dispatch(playPause(true));
   };
   const handlePauseClick = () => {
@@ -18,9 +18,8 @@ const SongArtistCard = ({coverArt, title, subtitle, activeSong, isPlaying, song,
     <CardOverlay>
       <CardWrapper>
         <Image src={coverArt} width={220} height={225} objectFit="cover"/>
-        <PlayOrPauseWrapper >
+        <PlayOrPauseWrapper>
           <PlayOrPause 
-            key={id}
             isPlaying={isPlaying} 
             activeSong={activeSong} 
             handlePlay={handlePlayClick} 

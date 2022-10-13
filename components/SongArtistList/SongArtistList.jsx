@@ -13,7 +13,7 @@ const SongArtistList = ({ data, isSearch }) => {
   
   return (
     <CardWrapper>
-      {data.map(({images, title, subtitle, hub, key}, idx) => {
+      {data.map(({images, title, subtitle, hub}, idx) => {
         hasCoverArt = images.coverart && urlSuccess(images.coverart);
         if (hasCoverArt && title && subtitle) {
           return (
@@ -25,8 +25,8 @@ const SongArtistList = ({ data, isSearch }) => {
               activeSong={activeSong}
               isPlaying={isPlaying}
               song={hub?.actions[1]?.uri}
-              data={data}
-              id={key}
+              data={data[idx]}
+              i={idx}
             />
           );
         }
