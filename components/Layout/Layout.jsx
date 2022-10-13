@@ -7,8 +7,9 @@ import Head from 'next/head';
 import { useSelector } from 'react-redux';
 
 const Layout = ({ children }) => {
-  const { isPlaying, isActive } = useSelector((state) => state.musicPlayer);
+  const { isActive, activeSong } = useSelector((state) => state.musicPlayer);
 
+  const issdef = !isActive;
   return (
     <LayoutWrapper>
       <GlobalStyles />
@@ -17,7 +18,7 @@ const Layout = ({ children }) => {
         <LeftSidebar />
         {children}
         <RightSidebar />
-        {isPlaying && isActive && 
+        {activeSong?.length && isActive &&
           (<MusicPlayer />)
         }
       </HomeWrapper>
