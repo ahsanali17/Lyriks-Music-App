@@ -11,6 +11,8 @@ export const TopArtistsWrapper = styled.div`
   width: 100%;
 
   font-size: 1.5rem;
+
+  margin-top: -40px;
 `;
 
 export const Heading = styled.h1`
@@ -212,7 +214,6 @@ export const ArtistWrapper = styled.div`
 
     :nth-of-type(3) {
       grid-area: one;
-      margin-top: 50px;
       justify-self: center;
     }
 

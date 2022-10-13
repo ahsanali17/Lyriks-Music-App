@@ -168,4 +168,14 @@ export const CurrentGenreContainer = styled.div`
   h2 {
     font-size: 1.5rem;
   }
+
+  @media (${(props) => props.theme.queries.smallAndDown}) {
+    h1 {
+      font-size: 2rem;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+    }
+  }
 `;
