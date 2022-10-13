@@ -8,7 +8,7 @@ export const TopChartsWrapper = styled.div`
   width: 100%;
   padding: 40px;
 
-  @media (${(props) => props.theme.queries.mediumAndDown}) {
+  @media (${(props) => props.theme.queries.mediumLargeAndDown}) {
     padding: 0;
   }
 `;
@@ -24,7 +24,7 @@ export const TopChartHeading = styled.div`
     -moz-text-fill-color: transparent;
   }
 
-  @media (${(props) => props.theme.queries.mediumAndDown}) {
+  @media (${(props) => props.theme.queries.mediumLargeAndDown}) {
     margin: 20px 0;
     align-self: center;
   }
@@ -52,7 +52,7 @@ export const Chart = styled.li`
     }
   }
 
-  @media (${(props) => props.theme.queries.mediumAndDown}) {
+  @media (${(props) => props.theme.queries.mediumLargeAndDown}) {
     width: 100%;
     gap: 10px;
   }

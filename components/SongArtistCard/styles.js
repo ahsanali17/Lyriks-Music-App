@@ -14,11 +14,6 @@ export const CardWrapper = styled.div`
   border-radius: 20px;
 
   cursor: pointer;
-
-  @media (${(props) => props.theme.queries.mediumAndDown}) {
-    margin-right: auto;
-    margin-left: auto;
-  }
 `;
 
 export const PlayOrPauseWrapper = styled.div`
@@ -78,5 +73,10 @@ export const CardOverlay = styled(OverlayWrapper)`
       background: ${(props) => props.theme.colors.gradients.gold};
       border-radius: 20px;
     }
+  }
+
+  @media (${(props) => props.theme.queries.mediumAndDown}) {
+    margin-right: auto;
+    margin-left: auto;
   }
 `;

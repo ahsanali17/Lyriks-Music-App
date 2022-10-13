@@ -133,8 +133,8 @@ export const COLORS = {
 
 const BREAKPOINTS = {
   largeDevice: 1525,
-  mediumLarge: 1100,
-  medium: 850,
+  mediumLarge: 1280,
+  medium: 900,
   small: 580,
   verySmall: 350,
 };

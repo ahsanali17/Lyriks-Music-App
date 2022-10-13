@@ -19,7 +19,9 @@ export const MainContentWrapper = styled.main`
 
   background: ${(props) => props.theme.colors.gradients.blackRight};
 
-  @media (${(props) => props.theme.queries.mediumAndDown}) {
+  gap: 80px;
+
+  @media (pointer: coarse) {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 80px 1fr 1fr 300px 80px 1fr;
@@ -32,13 +34,24 @@ export const MainContentWrapper = styled.main`
       'main-content-inner';
   }
 
-  gap: 80px;
+  @media (${(props) => props.theme.queries.mediumLargeAndDown}) {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 80px 1fr 1fr 300px 80px 1fr;
+    grid-template-areas:
+      'main-content-search'
+      'main-content-top-artists'
+      'main-content-top-charts'
+      'main-content-genres'
+      'main-content-discover-genre'
+      'main-content-inner';
+  }
 `;
 
 export const SmallerDeviceWrapper = styled.div`
   display: none;
 
-  @media (${(props) => props.theme.queries.mediumAndDown}) {
+  @media (${(props) => props.theme.queries.mediumLargeAndDown}) {
     display: revert;
     margin: 20px 0;
   }
