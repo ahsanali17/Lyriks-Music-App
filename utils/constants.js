@@ -133,9 +133,10 @@ export const COLORS = {
 
 const BREAKPOINTS = {
   largeDevice: 1525,
-  mediumLarge: 1100,
-  medium: 800,
-  small: 550,
+  mediumLarge: 1280,
+  medium: 900,
+  small: 580,
+  verySmall: 350,
 };
 
 export const QUERIES = {
@@ -143,4 +144,21 @@ export const QUERIES = {
   mediumLargeAndDown: `max-width: ${BREAKPOINTS.mediumLarge}px`,
   mediumAndDown: `max-width: ${BREAKPOINTS.medium}px`,
   smallAndDown: `max-width: ${BREAKPOINTS.small}px`,
+  verySmallAndDown: `max-width: ${BREAKPOINTS.verySmall}px`,
+};
+
+export const JSQueries = {
+  largeAndDown() {
+    return globalThis.window?.matchMedia(`(${QUERIES.largeAndDown})`).matches;
+  },
+  mediumLargeAndDown() {
+    return globalThis.window?.matchMedia(`(${QUERIES.mediumLargeAndDown})`)
+      .matches;
+  },
+  mediumAndDown() {
+    return globalThis.window?.matchMedia(`(${QUERIES.mediumAndDown})`).matches;
+  },
+  smallAndDown() {
+    return globalThis.window?.matchMedia(`(${QUERIES.smallAndDown})`).matches;
+  },
 };

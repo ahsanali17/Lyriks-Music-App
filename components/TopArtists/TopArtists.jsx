@@ -2,9 +2,12 @@ import { useSelector } from 'react-redux';
 
 import {
   TopArtistsWrapper,
+  Heading,
   ArtistCardsWrapper,
   ArtistGradientWrapper,
   ArtistWrapper,
+  TouchScreenHeading,
+  TouchScreenTextWrapper,
 } from './styles';
 import { useGetWorldChartsByGenreOrSearchQuery } from '../../redux/services/shazamCoreApi';
 import Image from 'next/image';
@@ -37,8 +40,9 @@ const TopArtists = () => {
   return (
     <>
       <TopArtistsWrapper>
-        <h1>Top Artists</h1>
+        <Heading>Top Artists</Heading>
         <ArtistCardsWrapper>
+          <TouchScreenHeading>Top Artists</TouchScreenHeading>
           {orderedTop5Artists.map(({ images, subtitle }, idx) => {
             return (
               <ArtistWrapper key={idx}>
@@ -52,6 +56,9 @@ const TopArtists = () => {
                   />
                   <h6>{subtitle}</h6>
                 </ArtistGradientWrapper>
+                <TouchScreenTextWrapper>
+                  <h6>{subtitle}</h6>
+                </TouchScreenTextWrapper>
               </ArtistWrapper>
             );
           })}

@@ -20,7 +20,7 @@ export const PlayOrPauseWrapper = styled.div`
   --tw-bg-opacity: 0.5;
   justify-content: center;
   align-items: center;
-  display:none
+  display: none;
   position: absolute;
 `;
 
@@ -73,5 +73,10 @@ export const CardOverlay = styled(OverlayWrapper)`
       background: ${(props) => props.theme.colors.gradients.gold};
       border-radius: 20px;
     }
+  }
+
+  @media (${(props) => props.theme.queries.mediumAndDown}) {
+    margin-right: auto;
+    margin-left: auto;
   }
 `;

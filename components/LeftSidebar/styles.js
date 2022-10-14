@@ -12,6 +12,10 @@ export const SidebarWrapper = styled.nav`
   align-items: center;
   justify-items: center;
   align-content: start;
+
+  @media (${(props) => props.theme.queries.mediumAndDown}) {
+    display: none;
+  }
 `;
 
 export const SidebarItemList = styled.ul`
