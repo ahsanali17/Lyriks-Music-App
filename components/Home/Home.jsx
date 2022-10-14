@@ -5,29 +5,12 @@ import { Search, TopArtists, TopCharts, Genres, SongArtistList } from '..';
 import { useGetWorldChartsByGenreOrSearchQuery } from '../../redux/services/shazamCoreApi';
 
 const Home = () => {
-  const genreCode =
-    useSelector((state) => state.currentSongArtistList.genre) || 'POP';
+  const { genreCode, searchQuery } = useSelector((state) => state.currentSongArtistList);
+  const { data, isFetching, error } = useGetWorldChartsByGenreOrSearchQuery({ genreCode: genreCode || 'POP', searchQuery, });
 
-  const searchQuery = useSelector(
-    (state) => state.currentSongArtistList.searchQuery
-  );
+  if (isFetching) return '...Loading - Test Loader';
 
-  const isSearch = searchQuery ? true : false;
-
-  const { data, isFetching, error } = useGetWorldChartsByGenreOrSearchQuery({
-    genreCode,
-    searchQuery,
-  });
-
-  console.log('data:', data);
-
-  if (isFetching) {
-    return '...Loading - Test Loader';
-  }
-
-  if (error) {
-    return 'Error - Test Error';
-  }
+  if (error) return 'Error - Test Error';
 
   return (
     <MainContentWrapper>
@@ -37,7 +20,7 @@ const Home = () => {
         <TopCharts />
       </SmallerDeviceWrapper>
       <Genres />
-      <SongArtistList data={data} isSearch={isSearch} />
+      <SongArtistList data={data} isSearch={!!searchQuery} />
     </MainContentWrapper>
   );
 };

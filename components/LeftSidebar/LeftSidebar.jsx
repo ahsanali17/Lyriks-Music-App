@@ -1,15 +1,7 @@
 import Link from 'next/link';
 
 import { Logo } from '..';
-import {
-  SidebarWrapper,
-  SidebarItemContainer,
-  SidebarItemList,
-  ItemIcon,
-  ItemLabel,
-  ItemContainer,
-  Divider,
-} from './styles.js';
+import { SidebarWrapper, SidebarItemList, ItemIcon, ItemLabel, ItemContainer, Divider } from './styles.js';
 import sidebarIcons from '../../assets/images/sidebarIcons/index';
 
 const linksArray = [
