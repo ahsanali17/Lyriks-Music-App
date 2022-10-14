@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { playPause } from '../../redux/features/musicPlayer';
 
@@ -21,7 +21,8 @@ const MusicPlayer = () => {
   const [appTime, setAppTime] = useState(0);
 
   const [volume, setVolume] = useState(0.3);
-
+  
+  const audioRef = useRef();
   
   // Logic will be handled here for all the dispatches 
   
@@ -64,6 +65,7 @@ const MusicPlayer = () => {
               currentIndex={currentIndex}
               onTimeUpdate={(event) => setAppTime(event.target.currentTime)}
               onLoadedData={(event) => setDuration(event.target.duration)}
+              ref={audioRef}
             />
             <VolumeBar
               value={volume}
