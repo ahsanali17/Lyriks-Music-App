@@ -1,44 +1,15 @@
-import {
-  pop,
-  hipHop,
-  dance,
-  electronic,
-  soul,
-  alternative,
-  rock,
-  latin,
-  film,
-  country,
-  worldwide,
-  kPop,
-} from '../assets/genreImages';
+import { pop, hipHop, dance, electronic, soul, alternative, rock, latin, film, country, worldwide, kPop } from '../assets/genreImages';
 
 export const SHAZAM_CORE_API_URL = 'https://shazam-core.p.rapidapi.com/v1';
 export const SHAZAM_CORE_API_HOST = 'shazam-core.p.rapidapi.com';
 
-export const genreImages = [
-  pop,
-  hipHop,
-  dance,
-  electronic,
-  soul,
-  alternative,
-  rock,
-  latin,
-  film,
-  country,
-  worldwide,
-  kPop,
-];
+export const genreImages = [ pop, hipHop, dance, electronic, soul, alternative, rock, latin, film, country, worldwide, kPop ];
 
 export const allGenresWithColors = {
   POP: ['Pop', 'linear-gradient(to bottom, #de6161, #2657eb)'],
   HIP_HOP_RAP: ['Hip-Hop', 'linear-gradient(to bottom, #f7ff00, #db36a4)'],
   DANCE: ['Dance', 'linear-gradient(to bottom, #dd3e54, #6be585)'],
-  ELECTRONIC: [
-    'Electronic',
-    'linear-gradient(to bottom, #5433ff, #20bdff, #a5fecb)',
-  ],
+  ELECTRONIC: ['Electronic', 'linear-gradient(to bottom, #5433ff, #20bdff, #a5fecb)'],
   SOUL_RNB: ['Soul', 'linear-gradient(to bottom, #ef32d9, #89fffd)'],
   ALTERNATIVE: ['Alternative', 'linear-gradient(to bottom, #fc354c, #0abfbc)'],
   ROCK: ['Rock', 'linear-gradient(to bottom, #b92b27, #1565c0)'],
@@ -77,6 +48,22 @@ export const COLORS = {
       hsl(44deg 54% 61%) 25%,
       hsl(42deg 50% 24%) 62.5%,
       hsl(42deg 50% 24%) 100%
+    )`,
+    goldLight: `radial-gradient(
+      ellipse farthest-corner at center,
+      hsl(49deg 99% 41%) 0%,
+      hsl(40deg 98% 49%) 8%,
+      hsl(41deg 60% 89%) 30%,
+      hsl(42deg 49% 56%) 40%,
+      transparent 80%
+    ),
+    radial-gradient(
+      ellipse farthest-corner at left top,
+      hsl(0deg 0% 100%) 0%,
+      hsl(60deg 100% 94%) 8%,
+      hsl(44deg 54% 71%) 25%,
+      hsl(42deg 50% 44%) 62.5%,
+      hsl(42deg 50% 54%) 100%
     )`,
     goldTransparent: `radial-gradient(
       ellipse farthest-corner at right bottom,
@@ -117,9 +104,10 @@ export const COLORS = {
 
 const BREAKPOINTS = {
   largeDevice: 1525,
-  mediumLarge: 1100,
-  medium: 800,
-  small: 550,
+  mediumLarge: 1280,
+  medium: 900,
+  small: 580,
+  verySmall: 350,
 };
 
 export const QUERIES = {
@@ -127,4 +115,20 @@ export const QUERIES = {
   mediumLargeAndDown: `max-width: ${BREAKPOINTS.mediumLarge}px`,
   mediumAndDown: `max-width: ${BREAKPOINTS.medium}px`,
   smallAndDown: `max-width: ${BREAKPOINTS.small}px`,
+  verySmallAndDown: `max-width: ${BREAKPOINTS.verySmall}px`,
+};
+
+export const JSQueries = {
+  largeAndDown() {
+    return globalThis.window?.matchMedia(`(${QUERIES.largeAndDown})`).matches;
+  },
+  mediumLargeAndDown() {
+    return globalThis.window?.matchMedia(`(${QUERIES.mediumLargeAndDown})`).matches;
+  },
+  mediumAndDown() {
+    return globalThis.window?.matchMedia(`(${QUERIES.mediumAndDown})`).matches;
+  },
+  smallAndDown() {
+    return globalThis.window?.matchMedia(`(${QUERIES.smallAndDown})`).matches;
+  },
 };

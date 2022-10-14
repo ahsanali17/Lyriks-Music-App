@@ -25,7 +25,6 @@ export const currentSongArtistList = createSlice({
   },
 });
 
-export const { selectGenre, setSearchQuery, setDiscoverGenre } =
-  currentSongArtistList.actions;
+export const { selectGenre, setSearchQuery, setDiscoverGenre } = currentSongArtistList.actions;
 
 export default currentSongArtistList.reducer;
