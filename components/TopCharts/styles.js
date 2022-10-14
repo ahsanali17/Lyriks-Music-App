@@ -3,14 +3,10 @@ import styled from 'styled-components';
 export const TopChartsWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  flex: 1;
 
   height: 100%;
-  width: 100%;
   padding: 40px;
-
-  @media (${(props) => props.theme.queries.mediumLargeAndDown}) {
-    padding: 0;
-  }
 `;
 
 export const TopChartHeading = styled.div`
@@ -33,14 +29,24 @@ export const TopChartHeading = styled.div`
 export const ChartsList = styled.ol`
   display: flex;
   flex-direction: column;
-  gap: 50px;
+
   height: 100%;
   width: 100%;
+
+  gap: 50px;
+  height: 100%;
   margin-top: 40px;
+
+  @media (${(props) => props.theme.queries.mediumLargeAndDown}) {
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 export const Chart = styled.li`
   display: flex;
+  width: 100%;
   height: 100%;
 
   list-style: none;
@@ -53,8 +59,11 @@ export const Chart = styled.li`
   }
 
   @media (${(props) => props.theme.queries.mediumLargeAndDown}) {
-    width: 100%;
     gap: 10px;
+
+    img {
+      flex: 1;
+    }
   }
 `;
 
@@ -62,18 +71,22 @@ export const Number = styled.h6`
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 0.75rem;
   margin-right: 15px;
 
-  font-size: 0.75rem;
+  @media (${(props) => props.theme.queries.mediumLargeAndDown}) {
+    flex: 1;
+    margin-right: 0;
+  }
 `;
 
 export const ChartTextContainer = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  flex: 1;
 
-  width: 100%;
   height: 100%;
-  padding-top: 10px;
   padding-left: 40px;
 
   line-height: 2;
@@ -107,5 +120,9 @@ export const ChartTextContainer = styled.div`
         text-decoration: underline;
       }
     }
+  }
+
+  @media (${(props) => props.theme.queries.mediumLargeAndDown}) {
+    gap: 10px;
   }
 `;
