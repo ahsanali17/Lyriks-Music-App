@@ -1,44 +1,15 @@
-import {
-  pop,
-  hipHop,
-  dance,
-  electronic,
-  soul,
-  alternative,
-  rock,
-  latin,
-  film,
-  country,
-  worldwide,
-  kPop,
-} from '../assets/genreImages';
+import { pop, hipHop, dance, electronic, soul, alternative, rock, latin, film, country, worldwide, kPop } from '../assets/genreImages';
 
 export const SHAZAM_CORE_API_URL = 'https://shazam-core.p.rapidapi.com/v1';
 export const SHAZAM_CORE_API_HOST = 'shazam-core.p.rapidapi.com';
 
-export const genreImages = [
-  pop,
-  hipHop,
-  dance,
-  electronic,
-  soul,
-  alternative,
-  rock,
-  latin,
-  film,
-  country,
-  worldwide,
-  kPop,
-];
+export const genreImages = [ pop, hipHop, dance, electronic, soul, alternative, rock, latin, film, country, worldwide, kPop ];
 
 export const allGenresWithColors = {
   POP: ['Pop', 'linear-gradient(to bottom, #de6161, #2657eb)'],
   HIP_HOP_RAP: ['Hip-Hop', 'linear-gradient(to bottom, #f7ff00, #db36a4)'],
   DANCE: ['Dance', 'linear-gradient(to bottom, #dd3e54, #6be585)'],
-  ELECTRONIC: [
-    'Electronic',
-    'linear-gradient(to bottom, #5433ff, #20bdff, #a5fecb)',
-  ],
+  ELECTRONIC: ['Electronic', 'linear-gradient(to bottom, #5433ff, #20bdff, #a5fecb)'],
   SOUL_RNB: ['Soul', 'linear-gradient(to bottom, #ef32d9, #89fffd)'],
   ALTERNATIVE: ['Alternative', 'linear-gradient(to bottom, #fc354c, #0abfbc)'],
   ROCK: ['Rock', 'linear-gradient(to bottom, #b92b27, #1565c0)'],
@@ -152,8 +123,7 @@ export const JSQueries = {
     return globalThis.window?.matchMedia(`(${QUERIES.largeAndDown})`).matches;
   },
   mediumLargeAndDown() {
-    return globalThis.window?.matchMedia(`(${QUERIES.mediumLargeAndDown})`)
-      .matches;
+    return globalThis.window?.matchMedia(`(${QUERIES.mediumLargeAndDown})`).matches;
   },
   mediumAndDown() {
     return globalThis.window?.matchMedia(`(${QUERIES.mediumAndDown})`).matches;

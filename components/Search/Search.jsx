@@ -9,9 +9,7 @@ const Search = () => {
   const dispatch = useDispatch();
   const [text, setText] = useState('');
 
-  const handleInput = (e) => {
-    return setText(e.target.value);
-  };
+  const handleInput = (e) => setText(e.target.value);
 
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
