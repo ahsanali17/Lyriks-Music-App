@@ -1,28 +1,16 @@
 import Image from 'next/image';
 
-import { useGetWorldChartsQuery } from '../../services/shazamCoreApi';
-import { returnFirst5ValidTopCharts } from '../../utils/validationFunctions';
-import {
-  TopChartsWrapper,
-  TopChartHeading,
-  ChartsList,
-  Chart,
-  Number,
-  ChartTextContainer,
-} from './styles';
+import { useGetWorldChartsQuery } from '../../redux/services/shazamCoreApi';
+import { TopChartsWrapper, TopChartHeading, ChartsList, Chart, Number, ChartTextContainer } from './styles';
 
 const TopCharts = () => {
   const { data, isFetching, error } = useGetWorldChartsQuery();
 
-  if (isFetching) {
-    return 'Loading...';
-  }
+  if (isFetching) return 'Loading...';
 
-  if (error) {
-    return 'Error';
-  }
+  if (error)  return 'Error';
 
-  const top5Charts = returnFirst5ValidTopCharts(data);
+  const top5Charts = data.filter((artist) => artist?.images?.coverart).slice(0, 5);
 
   return (
     <TopChartsWrapper>

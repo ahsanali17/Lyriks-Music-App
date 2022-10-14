@@ -3,27 +3,14 @@ import { ImArrowLeft, ImArrowRight } from 'react-icons/im';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRef } from 'react';
 
-import {
-  GenresWrapper,
-  GenreHeading,
-  GenresList,
-  GradientBackground,
-  ArrowsWrapper,
-  GenreCard,
-  ImageWrapper,
-  CurrentGenreContainer,
-} from './styles';
+import { GenresWrapper, GenreHeading, GenresList, GradientBackground, ArrowsWrapper, GenreCard, ImageWrapper, CurrentGenreContainer } from './styles';
 import { genreImages } from '../../utils/constants';
 import { allGenresWithColors } from '../../utils/constants';
-import {
-  selectGenre,
-  setDiscoverGenre,
-} from '../../features/currentSongArtistList';
+import { selectGenre, setDiscoverGenre } from '../../redux/features/currentSongArtistList';
 
 const Genres = () => {
   const dispatch = useDispatch();
-  const currentDiscoverGenre =
-    useSelector((state) => state.currentSongArtistList.discoverGenre) || 'Pop';
+  const { currentDiscoverGenre, searchQuery } = useSelector((state) => state.currentSongArtistList);
 
   const scrollRef = useRef(null);
   const uiGenres = Object.values(allGenresWithColors);
@@ -49,11 +36,7 @@ const Genres = () => {
     }
   };
 
-  const handleScroll = (scrollDirection) => {
-    return function () {
-      scroll(scrollDirection);
-    };
-  };
+  const handleScroll = (scrollDirection) => scroll(scrollDirection);
 
   return (
     <>
@@ -61,8 +44,8 @@ const Genres = () => {
         <GenreHeading>
           <h2>Genres</h2>
           <ArrowsWrapper>
-            <ImArrowLeft onClick={handleScroll('left')} />
-            <ImArrowRight onClick={handleScroll('right')} />
+            <ImArrowLeft onClick={() => handleScroll('left')} />
+            <ImArrowRight onClick={() => handleScroll('right')} />
           </ArrowsWrapper>
         </GenreHeading>
 
@@ -85,8 +68,17 @@ const Genres = () => {
         </GenresList>
       </GenresWrapper>
       <CurrentGenreContainer>
-        <h1>Discover:</h1>
-        <h2>{currentDiscoverGenre}</h2>
+        {searchQuery ? (
+          <>
+            <h1>Search Results for:</h1>
+            <h2>{searchQuery}</h2>
+          </>
+        ) : (
+          <>
+            <h1>Discover:</h1>
+            <h2>{currentDiscoverGenre || 'POP'}</h2>
+          </>
+        )}
       </CurrentGenreContainer>
     </>
   );
