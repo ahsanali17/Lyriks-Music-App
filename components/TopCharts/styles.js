@@ -3,9 +3,9 @@ import styled from 'styled-components';
 export const TopChartsWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  flex: 1;
 
   height: 100%;
-  width: 100%;
   padding: 40px;
 `;
 
@@ -19,15 +19,29 @@ export const TopChartHeading = styled.div`
     -moz-background-clip: text;
     -moz-text-fill-color: transparent;
   }
+
+  @media (${(props) => props.theme.queries.mediumLargeAndDown}) {
+    margin: 20px 0;
+    align-self: center;
+  }
 `;
 
 export const ChartsList = styled.ol`
   display: flex;
   flex-direction: column;
-  gap: 50px;
+
   height: 100%;
   width: 100%;
+
+  gap: 50px;
+  height: 100%;
   margin-top: 40px;
+
+  @media (${(props) => props.theme.queries.mediumLargeAndDown}) {
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 export const Chart = styled.li`
@@ -43,31 +57,46 @@ export const Chart = styled.li`
         props.theme.colors.gradients.goldVeryTransparent};
     }
   }
+
+  @media (${(props) => props.theme.queries.mediumLargeAndDown}) {
+    gap: 10px;
+
+    img {
+      flex: 1;
+    }
+  }
 `;
 
 export const Number = styled.h6`
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 0.75rem;
   margin-right: 15px;
 
-  font-size: 0.75rem;
+  @media (${(props) => props.theme.queries.mediumLargeAndDown}) {
+    flex: 1;
+    margin-right: 0;
+  }
 `;
 
 export const ChartTextContainer = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  flex: 1;
 
-  width: 100%;
   height: 100%;
-  padding-top: 10px;
   padding-left: 40px;
 
   line-height: 2;
 
+  overflow: hidden;
+
   h5 {
-    width: max-content;
-    height: max-content;
+    width: fit-content;
+    height: fit-content;
+    text-overflow: ellipsis;
 
     cursor: pointer;
 
@@ -79,8 +108,9 @@ export const ChartTextContainer = styled.div`
   }
 
   h6 {
-    width: max-content;
-    height: max-content;
+    width: fit-content;
+    height: fit-content;
+    text-overflow: ellipsis;
 
     color: ${(props) => props.theme.colors.grays[200]};
     cursor: pointer;
@@ -90,5 +120,9 @@ export const ChartTextContainer = styled.div`
         text-decoration: underline;
       }
     }
+  }
+
+  @media (${(props) => props.theme.queries.mediumLargeAndDown}) {
+    gap: 10px;
   }
 `;

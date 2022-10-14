@@ -1,21 +1,18 @@
-import { SongArtistCard } from '../';
-import { CardWrapper } from './styles';
-import { urlSuccess } from '../../utils/validationFunctions';
 import { useSelector } from 'react-redux';
 
-const SongArtistList = ({ data, isSearch }) => {
-  let hasCoverArt;
-  const { activeSong, isPlaying } = useSelector((state) => state.musicPlayer);
+import { SongArtistCard } from '../';
+import { CardWrapper } from './styles';
 
-  if (isSearch) {
-    data = data.tracks.hits.map(({ track }) => track);
-  }
+const SongArtistList = ({ data, isSearch }) => {
+  const { activeSong, isPlaying } = useSelector((state) => state.musicPlayer);
+  const dataFromSearch = data?.tracks?.hits?.map(({ track }) => track);
+
+  const dataToRender = isSearch ? dataFromSearch : data
   
   return (
     <CardWrapper>
-      {data.map(({images, title, subtitle, hub}, idx) => {
-        hasCoverArt = images.coverart && urlSuccess(images.coverart);
-        if (hasCoverArt && title && subtitle) {
+      {dataToRender?.map(({images, title, subtitle, hub}, idx) => {
+        if (images.coverart && title && subtitle) {
           return (
             <SongArtistCard
               key={idx}
@@ -24,7 +21,7 @@ const SongArtistList = ({ data, isSearch }) => {
               subtitle={subtitle}
               activeSong={activeSong}
               isPlaying={isPlaying}
-              song={hub?.actions[1]?.uri}
+              song={hub?.actions[1]?.uri && hub?.actions[1]?.uri}
               data={data[idx]}
               i={idx}
             />

@@ -46,6 +46,10 @@ export const GradientWrapper = styled.div`
 
     color: ${(props) => props.theme.colors.white};
     background-color: ${(props) => props.theme.colors.blacks[300]};
+
+    &:focus {
+      box-shadow: 0px 0px 8px 4px ${(props) => props.theme.colors.white};
+    }
   }
 `;
 
