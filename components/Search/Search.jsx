@@ -1,8 +1,13 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { BsSearch } from 'react-icons/bs';
-
-import { SearchWrapper, GradientWrapper, IconWrapper } from './styles';
+import { GiHamburgerMenu } from 'react-icons/gi';
+import {
+  SearchWrapper,
+  GradientWrapper,
+  IconWrapper,
+  MenuIconWrapper,
+} from './styles';
 import { setSearchQuery } from '../../redux/features/currentSongArtistList';
 
 const Search = () => {
@@ -21,6 +26,9 @@ const Search = () => {
 
   return (
     <SearchWrapper>
+      <MenuIconWrapper>
+        <GiHamburgerMenu />
+      </MenuIconWrapper>
       <GradientWrapper>
         <IconWrapper>
           <BsSearch />
