@@ -12,7 +12,9 @@ export const TopArtistsWrapper = styled.div`
 
   font-size: 1.5rem;
 
-  margin-top: -80px;
+  @media (pointer: coarse) {
+    margin-top: -40px;
+  }
 
   @media (${(props) => props.theme.queries.verySmallAndDown}) {
     font-size: 1.25rem;

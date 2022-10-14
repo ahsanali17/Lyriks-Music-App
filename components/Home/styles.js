@@ -19,7 +19,9 @@ export const MainContentWrapper = styled.main`
 
   background: ${(props) => props.theme.colors.gradients.blackRight};
 
-  gap: 80px;
+  @media (pointer: coarse) {
+    gap: 20px;
+  }
 
   @media (pointer: coarse) {
     display: grid;
