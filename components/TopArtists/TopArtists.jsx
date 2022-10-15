@@ -13,7 +13,22 @@ const TopArtists = () => {
 
   if (error) return <Error />;
 
-  const top5Artists = data.filter((artist) => artist?.images?.background).slice(0, 5);
+  const uniqueArtistsData = (arrOfArtists) => {
+    let artistNames = [];
+
+    return arrOfArtists.map(artist => {
+      if(!artistNames.includes(artist?.subtitle)) {
+        artistNames.push(artist?.subtitle);
+        return artist
+      } else {
+        return {};
+      }
+    })
+  }
+
+  const top5Artists = uniqueArtistsData(data).filter(artist => {
+    return artist?.images?.background && artist?.subtitle
+  })
 
   const orderedTop5Artists = [
     top5Artists[3],
