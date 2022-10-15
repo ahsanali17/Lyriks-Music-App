@@ -20,7 +20,7 @@ export const PlayOrPauseWrapper = styled.div`
   --tw-bg-opacity: 0.5;
   justify-content: center;
   align-items: center;
-  display: none;
+  display: contents;
   position: absolute;
 `;
 

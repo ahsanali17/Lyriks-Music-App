@@ -9,7 +9,6 @@ import { LeftSidebar, MusicPlayer, RightSidebar } from '../index';
 const Layout = ({ children }) => {
   const { isActive, activeSong } = useSelector((state) => state.musicPlayer);
 
-  const issdef = !isActive;
   return (
     <LayoutWrapper>
       <GlobalStyles />
