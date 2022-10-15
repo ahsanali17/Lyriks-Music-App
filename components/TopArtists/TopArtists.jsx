@@ -4,7 +4,6 @@ import Image from 'next/image';
 import { Loader, Error } from '../';
 import { TopArtistsWrapper, Heading, ArtistCardsWrapper, ArtistGradientWrapper, ArtistWrapper, TouchScreenHeading, TouchScreenTextWrapper } from './styles';
 import { useGetWorldChartsByGenreOrSearchQuery } from '../../redux/services/shazamCoreApi';
-import { returnFirst5ValidArtists } from '../../utils/validationFunctions';
 
 const TopArtists = () => {
   const genreCode = useSelector((state) => state.currentSongArtistList.genreCode) || 'POP';
@@ -14,7 +13,7 @@ const TopArtists = () => {
 
   if (error) return <Error />;
 
-  const top5Artists = returnFirst5ValidArtists(data);
+  const top5Artists = data.filter((artist) => artist?.images?.background).slice(0, 5);
 
   const orderedTop5Artists = [
     top5Artists[3],
