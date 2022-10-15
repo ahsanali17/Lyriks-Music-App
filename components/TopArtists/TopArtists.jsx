@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux';
 import Image from 'next/image';
 
+import { Loader, Error } from '../';
 import { TopArtistsWrapper, Heading, ArtistCardsWrapper, ArtistGradientWrapper, ArtistWrapper, TouchScreenHeading, TouchScreenTextWrapper } from './styles';
-import { Loader } from '../';
 import { useGetWorldChartsByGenreOrSearchQuery } from '../../redux/services/shazamCoreApi';
 import { returnFirst5ValidArtists } from '../../utils/validationFunctions';
 
@@ -12,7 +12,7 @@ const TopArtists = () => {
 
   if (isFetching) return <Loader />;
 
-  if (error) return 'Error - Test Error';
+  if (error) return <Error />;
 
   const top5Artists = returnFirst5ValidArtists(data);
 

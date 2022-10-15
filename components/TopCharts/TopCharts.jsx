@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
 import { useGetWorldChartsQuery } from '../../redux/services/shazamCoreApi';
-import { Loader } from '../';
+import { Loader, Error } from '../';
 import { TopChartsWrapper, TopChartHeading, ChartsList, Chart, Number, ChartTextContainer } from './styles';
 
 const TopCharts = () => {
@@ -9,7 +9,7 @@ const TopCharts = () => {
 
   if (isFetching) return <Loader />;
 
-  if (error)  return 'Error';
+  if (error)  return <Error />;
 
   const top5Charts = data.filter((artist) => artist?.images?.coverart).slice(0, 5);
 

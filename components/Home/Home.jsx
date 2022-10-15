@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 
 import { MainContentWrapper, SmallerDeviceWrapper } from './styles';
-import { Search, TopArtists, TopCharts, Genres, SongArtistList, Loader } from '..';
+import { Search, TopArtists, TopCharts, Genres, SongArtistList, Loader, Error } from '..';
 import { useGetWorldChartsByGenreOrSearchQuery } from '../../redux/services/shazamCoreApi';
 
 const Home = () => {
@@ -10,7 +10,7 @@ const Home = () => {
 
   if (isFetching) return <Loader />;
 
-  if (error) return 'Error - Test Error';
+  if (error) return <Error />;
 
   return (
     <MainContentWrapper>
