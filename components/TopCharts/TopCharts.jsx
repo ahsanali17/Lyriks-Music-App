@@ -20,7 +20,7 @@ const TopCharts = () => {
       </TopChartHeading>
       <ChartsList>
         {top5Charts.map(({ images, title, subtitle }, idx) => (
-          <Chart>
+          <Chart key={idx}>
             <Number>{idx + 1}</Number>
             <Image
               src={images.coverart}
