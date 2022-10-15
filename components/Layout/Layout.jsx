@@ -17,9 +17,7 @@ const Layout = ({ children }) => {
         <LeftSidebar />
         {children}
         <RightSidebar />
-        {activeSong?.length && isActive &&
-          (<MusicPlayer />)
-        }
+        {activeSong?.length && isActive && <MusicPlayer />}
       </HomeWrapper>
     </LayoutWrapper>
   );
