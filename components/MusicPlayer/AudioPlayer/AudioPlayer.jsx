@@ -1,22 +1,39 @@
-import React from 'react'
+import React, {useRef, useEffect } from 'react'
 
-const AudioPlayer = ({activeSong, isPlaying, currentIndex }) => {
+const AudioPlayer = ({activeSong, isPlaying, volume, seekTime, onTimeUpdate, onLoadedData}) => {
+
+  const audioRef = useRef(null);
+
+  if (audioRef.current) {
+    if (isPlaying) {
+      audioRef.current.play();
+    } else {
+      audioRef.current.pause();
+    }
+  }
+  // useEffect(() => {
+  //   audioRef.current.volume = volume;
+  // }, [volume]);
+  
+  // useEffect(() => {
+  //   audioRef.current.currentTime = seekTime;
+  // }, [seekTime]);
+  
   return (
    <>
     {isPlaying ? (
-      <audio autoPlay src={activeSong} type='audio/mp3' /> 
+      <audio 
+        autoPlay 
+        type='audio/mp3' 
+        src={activeSong} 
+        // ref={audioRef}
+        onTimeUpdate={onTimeUpdate}
+        onLoadedData={onLoadedData}
+        
+      /> 
     ) : ''}
    </>       
   )
 }
 
 export default AudioPlayer
-
-// <audio 
-//       src={activeSong}   
-//       autoplay
-//       type='audio/mp3' 
-//       onTimeUpdate={onTimeUpdate}
-//       onLoadedDate={onLoadedDate}
-//     />
-

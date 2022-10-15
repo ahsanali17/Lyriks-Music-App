@@ -1,29 +1,31 @@
-import React from 'react'
-import { SliderContainer, ProgressBarCover, Thumb, AudioInput} from './styles';
+import React, {useState, useRef} from 'react'
+import { SliderContainer, ProgressBarCover, Thumb, AudioInputSlider} from './styles';
 
-const SeekBar = ({ value, min, max, onInput }) => {
-  const getTime = (time) => `${Math.floor(time / 60)}:${(`0${Math.floor(time % 60)}`).slice(-2)}`;
+const SeekBar = ({ value, min, max, onInput, onChange, percentage }) => {
+  
+  const getTime = (time) => `${Math.floor(time / 60)}:${(`0${Math.floor(time % 60)}`).slice(-2)}`; 
+  
+  
+  console.log(percentage);
+  
   
   return (
     <>
-      {/* <p className="text-white">{value === 0 ? '0:00' : getTime(value)}</p>
-      <input 
-        value={value}
-        min={min}
-        max={max}
-      />
-      <p className="text-white">{max === 0 ? '0:00' : getTime(max)}</p> */}
-      
       <SliderContainer>
         <ProgressBarCover></ProgressBarCover>
         <Thumb />
-        <AudioInput 
+        <p className="text-white">{value === 0 ? '0:00' : getTime(value)}</p>
+        <AudioInputSlider 
+          onChange={onChange}
+          percentage={percentage}
           type="range"
           value={value}
-          step="0.01"
+          step="any"
           min={min}
           max={max}
-        />
+          onInput={onInput}
+          />
+        <p className="text-white">{max === 0 ? '0:00' : getTime(max)}</p>
       </SliderContainer>
     </>
   )

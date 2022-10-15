@@ -18,11 +18,20 @@ const MusicPlayer = () => {
   const { activeSong, isActive, isPlaying, currentSongData, currentIndex } = useSelector((state) => state.musicPlayer);
   
   const [duration, setDuration] = useState(0);
+  
+  
+  const [seekTime, setSeekTime] = useState(0);
   const [appTime, setAppTime] = useState(0);
 
   const [volume, setVolume] = useState(0.3);
   
-  const audioRef = useRef();
+ 
+  const [percentage, setPercentage] = useState(0);
+  
+  const onChange = (e) => {
+    setPercentage(e.target.value);
+  }
+  
   
   // Logic will be handled here for all the dispatches 
   
@@ -51,9 +60,13 @@ const MusicPlayer = () => {
               handlePlayPause={handlePlayPause}
             />
             <SeekBar 
+              onChange={onChange}
+              percentage={percentage}
               value={appTime}
               min="0"
               max={duration}
+              onInput={(e) => setSeekTime(e.target.value)}
+              setSeekTime={setSeekTime}
               appTime={appTime}
             />
           </ControlSeekbarWrapper>
@@ -61,11 +74,11 @@ const MusicPlayer = () => {
           <AudioPlayerVolumeBarWrapper>
             <AudioPlayer
               activeSong={activeSong}
+              volume={volume}
               isPlaying={isPlaying}
               currentIndex={currentIndex}
               onTimeUpdate={(event) => setAppTime(event.target.currentTime)}
               onLoadedData={(event) => setDuration(event.target.duration)}
-              ref={audioRef}
             />
             <VolumeBar
               value={volume}

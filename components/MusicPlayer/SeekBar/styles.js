@@ -49,10 +49,10 @@ export const Thumb = styled.div`
  user-select: none;
  `;
  
- export const AudioInput = styled.input`
+ export const AudioInputSlider = styled.input`
  -webkit-appearance: none;
  background-color: rgba(240, 9, 9, 0.397);
- height: var(--progress-bar-height);
+ height: 10px;
  width: 100%;
  cursor: pointer;
  opacity: 1;
