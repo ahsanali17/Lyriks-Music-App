@@ -17,26 +17,28 @@ const MusicPlayer = () => {
   // Object that we will have to import from our feature slice
   const { activeSong, isActive, isPlaying, currentSongData, currentIndex } = useSelector((state) => state.musicPlayer);
   
-  const [duration, setDuration] = useState(0);
-  
-  
-  const [seekTime, setSeekTime] = useState(0);
-  const [appTime, setAppTime] = useState(0);
-
   const [volume, setVolume] = useState(0.3);
   
- 
   const [percentage, setPercentage] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const [currentTime, setCurrentTime] = useState(0);
+  
+  const audioRef = useRef();
   
   const onChange = (e) => {
-    setPercentage(e.target.value);
+    const audio = audioRef.current
+    audio.currentTime = (audio.duration / 100) * e.target.value
+    setPercentage(e.target.value)
   }
   
-  
-  // Logic will be handled here for all the dispatches 
-  
-  // Handle functions for dispatching the actions in control component
-  
+  const getCurrentDuration = (e) => {
+    const percent = ((e.currentTarget.currentTime / e.currentTarget.duration) * 100).toFixed(2)
+    const time = e.currentTarget.currentTime
+
+    setPercentage(+percent)
+    setCurrentTime(time.toFixed(2))
+  }
+
   const handlePlayPause = () => {
     if (!isActive) return;
 
@@ -50,36 +52,35 @@ const MusicPlayer = () => {
   return (
       <MusicPlayerWrapper>
         <MusicPlayerContainer>
-          <CurrentTrack 
-            currentSongData={currentSongData}
-            />
+          <CurrentTrack currentSongData={currentSongData} />
+          
           <ControlSeekbarWrapper>
             <Controls
               isPlaying={isPlaying}
               isActive={isActive}
               handlePlayPause={handlePlayPause}
             />
+            
             <SeekBar 
               onChange={onChange}
               percentage={percentage}
-              value={appTime}
+              value={currentTime}
               min="0"
               max={duration}
-              onInput={(e) => setSeekTime(e.target.value)}
-              setSeekTime={setSeekTime}
-              appTime={appTime}
             />
           </ControlSeekbarWrapper>
           
           <AudioPlayerVolumeBarWrapper>
             <AudioPlayer
               activeSong={activeSong}
-              volume={volume}
               isPlaying={isPlaying}
               currentIndex={currentIndex}
-              onTimeUpdate={(event) => setAppTime(event.target.currentTime)}
-              onLoadedData={(event) => setDuration(event.target.duration)}
+              onTimeUpdate={getCurrentDuration}
+              onLoadedData={(e) => {setDuration(e.currentTarget.duration.toFixed(2))
+              }}
+              audioRef={audioRef}
             />
+            
             <VolumeBar
               value={volume}
               min='0'
@@ -88,7 +89,6 @@ const MusicPlayer = () => {
               setVolume={setVolume}
             />
           </AudioPlayerVolumeBarWrapper>
-        
         </MusicPlayerContainer>
       </MusicPlayerWrapper>
     )

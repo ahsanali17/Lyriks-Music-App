@@ -3,7 +3,7 @@ import { TrackWrapper, CoverArtContainer, CoverArtImage, TitleContainer, Title, 
 
 const CurrentTrack = ({ currentSongData }) => {
   const {images, title, subtitle} = currentSongData;
-  console.log("images:", images, "title:", title, "subtitle:", subtitle)
+
   return (
     <TrackWrapper>
       <CoverArtContainer>

@@ -1,23 +1,6 @@
 import React, {useRef, useEffect } from 'react'
 
-const AudioPlayer = ({activeSong, isPlaying, volume, seekTime, onTimeUpdate, onLoadedData}) => {
-
-  const audioRef = useRef(null);
-
-  if (audioRef.current) {
-    if (isPlaying) {
-      audioRef.current.play();
-    } else {
-      audioRef.current.pause();
-    }
-  }
-  // useEffect(() => {
-  //   audioRef.current.volume = volume;
-  // }, [volume]);
-  
-  // useEffect(() => {
-  //   audioRef.current.currentTime = seekTime;
-  // }, [seekTime]);
+const AudioPlayer = ({activeSong, isPlaying, onTimeUpdate, onLoadedData, audioRef}) => {
   
   return (
    <>
@@ -26,10 +9,9 @@ const AudioPlayer = ({activeSong, isPlaying, volume, seekTime, onTimeUpdate, onL
         autoPlay 
         type='audio/mp3' 
         src={activeSong} 
-        // ref={audioRef}
+        ref={audioRef}
         onTimeUpdate={onTimeUpdate}
         onLoadedData={onLoadedData}
-        
       /> 
     ) : ''}
    </>       

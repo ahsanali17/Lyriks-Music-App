@@ -11,7 +11,7 @@ export const SliderContainer = styled.div`
  &::before {
   content: '';
   background-color: white;
-  width: 99%;
+  width: 80%;
   height: calc(var(--progress-bar-height) - 1px);
   display: block;
   position: absolute;
@@ -55,7 +55,7 @@ export const Thumb = styled.div`
  height: 10px;
  width: 100%;
  cursor: pointer;
- opacity: 1;
+ opacity: 0;
  margin: 0 auto;
  
  &::-webkit-slider-thumb {
