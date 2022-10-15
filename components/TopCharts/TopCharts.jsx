@@ -1,12 +1,13 @@
 import Image from 'next/image';
 
 import { useGetWorldChartsQuery } from '../../redux/services/shazamCoreApi';
+import { Loader } from '../';
 import { TopChartsWrapper, TopChartHeading, ChartsList, Chart, Number, ChartTextContainer } from './styles';
 
 const TopCharts = () => {
   const { data, isFetching, error } = useGetWorldChartsQuery();
 
-  if (isFetching) return 'Loading...';
+  if (isFetching) return <Loader />;
 
   if (error)  return 'Error';
 

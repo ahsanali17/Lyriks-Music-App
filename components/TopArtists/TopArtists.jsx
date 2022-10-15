@@ -2,14 +2,15 @@ import { useSelector } from 'react-redux';
 import Image from 'next/image';
 
 import { TopArtistsWrapper, Heading, ArtistCardsWrapper, ArtistGradientWrapper, ArtistWrapper, TouchScreenHeading, TouchScreenTextWrapper } from './styles';
+import { Loader } from '../';
 import { useGetWorldChartsByGenreOrSearchQuery } from '../../redux/services/shazamCoreApi';
 import { returnFirst5ValidArtists } from '../../utils/validationFunctions';
 
 const TopArtists = () => {
-  const genreCode = useSelector((state) => state.currentSongArtistList.genre) || 'POP';
+  const genreCode = useSelector((state) => state.currentSongArtistList.genreCode) || 'POP';
   const { data, isFetching, error } = useGetWorldChartsByGenreOrSearchQuery({ genreCode });
 
-  if (isFetching) return '...Loading - Test Loader';
+  if (isFetching) return <Loader />;
 
   if (error) return 'Error - Test Error';
 
