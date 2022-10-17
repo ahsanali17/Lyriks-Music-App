@@ -7,7 +7,7 @@ export const ErrorWrapper = styled.div`
 
   object-fit: contain;
 
-  height: 100%;
+  height: 100vh;
   width: 100%;
 
   padding-top: 100px;
