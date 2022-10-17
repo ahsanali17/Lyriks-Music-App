@@ -1,31 +1,35 @@
 import { useSelector } from 'react-redux';
-
-import {
-  TopArtistsWrapper,
-  ArtistCardsWrapper,
-  ArtistGradientWrapper,
-  ArtistWrapper,
-} from './styles';
-import { useGetWorldChartsByGenreOrSearchQuery } from '../../redux/services/shazamCoreApi';
 import Image from 'next/image';
-import { returnFirst5ValidArtists } from '../../utils/validationFunctions';
+
+import { Loader, Error } from '../';
+import { TopArtistsWrapper, Heading, ArtistCardsWrapper, ArtistGradientWrapper, ArtistWrapper, TouchScreenHeading, TouchScreenTextWrapper } from './styles';
+import { useGetWorldChartsByGenreOrSearchQuery } from '../../redux/services/shazamCoreApi';
 
 const TopArtists = () => {
-  const genreCode =
-    useSelector((state) => state.currentSongArtistList.genre) || 'POP';
-  const { data, isFetching, error } = useGetWorldChartsByGenreOrSearchQuery({
-    genreCode,
-  });
+  const genreCode = useSelector((state) => state.currentSongArtistList.genreCode) || 'POP';
+  const { data, isFetching, error } = useGetWorldChartsByGenreOrSearchQuery({ genreCode });
 
-  if (isFetching) {
-    return '...Loading - Test Loader';
+  if (isFetching) return <Loader />;
+
+  if (error) return <Error />;
+
+  const uniqueArtistsData = (arrOfArtists) => {
+    let artistNames = [];
+
+    return arrOfArtists.map(artist => {
+      if(!artistNames.includes(artist?.subtitle)) {
+        artistNames.push(artist?.subtitle);
+        return artist
+      } else {
+        return {};
+      }
+    })
   }
 
-  if (error) {
-    return 'Error - Test Error';
-  }
+  const top5Artists = uniqueArtistsData(data).filter(artist => {
+    return artist?.images?.background && artist?.subtitle
+  })
 
-  const top5Artists = returnFirst5ValidArtists(data);
   const orderedTop5Artists = [
     top5Artists[3],
     top5Artists[1],
@@ -37,10 +41,10 @@ const TopArtists = () => {
   return (
     <>
       <TopArtistsWrapper>
-        <h1>Top Artists</h1>
+        <Heading>Top Artists</Heading>
         <ArtistCardsWrapper>
-          {orderedTop5Artists.map(({ images, subtitle }, idx) => {
-            return (
+          <TouchScreenHeading>Top Artists</TouchScreenHeading>
+          {orderedTop5Artists.map(({ images, subtitle }, idx) => (
               <ArtistWrapper key={idx}>
                 <ArtistGradientWrapper>
                   <Image
@@ -52,9 +56,11 @@ const TopArtists = () => {
                   />
                   <h6>{subtitle}</h6>
                 </ArtistGradientWrapper>
+                <TouchScreenTextWrapper>
+                  <h6>{subtitle}</h6>
+                </TouchScreenTextWrapper>
               </ArtistWrapper>
-            );
-          })}
+            ))}
         </ArtistCardsWrapper>
       </TopArtistsWrapper>
     </>
