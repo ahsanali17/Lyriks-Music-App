@@ -10,7 +10,7 @@ export const LoaderWrapper = styled.div`
   height: 100vh;
   width: 100%;
 
-  padding-top: 100px;
+  margin-top: 100px;
 
   h1 {
     margin-top: 2px;
