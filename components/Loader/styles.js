@@ -12,6 +12,8 @@ export const LoaderWrapper = styled.div`
 
   padding-top: 100px;
 
+  background: ${(props) => props.theme.colors.gradients.blackRight};
+
   h1 {
     margin-top: 2px;
 
