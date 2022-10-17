@@ -65,3 +65,22 @@ export const IconWrapper = styled.div`
     color: ${(props) => props.theme.colors.grays[100]};
   }
 `;
+
+export const MenuIconWrapper = styled.div`
+  display: none;
+
+  @media (${(props) => props.theme.queries.mediumAndDown}) {
+    display: revert;
+    cursor: pointer;
+
+    svg {
+      width: 25px;
+      height: 25px;
+
+      position: absolute;
+      left: 20px;
+      top: 25px;
+      color: ${(props) => props.theme.colors.grays[100]};
+    }
+  }
+`;

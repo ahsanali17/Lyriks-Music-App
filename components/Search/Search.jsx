@@ -1,12 +1,14 @@
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { BsSearch } from 'react-icons/bs';
+import { GiHamburgerMenu } from 'react-icons/gi';
 
-import { SearchWrapper, GradientWrapper, IconWrapper } from './styles';
+import { SearchWrapper, GradientWrapper, IconWrapper, MenuIconWrapper } from './styles';
 import { setSearchQuery } from '../../redux/features/currentSongArtistList';
 
 const Search = () => {
   const dispatch = useDispatch();
+  const { searchQuery } = useSelector(state => state.currentSongArtistList);
   const [text, setText] = useState('');
 
   const handleInput = (e) => setText(e.target.value);
@@ -17,8 +19,15 @@ const Search = () => {
     }
   };
 
+  useEffect(() => {
+    if(searchQuery) setText(searchQuery);
+ }, [searchQuery])
+
   return (
     <SearchWrapper>
+      <MenuIconWrapper>
+        <GiHamburgerMenu />
+      </MenuIconWrapper>
       <GradientWrapper>
         <IconWrapper>
           <BsSearch />

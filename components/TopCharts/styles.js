@@ -7,6 +7,10 @@ export const TopChartsWrapper = styled.div`
 
   height: 100%;
   padding: 40px;
+
+  @media (${(props) => props.theme.queries.smallMediumAndDown}) {
+    padding: 0;
+  }
 `;
 
 export const TopChartHeading = styled.div`
@@ -47,7 +51,6 @@ export const ChartsList = styled.ol`
 export const Chart = styled.li`
   display: flex;
   width: 100%;
-  height: 100%;
 
   list-style: none;
 
@@ -65,6 +68,10 @@ export const Chart = styled.li`
       flex: 1;
     }
   }
+
+  @media (${(props) => props.theme.queries.smallMediumAndDown}) {
+    gap: 5px;
+  }
 `;
 
 export const Number = styled.h6`
@@ -77,6 +84,10 @@ export const Number = styled.h6`
   @media (${(props) => props.theme.queries.mediumLargeAndDown}) {
     flex: 1;
     margin-right: 0;
+  }
+
+  @media (${(props) => props.theme.queries.smallMediumAndDown}) {
+    flex: 0.25;
   }
 `;
 
