@@ -20,8 +20,8 @@ const Search = () => {
   };
 
   useEffect(() => {
-    searchQuery ?  setText(searchQuery) : text;
-  }, [searchQuery])
+    if(searchQuery) setText(searchQuery);
+ }, [searchQuery])
 
   return (
     <SearchWrapper>
