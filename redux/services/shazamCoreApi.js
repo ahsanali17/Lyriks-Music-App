@@ -22,10 +22,16 @@ export const shazamCoreApi = createApi({
       },
     }),
 
+    getArtistDetails: builder.query({
+      query: ({ artistCode }) => {
+        return `/artists/details?artist_id=${artistCode}`;
+      }
+    }),
+
     getWorldCharts: builder.query({
       query: () => `/charts/world`,
     }),
   }),
 });
 
-export const { useGetWorldChartsByGenreOrSearchQuery, useGetWorldChartsQuery } = shazamCoreApi;
+export const { useGetWorldChartsByGenreOrSearchQuery, useGetWorldChartsQuery, useGetArtistDetailsQuery, } = shazamCoreApi;
