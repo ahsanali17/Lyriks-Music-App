@@ -21,7 +21,8 @@ const SongArtistList = ({ data, isSearch }) => {
               subtitle={subtitle}
               activeSong={activeSong}
               isPlaying={isPlaying}
-              song={hub?.actions[1]?.uri && hub?.actions[1]?.uri}
+              song={hub?.actions[1]?.uri}
+              songList={data}
               data={data[idx]}
               i={idx}
             />
