@@ -5,7 +5,6 @@ import { playPause, nextSong, prevSong } from '../../redux/features/musicPlayer'
 import { 
   MusicPlayerWrapper, 
   MusicPlayerContainer, 
-  TrackWrapper,
   ControlSeekbarWrapper,
   AudioPlayerVolumeBarWrapper,
 } from './styles';
@@ -14,18 +13,14 @@ import { AudioPlayer, CurrentTrack, Controls, SeekBar, VolumeBar } from './index
 
 const MusicPlayer = () => {
   const dispatch = useDispatch();
-  // Object that we will have to import from our feature slice
   const { activeSong, isActive, isPlaying, currentSongData, currentIndex } = useSelector((state) => state.musicPlayer);
-  // console.log("currentSongData:",currentSongData);
   
   const [volume, setVolume] = useState(0.3);
   const [repeat, setRepeat] = useState(false);
   const [shuffle, setShuffle] = useState(false);
   
   const [duration, setDuration] = useState(0);
-  // Percentage that the seekbar has traveled for the duration of currently playing song
   const [percentage, setPercentage] = useState(0);
-  // The current time that the seekbar is on for the duration of the currently playing song
   const [currentTime, setCurrentTime] = useState(0);
   
   const audioRef = useRef(null);
@@ -37,24 +32,17 @@ const MusicPlayer = () => {
     if (isPlaying && isActive) {
       audio.currentTime = (audio.duration / 100) * e.target.value;
       setPercentage(e.target.value);
-      
-      console.log("audio", audio, "audio.currentTime", audio.currentTime);
     }
     else {
-      
+      //TODO: There is a bug here, audio.duration has no data inside it when the MusicPlayer is paused, considering using a state variable object to get around this bug
       audio.currentTime = (audio.duration / 100) * e.target.value;
       setPercentage(e.target.value);
     }
-  
-    // audioRef.currentTime = e.target.value;
-    // setPercentage(audioRef.currentTime);
   }
   
   const getCurrentDuration = (e) => {
     const percent = ((e.currentTarget.currentTime / e.currentTarget.duration) * 100).toFixed(2);
     const time = e.currentTarget.currentTime;
-    // console.log("percent", percent);
-    // console.log("time", time)
     setPercentage(+percent);
     setCurrentTime(time.toFixed(2));
   }
@@ -89,7 +77,6 @@ const MusicPlayer = () => {
     }
   };
 
-  // console.log("try to get the length", currentSongDataLengthIs);
   
   useEffect(() => {
     if (currentSongDataLengthIs) dispatch(playPause(true));
@@ -125,6 +112,7 @@ const MusicPlayer = () => {
           <AudioPlayerVolumeBarWrapper>
             <AudioPlayer
               activeSong={activeSong}
+              volume={volume}
               isPlaying={isPlaying}
               repeat={repeat}
               currentIndex={currentIndex}

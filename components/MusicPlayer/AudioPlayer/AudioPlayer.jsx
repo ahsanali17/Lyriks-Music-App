@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
-const AudioPlayer = ({activeSong, isPlaying, repeat, onEnded, onTimeUpdate, onLoadedData, audioRef}) => {
+const AudioPlayer = ({activeSong, volume, isPlaying, repeat, onEnded, onTimeUpdate, onLoadedData, audioRef}) => {
   
   if(audioRef.current) {
     if(isPlaying) {
@@ -11,6 +11,10 @@ const AudioPlayer = ({activeSong, isPlaying, repeat, onEnded, onTimeUpdate, onLo
     }
   }
 
+  useEffect(()=> {
+    audioRef.current.volume = volume;
+  }, [volume]);
+  
   return (
    <>
     {isPlaying ? (
