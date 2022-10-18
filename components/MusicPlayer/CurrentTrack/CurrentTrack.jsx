@@ -13,7 +13,6 @@ const CurrentTrack = ({ currentSongData }) => {
         <Title>{title}</Title>        
         <Subtitle>{subtitle}</Subtitle>
       </TitleContainer>
-    
     </TrackWrapper>
   )
 }

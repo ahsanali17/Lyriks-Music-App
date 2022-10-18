@@ -11,7 +11,6 @@ const SeekBar = ({ value, min, max, onChange, percentage = 0 }) => {
   
   const getTime = (time) => `${Math.floor(time / 60)}:${(`0${Math.floor(time % 60)}`).slice(-2)}`; 
   
-  
   useEffect(() => {
     const rangeWidth = rangeRef.current.getBoundingClientRect().width;
     const thumbWidth = thumbRef.current.getBoundingClientRect().width;

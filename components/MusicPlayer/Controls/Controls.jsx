@@ -4,10 +4,6 @@ import { MdSkipNext, MdSkipPrevious } from 'react-icons/md';
 import { BsArrowRepeat, BsFillPauseFill, BsFillPlayFill, BsShuffle } from 'react-icons/bs';
 
 const Controls = ({isPlaying, repeat, setRepeat, shuffle, setShuffle, currentSongDataLengthIs, handlePlayPause, handlePrevSong, handleNextSong}) => {
-  
-  // console.log("shuffle:", shuffle)
-  // console.log("repeat:", repeat)
-  
   return (
     <ControlWrapper>
     
