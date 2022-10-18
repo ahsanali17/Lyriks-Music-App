@@ -12,9 +12,15 @@ export const LoaderWrapper = styled.div`
 
   background: ${(props) => props.theme.colors.gradients.blackRight};
 
+
+  svg, img, span, path {
+    position: relative;
+    top: 150px;
+  }
+
   h1 {
     position: relative;
-    top: 100px;
+    top: 150px;
     font-weight: 500;
     color: ${props => props.theme.colors.white};
   }
