@@ -1,7 +1,16 @@
-import React, {useRef, useEffect } from 'react'
+import React from 'react'
 
-const AudioPlayer = ({activeSong, isPlaying, onTimeUpdate, onLoadedData, audioRef}) => {
+const AudioPlayer = ({activeSong, isPlaying, repeat, onEnded, onTimeUpdate, onLoadedData, audioRef}) => {
   
+  if(audioRef.current) {
+    if(isPlaying) {
+      audioRef.current.play();
+    } 
+    else {
+      audioRef.current.pause();
+    }
+  }
+
   return (
    <>
     {isPlaying ? (
@@ -9,7 +18,9 @@ const AudioPlayer = ({activeSong, isPlaying, onTimeUpdate, onLoadedData, audioRe
         autoPlay 
         type='audio/mp3' 
         src={activeSong} 
+        loop={repeat}
         ref={audioRef}
+        onEnded={onEnded}
         onTimeUpdate={onTimeUpdate}
         onLoadedData={onLoadedData}
       /> 
