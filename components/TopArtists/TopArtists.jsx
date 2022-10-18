@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { Loader, Error } from '../';
 import { TopArtistsWrapper, Heading, ArtistCardsWrapper, ArtistGradientWrapper, ArtistWrapper, TouchScreenHeading, TouchScreenTextWrapper } from './styles';
@@ -38,13 +39,16 @@ const TopArtists = () => {
     top5Artists[4],
   ];
 
+  console.log(orderedTop5Artists)
+
   return (
     <>
       <TopArtistsWrapper>
         <Heading>Top Artists</Heading>
         <ArtistCardsWrapper>
           <TouchScreenHeading>Top Artists</TouchScreenHeading>
-          {orderedTop5Artists.map(({ images, subtitle }, idx) => (
+          {orderedTop5Artists.map(({ images, subtitle, artists }, idx) => (
+            <Link href={`/artists/${artists[0].adamid}`}>
               <ArtistWrapper key={idx}>
                 <ArtistGradientWrapper>
                   <Image
@@ -60,6 +64,7 @@ const TopArtists = () => {
                   <h6>{subtitle}</h6>
                 </TouchScreenTextWrapper>
               </ArtistWrapper>
+            </Link>
             ))}
         </ArtistCardsWrapper>
       </TopArtistsWrapper>

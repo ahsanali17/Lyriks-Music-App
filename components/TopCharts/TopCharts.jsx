@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { useGetWorldChartsQuery } from '../../redux/services/shazamCoreApi';
 import { Loader, Error } from '../';
@@ -19,7 +20,7 @@ const TopCharts = () => {
         <h2>Top Charts</h2>
       </TopChartHeading>
       <ChartsList>
-        {top5Charts.map(({ images, title, subtitle }, idx) => (
+        {top5Charts.map(({ images, title, subtitle, artists}, idx) => (
           <Chart key={idx}>
             <Number>{idx + 1}</Number>
             <Image
@@ -30,7 +31,9 @@ const TopCharts = () => {
             />
             <ChartTextContainer>
               <h5>{title}</h5>
-              <h6>{subtitle}</h6>
+              <Link href={`/artists/${artists.length && artists[0]?.adamid}`}>
+                <h6>{subtitle}</h6>
+              </Link>
             </ChartTextContainer>
           </Chart>
         ))}
