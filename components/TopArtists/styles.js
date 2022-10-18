@@ -72,16 +72,15 @@ export const ArtistGradientWrapper = styled.div`
 `;
 
 export const ArtistWrapper = styled.div`
-  max-width: fit-content;
-  max-height: fit-content;
-
-  transition: transform 250ms;
+  width: fit-content;
+  height: fit-content;
 
   border-radius: 50%;
 
   cursor: pointer;
 
-  img {
+  img,
+  span {
     border-radius: 50%;
     max-width: fit-content;
     max-height: fit-content;
@@ -96,6 +95,8 @@ export const ArtistWrapper = styled.div`
 
     &:hover {
       img {
+        height: max-content;
+        width: max-content;
         border-radius: 50%;
         opacity: 0.5;
       }

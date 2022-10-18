@@ -1,11 +1,12 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { useDispatch } from 'react-redux';
 
 import { CardOverlay, CardWrapper, PlayOrPauseWrapper, TextContainer } from './styles';
 import { playPause, setActiveSong, setSongList } from '../../redux/features/musicPlayer';
 import { PlayOrPause } from '..';
 
-const SongArtistCard = ({coverArt, title, subtitle, activeSong, isPlaying, song, songList, data, i }) => {
+const SongArtistCard = ({coverArt, title, subtitle, artist, activeSong, isPlaying, song, songList, data, i }) => {
   const dispatch = useDispatch();
 
   const handlePlayClick = () => {
@@ -34,7 +35,9 @@ const SongArtistCard = ({coverArt, title, subtitle, activeSong, isPlaying, song,
         </PlayOrPauseWrapper>
         <TextContainer>
           <h3>{title}</h3>
-          <h5>{subtitle}</h5>
+          <Link href={`/artists/${artist}`}>
+            <h5>{subtitle}</h5>
+          </Link>
         </TextContainer>
       </CardWrapper>
     </CardOverlay>

@@ -76,7 +76,7 @@ const Genres = () => {
         ) : (
           <>
             <h1>Discover:</h1>
-            <h2>{currentDiscoverGenre || 'POP'}</h2>
+            <h2>{currentDiscoverGenre || 'Pop'}</h2>
           </>
         )}
       </CurrentGenreContainer>
