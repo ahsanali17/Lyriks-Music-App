@@ -6,16 +6,14 @@ const ArtistPage = ({ artistCode }) => {
   if (isFetching) return <Loader />;
 
   if (error) return <Error />;
-
-  return (
-    <div><ArtistInformation artistData={data}/></div>
-  )
+  
+  return <ArtistInformation artistData={data?.artists[artistCode]} songs={Object.values(data?.songs)} />;
 }
 
 export default ArtistPage;
 
 export const getServerSideProps = async (context) => {
-  const artistCode = context.params.id;
+  const artistCode = context?.params?.id;
 
   return {
     props: { artistCode },
