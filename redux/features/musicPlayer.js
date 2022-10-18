@@ -18,16 +18,12 @@ const musicPlayer = createSlice({
     state.currentSongData = action.payload.data;
     state.currentIndex = action.payload.i;
     state.isActive = true;
-    // console.log("activeSong:", state.activeSong);
-    console.log("currentSongState:", state.currentSongData);
-    // console.log("currentIndex:", state.currentIndex);
   },
   playPause: (state, action) => {
     state.isPlaying = action.payload;
   },
   setSongList: (state, action) => {
     state.songList = action.payload.songList;
-    // console.log("songList:", state.songList);
   },
   nextSong: (state, action) => {
     if (state.songList[action.payload]) {
@@ -36,12 +32,6 @@ const musicPlayer = createSlice({
     } else {
       state.activeSong = state.songList[action.payload].hub?.actions[1].uri;
     }
-    console.log("tracks?:", state.songList[action.payload]?.track);
-    console.log("object keys current songs uri:", 
-      state.songList[action.payload].hub?.actions[1].uri
-    );
-    console.log("nextSong, state.activeSong:", state.activeSong);
-    console.log("nextSong, state.currentSongData", state.currentSongData);
     state.currentIndex = action.payload;
     state.isActive = true;
   },
@@ -53,15 +43,8 @@ const musicPlayer = createSlice({
     } else {
       state.activeSong = state.songList[action.payload].hub?.actions[1].uri;
     }
-
     state.currentIndex = action.payload;
     state.isActive = true;
-    // console.log("object keys current index", 
-    // state.songList[action.payload].hub?.actions[1].uri);
-    console.log("prevSong, state.activeSong:", state.activeSong);
-    console.log("prevSong, state.currentSongData", state.currentSongData);
-    // console.log("state.currentIndex:", state.currentIndex);
-    
   },
  }
 })
