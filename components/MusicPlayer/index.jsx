@@ -13,7 +13,7 @@ import { AudioPlayer, CurrentTrack, Controls, SeekBar, VolumeBar } from './index
 
 const MusicPlayer = () => {
   const dispatch = useDispatch();
-  const { activeSong, isActive, isPlaying, currentSongData, currentIndex } = useSelector((state) => state.musicPlayer);
+  const { activeSong, isActive, isPlaying, currentSongData, currentIndex} = useSelector((state) => state.musicPlayer);
   
   const [volume, setVolume] = useState(0.3);
   const [repeat, setRepeat] = useState(false);
@@ -26,17 +26,14 @@ const MusicPlayer = () => {
   const audioRef = useRef(null);
 
   const currentSongDataLengthIs = Object.keys(currentSongData).length;
-    
+  
   const onChange = (e) => {
     const audio = audioRef.current;
-    if (isPlaying && isActive) {
-      audio.currentTime = (audio.duration / 100) * e.target.value;
-      setPercentage(e.target.value);
-    }
-    else {
-      //TODO: There is a bug here, audio.duration has no data inside it when the MusicPlayer is paused, considering using a state variable object to get around this bug
-      audio.currentTime = (audio.duration / 100) * e.target.value;
-      setPercentage(e.target.value);
+    
+    audio.currentTime = (audio.duration / 100) * e.target.value;
+    
+    if(isActive && isPlaying) {
+      setPercentage(audio.currentTime);
     }
   }
   
@@ -114,6 +111,7 @@ const MusicPlayer = () => {
               activeSong={activeSong}
               volume={volume}
               isPlaying={isPlaying}
+              isActive={isActive}
               repeat={repeat}
               currentIndex={currentIndex}
               onEnded={handleNextSong}
