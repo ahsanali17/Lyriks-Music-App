@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const SearchWrapper = styled.div`
-  grid-area: main-content-search;
+  grid-area: ${props => props.searchGridArea ? props.searchGridArea : 'main-content-search'};
 
   position: sticky;
   top: -20px;
