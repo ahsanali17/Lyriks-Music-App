@@ -7,8 +7,8 @@ import { TopArtistsWrapper, Heading, ArtistCardsWrapper, ArtistGradientWrapper, 
 import { useGetWorldChartsByGenreOrSearchQuery } from '../../redux/services/shazamCoreApi';
 
 const TopArtists = () => {
-  const genreCode = useSelector((state) => state.currentSongArtistList.genreCode) || 'POP';
-  const { data, isFetching, error } = useGetWorldChartsByGenreOrSearchQuery({ genreCode });
+  const { genreCode, searchQuery } = useSelector((state) => state.currentSongArtistList);
+  const { data, isFetching, error } = useGetWorldChartsByGenreOrSearchQuery({ genreCode: genreCode || 'POP' });
 
   if (isFetching) return <Loader />;
 
@@ -41,7 +41,7 @@ const TopArtists = () => {
 
   return (
     <>
-      <TopArtistsWrapper>
+      <TopArtistsWrapper isSearch={!!searchQuery}>
         <Heading>Top Artists</Heading>
         <ArtistCardsWrapper>
           <TouchScreenHeading>Top Artists</TouchScreenHeading>
