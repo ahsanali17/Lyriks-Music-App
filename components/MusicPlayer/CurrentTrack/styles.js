@@ -8,7 +8,10 @@ export const TrackWrapper = styled.div`
 
 export const CoverArtContainer = styled.div``;
 
-export const CoverArtImage = styled.img``;
+export const CoverArtImage = styled.img`
+ max-width:125px;
+ height:60px;
+`;
 
 export const TitleContainer = styled.div``;
 

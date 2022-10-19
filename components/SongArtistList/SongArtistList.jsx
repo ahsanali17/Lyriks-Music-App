@@ -4,7 +4,6 @@ import { SongArtistCard } from '../';
 import { CardWrapper } from './styles';
 
 const SongArtistList = ({ data, isSearch }) => {
-  let hasCoverArt;
   const { activeSong, isPlaying } = useSelector((state) => state.musicPlayer);
   const dataFromSearch = data?.tracks?.hits?.map(({ track }) => track);
 
@@ -13,8 +12,7 @@ const SongArtistList = ({ data, isSearch }) => {
   return (
     <CardWrapper>
       {dataToRender?.map(({images, title, subtitle, key, artists, hub}, idx) => {
-        hasCoverArt = images.coverart;
-        if (hasCoverArt && title && subtitle) {
+        if (images.coverart && title && subtitle) {
           return (
             <SongArtistCard
               key={idx}
@@ -25,8 +23,10 @@ const SongArtistList = ({ data, isSearch }) => {
               songKey={key}
               activeSong={activeSong}
               isPlaying={isPlaying}
-              song={hub?.action?.length && hub?.actions[1]?.uri}
-              data={data}
+              song={hub?.actions[1]?.uri}
+              songList={data}
+              data={data[idx]}
+              i={idx}
             />
           );
         }
