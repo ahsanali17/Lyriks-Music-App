@@ -3,17 +3,13 @@ import { useGetSongDetailsQuery, useGetArtistDetailsQuery } from '../../../redux
 
 const SongPage = ({ songCode }) => {
   const { data: songData, isFetching: isSongFetching, error: songError } = useGetSongDetailsQuery({ songCode });
-  const artistCode = songData?.artists[0]?.adamid;
-  const { data, isFetching, error } = useGetArtistDetailsQuery({ artistCode });
 
   if (isSongFetching) return <Loader />;
+
   if (songError) return <Error />;
 
-  if (isFetching) return <Loader />;
-  if (error) return <Error />;
-
-
-  return <SongInformation artistData={data?.artists[artistCode]} songs={Object.values(data?.songs)} songData={songData?.sections.length && songData?.sections[1]} />;
+  console.log(songData)
+  return <SongInformation songData={songData?.sections.length && songData} />;
 }
 
 export default SongPage;

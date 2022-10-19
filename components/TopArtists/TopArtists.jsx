@@ -45,9 +45,9 @@ const TopArtists = () => {
         <Heading>Top Artists</Heading>
         <ArtistCardsWrapper>
           <TouchScreenHeading>Top Artists</TouchScreenHeading>
-          {orderedTop5Artists.map(({ images, subtitle, artists }, idx) => (
-            <Link href={`/artists/${artists[0].adamid}`}>
-              <ArtistWrapper key={idx}>
+          {orderedTop5Artists.map(({ images, subtitle, artists, key }, idx) => (
+            <Link href={`/artists/${artists[0].adamid}`} key={key}>
+              <ArtistWrapper>
                 <ArtistGradientWrapper>
                   <Image
                     src={images.background}

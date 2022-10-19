@@ -27,8 +27,8 @@ const ArtistInformation = ({ artistData, songs }) => {
                 <Number>{idx + 1}</Number>
                 <Image src={attributes?.artwork?.url.replace('{w}', '125').replace('{h}', '125')} width={125} height={125} objectFit="cover" />
                 <RelatedSongsTextContainer>
-                <h3>{attributes?.name}</h3>
-                <h4>{attributes?.albumName}</h4>
+                  <h3>{attributes?.name}</h3>
+                  <h4>{attributes?.albumName}</h4>
                 </RelatedSongsTextContainer>
               </RelatedSong>
             ))}

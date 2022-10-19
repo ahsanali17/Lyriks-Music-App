@@ -20,7 +20,7 @@ const TopCharts = () => {
         <h2>Top Charts</h2>
       </TopChartHeading>
       <ChartsList>
-        {top5Charts.map(({ images, title, subtitle, artists}, idx) => (
+        {top5Charts.map(({ images, title, subtitle, key, artists}, idx) => (
           <Chart key={idx}>
             <Number>{idx + 1}</Number>
             <Image
@@ -30,7 +30,9 @@ const TopCharts = () => {
               objectFit="cover"
             />
             <ChartTextContainer>
-              <h5>{title}</h5>
+              <Link href={`/songs/${key}`}>
+                <h5>{title}</h5>
+              </Link>
               <Link href={`/artists/${artists.length && artists[0]?.adamid}`}>
                 <h6>{subtitle}</h6>
               </Link>

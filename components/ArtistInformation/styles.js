@@ -148,6 +148,7 @@ export const RelatedSong = styled.li`
 
   @media (pointer: fine) {
     &:hover {
+
       background: ${(props) =>
         props.theme.colors.gradients.goldVeryTransparent};
     }

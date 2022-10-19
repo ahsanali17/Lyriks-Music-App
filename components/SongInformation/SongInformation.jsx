@@ -1,10 +1,21 @@
 import Image from "next/image";
 
-import { Search } from '../../components';
+import { Search, Loader, Error } from '../../components';
 import { ArtistInformationWrapper, ArtistGradientWrapper, ArtistWrapper, ArtistTextInformation, RelatedSongsHeading,
   RelatedSongsList,RelatedSong, RelatedSongsTextContainer, Number, SongLyrics } from "./styles";
+import { useGetArtistDetailsQuery } from '../../redux/services/shazamCoreApi';
 
-const SongInformation = ({ artistData, songs, songData }) => {
+const SongInformation = ({ songData }) => {
+  const artistCode = songData?.artists[0]?.adamid;
+  const { data, isFetching, error } = useGetArtistDetailsQuery({ artistCode });
+  
+  if (isFetching) return <Loader />;
+  
+  if (error) return <Error />;
+  
+  const songs = Object.values(data?.songs);
+  const artistData = data?.artists[artistCode];
+
   return (
     <>
       <ArtistInformationWrapper>
@@ -20,8 +31,8 @@ const SongInformation = ({ artistData, songs, songData }) => {
         </ArtistWrapper>
         <SongLyrics>
           <h2>Lyrics:</h2>
-          {songData?.type === 'LYRICS'
-            ? songData?.text.map((line, i) => (
+          {songData?.sections[1].type === 'LYRICS'
+            ? songData?.sections[1].text.map((line, i) => (
               <p key={`lyrics-${line}-${i}`}>{line}</p>
             ))
             : (
