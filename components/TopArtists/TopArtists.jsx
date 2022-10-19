@@ -39,8 +39,6 @@ const TopArtists = () => {
     top5Artists[4],
   ];
 
-  console.log(orderedTop5Artists)
-
   return (
     <>
       <TopArtistsWrapper>

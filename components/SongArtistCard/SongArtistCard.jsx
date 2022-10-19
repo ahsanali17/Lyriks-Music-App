@@ -6,7 +6,7 @@ import { CardOverlay, CardWrapper, PlayOrPauseWrapper, TextContainer } from './s
 import { playPause, setActiveSong } from '../../redux/features/musicPlayer';
 import { PlayOrPause } from '..';
 
-const SongArtistCard = ({ coverArt, title, subtitle, artist, isActive, isPlaying, i, song, data }) => {
+const SongArtistCard = ({ coverArt, title, subtitle, artist, songKey, isActive, isPlaying, i, song, data }) => {
   const dispatch = useDispatch();
 
   const handlePlayClick = () => {
@@ -32,7 +32,9 @@ const SongArtistCard = ({ coverArt, title, subtitle, artist, isActive, isPlaying
           />
         </PlayOrPauseWrapper>
         <TextContainer>
-          <h3>{title}</h3>
+          <Link href={`/songs/${songKey}`}>
+            <h3>{title}</h3>
+          </Link>
           <Link href={`/artists/${artist}`}>
             <h5>{subtitle}</h5>
           </Link>

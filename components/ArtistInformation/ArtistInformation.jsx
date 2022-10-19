@@ -5,7 +5,6 @@ import { ArtistInformationWrapper, ArtistGradientWrapper, ArtistWrapper, ArtistT
  RelatedSongsHeading, RelatedSongsList,RelatedSong, RelatedSongsTextContainer, Number } from "./styles";
 
 const ArtistInformation = ({ artistData, songs }) => {
-  console.log(songs)
   return (
     <>
       <ArtistInformationWrapper>

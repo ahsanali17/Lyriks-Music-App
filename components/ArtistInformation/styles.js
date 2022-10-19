@@ -41,6 +41,11 @@ export const ArtistGradientWrapper = styled.div`
   background: ${(props) => props.theme.colors.gradients.gold};
   padding: 4px;
   border-radius: 50%;
+
+  @media (${(props) => props.theme.queries.smallAndDown}) {
+    max-width: 250px; 
+    max-height: 250px;
+  }
 `;
 
 export const ArtistWrapper = styled.div`
@@ -53,6 +58,14 @@ export const ArtistWrapper = styled.div`
 
   img {
     border-radius: 50%;
+  }
+
+  @media (${(props) => props.theme.queries.smallAndDown}) {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    gap: 10px;
   }
 `
 
@@ -70,8 +83,6 @@ export const ArtistTextInformation = styled.div`
 
   line-height: 2;
 
-  overflow: hidden;
-
   h2 {
     width: fit-content;
     height: fit-content;
@@ -86,8 +97,9 @@ export const ArtistTextInformation = styled.div`
     color: ${(props) => props.theme.colors.grays[200]};
   }
 
-  @media (${(props) => props.theme.queries.mediumLargeAndDown}) {
-    gap: 10px;
+  @media (${(props) => props.theme.queries.smallAndDown}) {
+    align-items: center;
+    padding: 0;
   }
 ` ;
 
