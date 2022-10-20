@@ -13,7 +13,7 @@ import { AudioPlayer, CurrentTrack, Controls, SeekBar, VolumeBar } from './index
 
 const MusicPlayer = () => {
   const dispatch = useDispatch();
-  const { activeSong, isActive, isPlaying, currentSongData, currentIndex} = useSelector((state) => state.musicPlayer);
+  const { activeSong, isActive, isPlaying, currentSongData, currentIndex, artistImage, artistTitle, artistSubtitle} = useSelector((state) => state.musicPlayer);
   
   const [volume, setVolume] = useState(0.3);
   const [repeat, setRepeat] = useState(false);
@@ -82,7 +82,7 @@ const MusicPlayer = () => {
   return (
       <MusicPlayerWrapper>
         <MusicPlayerContainer>
-          <CurrentTrack currentSongData={currentSongData} />
+          <CurrentTrack currentSongData={currentSongData} artistImage={artistImage} artistTitle={artistTitle} artistSubtitle={artistSubtitle} />
           
           <ControlSeekbarWrapper>
             <Controls

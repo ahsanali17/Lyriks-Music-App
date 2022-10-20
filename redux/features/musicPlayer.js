@@ -7,6 +7,9 @@ const initialState = {
  isActive: false,
  isPlaying: false,
  activeSong: {},
+ artistImage: {},
+ artistTitle: {},
+ artistSubtitle: {},
 }
 
 const musicPlayer = createSlice({
@@ -15,7 +18,6 @@ const musicPlayer = createSlice({
  reducers: {
   setActiveSong: (state, action) => {
     state.activeSong = action.payload.song;  
-    state.currentSongData = action.payload.data;
     state.currentIndex = action.payload.i;
     state.isActive = true;
   },
@@ -24,6 +26,23 @@ const musicPlayer = createSlice({
   },
   setSongList: (state, action) => {
     state.songList = action.payload.songList;
+  },
+  setCurrentSongData: (state, action) => {
+    if(state.currentSongData = action.payload.data){
+      if(action.payload.data?.key?.length) {
+        state.artistImage = action.payload.data.images.coverart;
+        state.artistTitle = action.payload.data.title;
+        state.artistSubtitle = action.payload.data.subtitle;
+        
+        console.log("coverart image", state.artistImage, "coverart artistTitle", state.artistTitle, "coverart subtitle", state.artistSubtitle);
+        
+      } else if(state.CurrentSongData = action.payload.data.id.length) {
+        state.artistImage = action.payload.data.attributes?.artwork?.url.replace('{w}', '125').replace('{h}', '125');
+        console.log("attribute image", state.artistImage, "attribute title", state.title, "attribute subtitle", state.artistSubtitle);
+      }
+    } else {
+      return 'Nope, no data provided to currentSongData';
+    }
   },
   nextSong: (state, action) => {
     if (state.songList[action.payload]) {
@@ -49,6 +68,6 @@ const musicPlayer = createSlice({
  }
 })
 
-export const { setActiveSong, playPause, setSongList, nextSong, prevSong } = musicPlayer.actions;
+export const { setActiveSong, playPause, setSongList, nextSong, prevSong, setCurrentSongData } = musicPlayer.actions;
 
 export default musicPlayer.reducer;

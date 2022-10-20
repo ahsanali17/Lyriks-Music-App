@@ -1,11 +1,14 @@
 import Image from "next/image";
+import { useSelector } from "react-redux";
 
-import { Search, Loader, Error } from '../../components';
+import { Search, Loader, Error, ArtistSongPlayer } from '../../components';
 import { ArtistInformationWrapper, ArtistGradientWrapper, ArtistWrapper, ArtistTextInformation, RelatedSongsHeading,
   RelatedSongsList,RelatedSong, RelatedSongsTextContainer, Number, SongLyrics } from "./styles";
 import { useGetArtistDetailsQuery } from '../../redux/services/shazamCoreApi';
 
 const SongInformation = ({ songData }) => {
+  const { isPlaying, activeSong } = useSelector((state) => state.musicPlayer);
+  
   const artistCode = songData?.artists[0]?.adamid;
   const { data, isFetching, error } = useGetArtistDetailsQuery({ artistCode });
   
@@ -15,6 +18,12 @@ const SongInformation = ({ songData }) => {
   
   const songs = Object.values(data?.songs);
   const artistData = data?.artists[artistCode];
+  
+  // console.log("songData", songData);
+  // console.log("artistCode", artistCode);
+  // console.log("artistData", artistData);
+  // console.log("songs info", songs);
+  // console.log("data info", data);
 
   return (
     <>
@@ -50,6 +59,9 @@ const SongInformation = ({ songData }) => {
                 <RelatedSongsTextContainer>
                 <h3>{attributes?.name}</h3>
                 <h4>{attributes?.albumName}</h4>
+
+                <h1>SongInformation</h1>
+                <ArtistSongPlayer song={songs[idx].attributes?.previews[0].url} data={songs[idx]} i={idx} isPlaying={isPlaying} activeSong={activeSong} songList={songs}/>
                 </RelatedSongsTextContainer>
               </RelatedSong>
             ))}

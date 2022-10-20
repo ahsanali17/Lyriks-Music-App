@@ -29,6 +29,7 @@ const ArtistInformation = ({ artistData, songs }) => {
                 <RelatedSongsTextContainer>
                   <h3>{attributes?.name}</h3>
                   <h4>{attributes?.albumName}</h4>
+                  <h1>ArtistInformation</h1>
                 </RelatedSongsTextContainer>
               </RelatedSong>
             ))}
