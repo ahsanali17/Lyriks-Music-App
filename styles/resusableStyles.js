@@ -14,7 +14,13 @@ export const ImageWrapper = styled.div`
 
   @media (pointer: fine) {
     svg {
-      display: none;
+      display: ${props => props.isSongPlaying ? 'revert' : 'none'};
+      position: absolute;
+      inset: 0;
+      margin: auto;
+
+      width: 25%;
+      height: 25%;
     }
 
     &:hover {
@@ -24,13 +30,6 @@ export const ImageWrapper = styled.div`
 
       svg {
         display: revert;
-
-        position: absolute;
-        inset: 0;
-        margin: auto;
-
-        width: 25%;
-        height: 25%;
       }
     }
   }
