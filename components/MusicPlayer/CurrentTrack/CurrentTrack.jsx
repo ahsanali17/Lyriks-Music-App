@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react' 
+
 import { TrackWrapper, CoverArtContainer, CoverArtImage, TitleContainer, Title, Subtitle } from './styles';
 
 const CurrentTrack = ({ currentSongData }) => {

@@ -24,7 +24,7 @@ export const SliderContainer = styled.div`
 `;
 export const ProgressBarCover = styled.div`
  background-color: rgb(218, 55, 145);
- width: 0%;
+ width: ${props => props.progressBarWidth ? `${props.progressBarWidth}px` : '0%'};
  height: var(--progress-bar-height);
  display: block;
  position: absolute;
@@ -42,6 +42,8 @@ export const Thumb = styled.div`
  z-index: 3;
  background: rgb(252, 255, 25, 1);
  position: absolute;
+ left: ${props => `${props.left}%`};
+ margin-left: ${props => `${props.marginLeft}px`};
  border-radius: 50%;
  top: 50%;
  transform: translate(0%, -50%);

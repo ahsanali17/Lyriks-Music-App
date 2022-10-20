@@ -1,7 +1,7 @@
-import React from 'react'
-import { ControlWrapper } from './styles';
 import { MdSkipNext, MdSkipPrevious } from 'react-icons/md';
 import { BsArrowRepeat, BsFillPauseFill, BsFillPlayFill, BsShuffle } from 'react-icons/bs';
+
+import { ControlWrapper } from './styles';
 
 const Controls = ({isPlaying, repeat, setRepeat, shuffle, setShuffle, currentSongDataLengthIs, handlePlayPause, handlePrevSong, handleNextSong}) => {
   return (
