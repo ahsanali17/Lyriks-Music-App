@@ -6,7 +6,7 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 import { SearchWrapper, GradientWrapper, IconWrapper, MenuIconWrapper } from './styles';
 import { setSearchQuery } from '../../redux/features/currentSongArtistList';
 
-const Search = () => {
+const Search = ({ searchGridArea }) => {
   const dispatch = useDispatch();
   const { searchQuery } = useSelector(state => state.currentSongArtistList);
   const [text, setText] = useState('');
@@ -24,7 +24,7 @@ const Search = () => {
  }, [searchQuery])
 
   return (
-    <SearchWrapper>
+    <SearchWrapper searchGridArea={searchGridArea}>
       <MenuIconWrapper>
         <GiHamburgerMenu />
       </MenuIconWrapper>

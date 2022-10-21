@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const TopArtistsWrapper = styled.div`
   grid-area: main-content-top-artists;
 
-  display: flex;
+  display: ${props => props.isSearch ? 'none' : 'flex'};
   justify-content: center;
   align-items: center;
   flex-direction: column;

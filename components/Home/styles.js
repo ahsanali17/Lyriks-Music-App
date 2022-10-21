@@ -5,13 +5,19 @@ export const MainContentWrapper = styled.main`
 
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 80px 500px 300px 80px 1fr;
-  grid-template-areas:
-    'main-content-search'
-    'main-content-top-artists'
-    'main-content-genres'
-    'main-content-discover-genre'
-    'main-content-inner';
+  grid-template-rows: ${props => props.isSearch ? '80px 300px 80px 1fr' : '80px 500px 300px 80px 1fr'};
+  grid-template-areas: ${props => props.isSearch ? 
+      `'main-content-search'
+      'main-content-genres'
+      'main-content-discover-genre'
+      'main-content-inner'`
+    :
+      `'main-content-search'
+      'main-content-top-artists'
+      'main-content-genres'
+      'main-content-discover-genre'
+      'main-content-inner'`
+    };
 
   overflow: auto;
 
@@ -54,7 +60,7 @@ export const SmallerDeviceWrapper = styled.div`
   display: none;
 
   @media (${(props) => props.theme.queries.mediumLargeAndDown}) {
-    display: revert;
+    display: ${props => props.isSearch ? 'none' : 'revert'};
     margin: 20px 0;
   }
 `;

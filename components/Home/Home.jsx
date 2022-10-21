@@ -13,10 +13,10 @@ const Home = () => {
   if (error) return <Error />;
 
   return (
-    <MainContentWrapper>
+    <MainContentWrapper isSearch={!!searchQuery}>
       <Search />
       <TopArtists />
-      <SmallerDeviceWrapper>
+      <SmallerDeviceWrapper isSearch={!!searchQuery}>
         <TopCharts />
       </SmallerDeviceWrapper>
       <Genres />

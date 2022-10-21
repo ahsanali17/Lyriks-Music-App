@@ -1,29 +1,32 @@
-import { SongArtistCard } from '../';
-import { CardWrapper } from './styles';
 import { useSelector } from 'react-redux';
 
+import { SongArtistCard } from '../';
+import { CardWrapper } from './styles';
+
 const SongArtistList = ({ data, isSearch }) => {
-  let hasCoverArt;
   const { activeSong, isPlaying } = useSelector((state) => state.musicPlayer);
   const dataFromSearch = data?.tracks?.hits?.map(({ track }) => track);
 
-  const dataToRender = isSearch ? dataFromSearch : data
+  const dataToRender = isSearch ? dataFromSearch : data;
   
   return (
     <CardWrapper>
-      {dataToRender?.map(({images, title, subtitle, hub}, idx) => {
-        hasCoverArt = images.coverart;
-        if (hasCoverArt && title && subtitle) {
+      {dataToRender?.map(({images, title, subtitle, key, artists, hub}, idx) => {
+        if (images.coverart && title && subtitle) {
           return (
             <SongArtistCard
               key={idx}
               coverArt={images.coverart}
               title={title}
               subtitle={subtitle}
+              artist={artists.length && artists[0]?.adamid}
+              songKey={key}
               activeSong={activeSong}
               isPlaying={isPlaying}
-              song={hub?.action?.length && hub?.actions[1]?.uri}
-              data={data}
+              song={hub?.actions?.length && hub?.actions[1]?.uri}
+              songList={data}
+              data={data[idx]}
+              i={idx}
             />
           );
         }

@@ -7,7 +7,7 @@ import { LayoutWrapper, HomeWrapper } from './styles';
 import { LeftSidebar, MusicPlayer, RightSidebar } from '../index';
 
 const Layout = ({ children }) => {
-  const { isPlaying } = useSelector((state) => state.musicPlayer);
+  const { isActive, activeSong } = useSelector((state) => state.musicPlayer);
 
   return (
     <LayoutWrapper>
@@ -17,7 +17,7 @@ const Layout = ({ children }) => {
         <LeftSidebar />
         {children}
         <RightSidebar />
-        {isPlaying && <MusicPlayer />}
+        {activeSong?.length && isActive && <MusicPlayer />}
       </HomeWrapper>
     </LayoutWrapper>
   );

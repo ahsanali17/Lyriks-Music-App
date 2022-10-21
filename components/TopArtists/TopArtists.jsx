@@ -1,13 +1,14 @@
 import { useSelector } from 'react-redux';
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { Loader, Error } from '../';
 import { TopArtistsWrapper, Heading, ArtistCardsWrapper, ArtistGradientWrapper, ArtistWrapper, TouchScreenHeading, TouchScreenTextWrapper } from './styles';
 import { useGetWorldChartsByGenreOrSearchQuery } from '../../redux/services/shazamCoreApi';
 
 const TopArtists = () => {
-  const genreCode = useSelector((state) => state.currentSongArtistList.genreCode) || 'POP';
-  const { data, isFetching, error } = useGetWorldChartsByGenreOrSearchQuery({ genreCode });
+  const { genreCode, searchQuery } = useSelector((state) => state.currentSongArtistList);
+  const { data, isFetching, error } = useGetWorldChartsByGenreOrSearchQuery({ genreCode: genreCode || 'POP' });
 
   if (isFetching) return <Loader />;
 
@@ -40,12 +41,13 @@ const TopArtists = () => {
 
   return (
     <>
-      <TopArtistsWrapper>
+      <TopArtistsWrapper isSearch={!!searchQuery}>
         <Heading>Top Artists</Heading>
         <ArtistCardsWrapper>
           <TouchScreenHeading>Top Artists</TouchScreenHeading>
-          {orderedTop5Artists.map(({ images, subtitle }, idx) => (
-              <ArtistWrapper key={idx}>
+          {orderedTop5Artists.map(({ images, subtitle, artists, key }, idx) => (
+            <Link href={`/artists/${artists[0].adamid}`} key={key}>
+              <ArtistWrapper>
                 <ArtistGradientWrapper>
                   <Image
                     src={images.background}
@@ -60,6 +62,7 @@ const TopArtists = () => {
                   <h6>{subtitle}</h6>
                 </TouchScreenTextWrapper>
               </ArtistWrapper>
+            </Link>
             ))}
         </ArtistCardsWrapper>
       </TopArtistsWrapper>

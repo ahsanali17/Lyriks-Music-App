@@ -12,6 +12,8 @@ export const shazamCoreApi = createApi({
       return headers;
     },
   }),
+  
+  keepUnusedDataFor: 60,
 
   endpoints: (builder) => ({
     getWorldChartsByGenreOrSearch: builder.query({
@@ -22,10 +24,18 @@ export const shazamCoreApi = createApi({
       },
     }),
 
+    getArtistDetails: builder.query({
+      query: ({ artistCode }) => `/artists/details?artist_id=${artistCode}`
+    }),
+
+    getSongDetails: builder.query({
+      query: ({ songCode }) => `/tracks/details?track_id=${songCode}`
+    }),
+
     getWorldCharts: builder.query({
       query: () => `/charts/world`,
     }),
   }),
 });
 
-export const { useGetWorldChartsByGenreOrSearchQuery, useGetWorldChartsQuery } = shazamCoreApi;
+export const { useGetWorldChartsByGenreOrSearchQuery, useGetWorldChartsQuery, useGetArtistDetailsQuery, useGetSongDetailsQuery } = shazamCoreApi;

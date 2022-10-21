@@ -6,8 +6,8 @@ import { LoaderWrapper } from './styles';
 const Loader = ({ title }) => {
   return (
     <LoaderWrapper>
-      <Image src={LoaderSVG}  />
       <h1>{title || 'Loading...'}</h1>
+      <Image src={LoaderSVG}  />
     </LoaderWrapper>
   )
 };
