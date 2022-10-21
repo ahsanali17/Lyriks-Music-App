@@ -2,13 +2,15 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useDispatch } from 'react-redux';
 
-import { CardOverlay, CardWrapper, PlayOrPauseWrapper, TextContainer } from './styles';
+import { ImageWrapper } from '../../styles/resusableStyles';
+import { CardOverlay, CardWrapper, TextContainer } from './styles';
 import { playPause, setActiveSong, setSongList, setCurrentSongData } from '../../redux/features/musicPlayer';
 import { PlayOrPause } from '..';
 
 const SongArtistCard = ({coverArt, title, subtitle, artist, songKey, activeSong, isPlaying, song, songList, data, i }) => {
   const dispatch = useDispatch();
-
+  const currentSongImg = activeSong === song;
+  
   const handlePlayClick = () => {
     dispatch(setActiveSong({song, i}));
     dispatch(setCurrentSongData({data}));
@@ -20,12 +22,12 @@ const SongArtistCard = ({coverArt, title, subtitle, artist, songKey, activeSong,
     dispatch(setActiveSong({song, i}));
     dispatch(playPause(false));
   };
-
+  
   return (
     <CardOverlay>
       <CardWrapper>
-        <Image src={coverArt} width={220} height={225} objectFit="cover"/>
-        <PlayOrPauseWrapper>
+        <ImageWrapper isSongPlaying={currentSongImg}>
+          <Image src={coverArt} width={220} height={225} objectFit="cover"/>
           <PlayOrPause 
             isPlaying={isPlaying} 
             activeSong={activeSong} 
@@ -33,7 +35,7 @@ const SongArtistCard = ({coverArt, title, subtitle, artist, songKey, activeSong,
             handlePause={handlePauseClick} 
             song={song}
           />
-        </PlayOrPauseWrapper>
+        </ImageWrapper>
         <TextContainer>
           <Link href={`/songs/${songKey}`}>
             <h3>{title}</h3>

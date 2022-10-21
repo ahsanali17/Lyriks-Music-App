@@ -17,11 +17,11 @@ export const CardWrapper = styled.div`
 `;
 
 export const PlayOrPauseWrapper = styled.div`
-  --tw-bg-opacity: 0.5;
+  /* --tw-bg-opacity: 0.5;
   justify-content: center;
   align-items: center;
   display: contents;
-  position: absolute;
+  position: absolute; */
 `;
 
 export const TextContainer = styled.div`

@@ -7,7 +7,7 @@ const SongArtistList = ({ data, isSearch }) => {
   const { activeSong, isPlaying } = useSelector((state) => state.musicPlayer);
   const dataFromSearch = data?.tracks?.hits?.map(({ track }) => track);
 
-  const dataToRender = isSearch ? dataFromSearch : data
+  const dataToRender = isSearch ? dataFromSearch : data;
   
   return (
     <CardWrapper>
@@ -23,7 +23,7 @@ const SongArtistList = ({ data, isSearch }) => {
               songKey={key}
               activeSong={activeSong}
               isPlaying={isPlaying}
-              song={hub?.actions[1]?.uri}
+              song={hub?.actions?.length && hub?.actions[1]?.uri}
               songList={data}
               data={data[idx]}
               i={idx}

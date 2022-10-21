@@ -1,4 +1,5 @@
-import React, {useState, useEffect, useRef} from 'react'
+import React, { useState, useEffect, useRef } from 'react'
+
 import { SliderContainer, ProgressBarCover, Thumb, AudioInputSlider} from './styles';
 
 const SeekBar = ({ value, min, max, onChange, percentage = 0 }) => {
@@ -25,9 +26,9 @@ const SeekBar = ({ value, min, max, onChange, percentage = 0 }) => {
   return (
     <>
       <SliderContainer>
-        <ProgressBarCover style={{width: `${progressBarWidth}px`}}/>
+        <ProgressBarCover progressBarWidth={progressBarWidth} />
         
-        <Thumb ref={thumbRef} style={{left: `${position}%`, marginLeft: `${marginLeft}px`}}/> 
+        <Thumb ref={thumbRef} left={position} marginLeft={marginLeft} /> 
         
         <p className="text-white">{value === 0 ? '0:00' : getTime(value)}</p>
         

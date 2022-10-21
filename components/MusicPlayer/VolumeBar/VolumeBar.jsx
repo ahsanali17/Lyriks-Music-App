@@ -1,5 +1,6 @@
 import React from 'react'
 import { BsFillVolumeUpFill, BsVolumeDownFill, BsFillVolumeMuteFill } from 'react-icons/bs';
+
 import { VolumeBarWrap, VolumeBarInput } from "./styles";
 
 const VolumeBar = ({ value, min, max, onChange, setVolume }) => {
