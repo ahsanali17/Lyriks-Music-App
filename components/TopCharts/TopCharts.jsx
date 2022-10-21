@@ -2,12 +2,15 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { useGetWorldChartsQuery } from '../../redux/services/shazamCoreApi';
-import { Loader, Error } from '../';
+import { Loader, Error, ArtistSongPlayer } from '../';
 import { TopChartsWrapper, TopChartHeading, ChartsList, Chart, Number, ChartTextContainer } from './styles';
+import { useSelector } from 'react-redux';
 
 const TopCharts = () => {
+  const { isPlaying, activeSong } = useSelector((state) => state.musicPlayer);
+  
   const { data, isFetching, error } = useGetWorldChartsQuery();
-
+  
   if (isFetching) return <Loader />;
 
   if (error)  return <Error />;
@@ -36,6 +39,7 @@ const TopCharts = () => {
               <Link href={`/artists/${artists.length && artists[0]?.adamid}`}>
                 <h6>{subtitle}</h6>
               </Link>
+              <ArtistSongPlayer song={top5Charts[idx]?.hub.actions[1]?.uri} data={top5Charts[idx]} i={idx} isPlaying={isPlaying} activeSong={activeSong} songList={top5Charts} />
             </ChartTextContainer>
           </Chart>
         ))}
