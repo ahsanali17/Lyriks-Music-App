@@ -13,7 +13,7 @@ import { AudioPlayer, CurrentTrack, Controls, SeekBar, VolumeBar } from './index
 
 const MusicPlayer = () => {
   const dispatch = useDispatch();
-  const { activeSong, isActive, isPlaying, currentSongData, currentIndex, artistImage, artistTitle, artistSubtitle} = useSelector((state) => state.musicPlayer);
+  const { activeSong, isActive, isPlaying, currentSongData, currentIndex, artistImage, artistTitle, artistSubtitle, listOfSongs} = useSelector((state) => state.musicPlayer);
   
   const [volume, setVolume] = useState(0.3);
   const [repeat, setRepeat] = useState(false);
@@ -25,7 +25,7 @@ const MusicPlayer = () => {
   
   const audioRef = useRef(null);
 
-  const currentSongDataLengthIs = Object.keys(currentSongData).length;
+  const currentSongDataLengthIs = Object.keys(listOfSongs).length;
   
   const onChange = (e) => {
     const audio = audioRef.current;

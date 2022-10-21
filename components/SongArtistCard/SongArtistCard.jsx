@@ -9,7 +9,6 @@ import { PlayOrPause } from '..';
 const SongArtistCard = ({coverArt, title, subtitle, artist, songKey, activeSong, isPlaying, song, songList, data, i }) => {
   const dispatch = useDispatch();
 
-  console.log("data from songArtistCard", data);
   const handlePlayClick = () => {
     dispatch(setActiveSong({song, i}));
     dispatch(setCurrentSongData({data}));

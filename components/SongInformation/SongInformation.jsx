@@ -19,12 +19,6 @@ const SongInformation = ({ songData }) => {
   const songs = Object.values(data?.songs);
   const artistData = data?.artists[artistCode];
   
-  // console.log("songData", songData);
-  // console.log("artistCode", artistCode);
-  // console.log("artistData", artistData);
-  // console.log("songs info", songs);
-  // console.log("data info", data);
-
   return (
     <>
       <ArtistInformationWrapper>
@@ -59,8 +53,6 @@ const SongInformation = ({ songData }) => {
                 <RelatedSongsTextContainer>
                 <h3>{attributes?.name}</h3>
                 <h4>{attributes?.albumName}</h4>
-
-                <h1>SongInformation</h1>
                 <ArtistSongPlayer song={songs[idx].attributes?.previews[0].url} data={songs[idx]} i={idx} isPlaying={isPlaying} activeSong={activeSong} songList={songs}/>
                 </RelatedSongsTextContainer>
               </RelatedSong>

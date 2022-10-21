@@ -1,10 +1,14 @@
 import Image from "next/image";
+import { useSelector } from "react-redux";
 
-import { Search } from '../../components';
+import { Search, ArtistSongPlayer } from '../../components';
 import { ArtistInformationWrapper, ArtistGradientWrapper, ArtistWrapper, ArtistTextInformation,
  RelatedSongsHeading, RelatedSongsList,RelatedSong, RelatedSongsTextContainer, Number } from "./styles";
 
 const ArtistInformation = ({ artistData, songs }) => {
+  const { isPlaying, activeSong } = useSelector((state) => state.musicPlayer);
+  
+  
   return (
     <>
       <ArtistInformationWrapper>
@@ -29,7 +33,7 @@ const ArtistInformation = ({ artistData, songs }) => {
                 <RelatedSongsTextContainer>
                   <h3>{attributes?.name}</h3>
                   <h4>{attributes?.albumName}</h4>
-                  <h1>ArtistInformation</h1>
+                  <ArtistSongPlayer song={songs[idx].attributes?.previews[0].url} data={songs[idx]} i={idx} isPlaying={isPlaying} activeSong={activeSong} songList={songs}/>
                 </RelatedSongsTextContainer>
               </RelatedSong>
             ))}

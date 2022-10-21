@@ -19,11 +19,7 @@ const LeftSidebar = () => {
       <SidebarItemList>
         {linksArray.map(({ label, to }) => (
           <Link key={label} href={to}>
-            <ItemContainer
-              onClick={() => {
-                console.log('button pressed');
-              }}
-            >
+            <ItemContainer>
               <ItemIcon src={sidebarIcons[label]} />
               <ItemLabel>{label}</ItemLabel>
             </ItemContainer>

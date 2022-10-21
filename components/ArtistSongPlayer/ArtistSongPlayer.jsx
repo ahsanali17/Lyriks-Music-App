@@ -5,14 +5,11 @@ import { playPause, setActiveSong, setSongList, setCurrentSongData } from '../..
 
 const ArtistSongPlayer = ({ song, data, i, isPlaying, activeSong, songList}) => {
  const dispatch = useDispatch(); 
- // console.log("artist song", song)
- // console.log("artist songList", songList)
- 
- console.log("data from songInformation", data);
+
  const handlePlayClick = () => {
-  dispatch(setActiveSong({song, i}));
-  dispatch(setCurrentSongData({data}));
-  dispatch(setSongList({songList}));
+   dispatch(setActiveSong({song, i}));
+   dispatch(setCurrentSongData({data}));
+   dispatch(setSongList({songList}));
   dispatch(playPause(true));
 };
 

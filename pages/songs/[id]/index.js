@@ -8,7 +8,6 @@ const SongPage = ({ songCode }) => {
 
   if (songError) return <Error />;
 
-  console.log(songData)
   return <SongInformation songData={songData?.sections.length && songData} />;
 }
 
