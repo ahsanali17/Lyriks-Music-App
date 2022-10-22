@@ -10,6 +10,7 @@ const initialState = {
  artistImage: {},
  artistTitle: {},
  artistSubtitle: {},
+ userCountryData: {},
 }
 
 const musicPlayer = createSlice({
@@ -108,9 +109,12 @@ const musicPlayer = createSlice({
     state.currentIndex = action.payload;
     state.isActive = true;
   },
+  setUsersCountry: (state, action) => {
+    state.userCountryData = action.payload;
+  },
  }
 })
 
-export const { setActiveSong, playPause, setSongList, nextSong, prevSong, setCurrentSongData } = musicPlayer.actions;
+export const { setActiveSong, playPause, setSongList, nextSong, prevSong, setCurrentSongData, setUsersCountry } = musicPlayer.actions;
 
 export default musicPlayer.reducer;
