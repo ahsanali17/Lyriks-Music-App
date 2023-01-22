@@ -34,18 +34,17 @@ const Explore = ({apiKey}) => {
     console.log("userCountryCode:", userCountryCode);
   }
   
-  console.log("data", data)
-  
   if (isFetching) return (
-    <h1>'...Loading - Test Loader'</h1>,
-    console.log("GetCountryQuery IsFetching", isFetching)
+    <h1>'...Loading - Test Loader'</h1>
+    // ,console.log("GetCountryQuery IsFetching", isFetching)
   );
   
   if (error) return (
-    <h1>Error - Test Error</h1>,
-    console.log("GetCountryQuery Error",error)
+    <h1>Error - Test Error</h1>
+    // ,console.log("GetCountryQuery Error",error)
   );  
-
+  
+  const topArtistNearYou = data.slice;
   
   return (
     <MainContentWrapper>
